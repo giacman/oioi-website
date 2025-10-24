@@ -1,4 +1,6 @@
-## OIOI Jewellwery
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d05bdf5b-4f46-4ac4-8a3e-05caf4dccf77/deploy-status)](https://app.netlify.com/projects/oioi-website/deploys)
+
+## OIOI Jewellery
 
 Static Website for OIOI Jewellery. 
 

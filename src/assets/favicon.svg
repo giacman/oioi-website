@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    text { font-family: "Apple Color Emoji", "Noto Emoji", "Noto Sans Symbols 2", "Segoe UI Symbol", system-ui, sans-serif; }
+  </style>
+  <!-- transparent background -->
+  <rect width="64" height="64" fill="transparent"/>
+  <!-- star -->
+  <text x="22" y="38" font-size="34" text-anchor="middle" dominant-baseline="middle">✴︎</text>
+  <!-- alchemical symbol -->
+  <text x="44" y="40" font-size="34" text-anchor="middle" dominant-baseline="middle">🜃</text>
+</svg>
+
+

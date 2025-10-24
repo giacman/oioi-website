@@ -9,10 +9,8 @@ header.masthead {
     // replace the masthead.jpg image in the /assets/img directory to change the image
     // if the image name change, make sure to update the url path below!
 
-    background: linear-gradient(to bottom,
-        #{fade-out($brown, 0.2)} 0%,
-        #{fade-out($brown, 0.2)} 100%),
-    url("../assets/img/bg-masthead.jpg");
+    // solid gray background, no image
+    background: #3a3a3a;
 
     background-position: center;
     background-repeat: no-repeat;

@@ -5,13 +5,15 @@ html(lang='it')
 
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='OIOI Jewellery - Gioielli artigianali in oro e argento. Collezioni uniche, design contemporaneo, qualità italiana.')
+        meta(name='description', content='OIOI Jewellery — Florence-born artisanal jewellery. Magia plasmata dalla materia grezza e dall’intelligenza artigianale.')
         meta(name='author', content='OIOI Jewellery')
 
         title OIOI Jewellery
 
         // Favicon
-        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+        // Prefer SVG; fallback ICO remains in dist
+        link(rel='icon', type='image/svg+xml', href='assets/favicon.svg')
+        link(rel='alternate icon', type='image/x-icon', href='assets/favicon.ico')
 
         // Bootstrap Icons
         link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css', rel='stylesheet')
@@ -37,36 +39,29 @@ html(lang='it')
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.my-2.my-lg-0
                         li.nav-item
-                            a.nav-link(href='#about') Chi siamo
+                            //- Chi siamo nav removed
                         li.nav-item
                             a.nav-link(href='#services') Servizi
                         li.nav-item
                             a.nav-link(href='#portfolio') Collezioni
                         li.nav-item
                             a.nav-link(href='#contact') Contatti
+                        li.nav-item
+                            a.nav-link(href='https://www.instagram.com/oioi_artisanal_jewellery/' target='_blank' rel='noopener') Instagram
 
         // Masthead
         header.masthead
             .container.px-4.px-lg-5.h-100
                 .row.gx-4.gx-lg-5.h-100.align-items-center.justify-content-center.text-center
                     .col-lg-8.align-self-end
-                        h1.text-white.font-weight-bold Gioielli artigianali per ogni occasione
+                        h1.text-white.font-weight-bold Gioielli artigianali
                         hr.divider
                     .col-lg-8.align-self-baseline
                         p.text-white-75.mb-5
-                            | OIOI Jewellery crea gioielli dal design contemporaneo, realizzati con materiali di alta qualità e cura artigianale.
-                        a.btn.btn-primary.btn-xl(href='#about') Scopri di più
+                            | Florence-born jewellery — Magic shaped from raw matter & artisanal intelligence.
+                        a.btn.btn-primary.btn-xl(href='#portfolio') Vai alle collezioni
 
-        // About
-        section#about.page-section.bg-primary
-            .container.px-4.px-lg-5
-                .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-8.text-center
-                        h2.text-white.mt-0 Dettagli che brillano
-                        hr.divider.divider-light
-                        p.text-white-75.mb-4
-                            | Scopri collezioni curate nei dettagli, realizzate per essere indossate ogni giorno o nelle occasioni speciali.
-                        a.btn.btn-light.btn-xl(href='#services') I nostri servizi
+        //- About section removed
 
         // Services
         section#services.page-section
@@ -261,7 +256,9 @@ html(lang='it')
         footer.bg-light.py-5
             .container.px-4.px-lg-5
                 .small.text-center.text-muted
-                    | Copyright &copy; 2025 - OIOI Jewellery
+                    | Copyright &copy; 2025 - OIOI Jewellery · 
+                    a(href='https://www.instagram.com/oioi_artisanal_jewellery/' target='_blank' rel='noopener') Instagram
+                    |  · P. IVA 07327210485 · C.F. CNNGAI82D61A390A
 
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')

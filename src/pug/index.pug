@@ -174,12 +174,19 @@ html(lang='it')
                         // https://startbootstrap.com/solution/contact-forms
                         // to get an API token!
 
-                        form#contactForm(data-sb-form-api-token='API_TOKEN')
+                        // Netlify Forms
+                        form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+
+                            // Netlify Forms hidden fields
+                            input(type='hidden', name='form-name', value='contact')
+                            // Honeypot field
+                            input(type='text', name='bot-field', class='d-none')
 
                             // Name input
                             .form-floating.mb-3
                                 input#name.form-control(
                                     type='text',
+                                    name='name',
                                     placeholder='Enter your name...',
                                     data-sb-validations='required'
                                 )
@@ -191,6 +198,7 @@ html(lang='it')
                             .form-floating.mb-3
                                 input#email.form-control(
                                     type='email',
+                                    name='email',
                                     placeholder='name@example.com',
                                     data-sb-validations='required,email'
                                 )
@@ -204,6 +212,7 @@ html(lang='it')
                             .form-floating.mb-3
                                 input#phone.form-control(
                                     type='tel',
+                                    name='phone',
                                     placeholder='(123) 456-7890',
                                     data-sb-validations='required'
                                 )
@@ -215,6 +224,7 @@ html(lang='it')
                             .form-floating.mb-3
                                 textarea#message.form-control(
                                     type='text',
+                                    name='message',
                                     placeholder='Enter your message here...',
                                     style='height: 10rem;',
                                     data-sb-validations='required'
@@ -269,9 +279,4 @@ html(lang='it')
         // Core theme JS
         script(src='js/scripts.js')
 
-        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-        // * *                               SB Forms JS                               * *
-        // * * Activate your form at https://startbootstrap.com/solution/contact-forms * *
-        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-        script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')
+        // Netlify Forms handles submissions server-side; no client JS needed

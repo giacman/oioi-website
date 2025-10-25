@@ -1,8 +1,6 @@
 name: Deploy static site to GitHub Pages
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -33,9 +31,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Prepare Pages artifact (CNAME and nojekyll)
+      - name: Prepare Pages artifact (nojekyll)
         run: |
-          echo oioijewellery.it > dist/CNAME
           touch dist/.nojekyll
 
       - name: Upload artifact

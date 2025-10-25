@@ -2,63 +2,49 @@
 [![npm version](https://img.shields.io/npm/v/startbootstrap-creative.svg)](https://www.npmjs.com/package/startbootstrap-creative)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d05bdf5b-4f46-4ac4-8a3e-05caf4dccf77/deploy-status)](https://app.netlify.com/projects/oioi-website/deploys)
 
-## OIOI Jewellery
+## OIOI Jewellery — Website
 
-Static Website for OIOI Jewellery. 
+Official website for OIOI Jewellery. Contemporary design, artisanal craft, made in Flornce, Italy.
 
+- Live site: [oioijewellery.it](https://oioijewellery.it)
 
-## Usage
+### Overview
 
-### Basic Usage
+This repository contains the static site for OIOI Jewellery. It’s a customized adaptation of the
+“Creative” theme by Start Bootstrap with brand copy, styles, and sections tailored to OIOI.
 
-After downloading, simply edit the HTML and CSS files included with `dist` directory. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
+## Tech stack
 
-### Advanced Usage
+- Sources in `src/` (Pug, SCSS, Bootstrap 5) → build output in `dist/` (HTML/CSS/JS)
+- Build toolchain: Node 18 (Pug, Sass, PostCSS, BrowserSync)
+- Hosting & deploy: Netlify (build `npm ci && npm run build`, publish `dist/`)
+- Key components:
+  - Pug templates (`src/pug/index.pug`)
+  - Modular SCSS (`src/scss/...`) with custom variables
+  - Netlify Forms for the contact form (with success page)
+- Supporting CI: manual GitHub Pages workflow for previews (no CNAME)
 
-Clone the source files of the theme and navigate into the theme's root directory. Run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `package.json` file to see which scripts are included.
+## Local development
 
-#### npm Scripts
+Prerequisites: Node 18.
 
-- `npm run build` builds the project - this builds assets, HTML, JS, and CSS into `dist`
-- `npm run build:assets` copies the files in the `src/assets/` directory into `dist`
-- `npm run build:pug` compiles the Pug located in the `src/pug/` directory into `dist`
-- `npm run build:scripts` brings the `src/js/scripts.js` file into `dist`
-- `npm run build:scss` compiles the SCSS files located in the `src/scss/` directory into `dist`
-- `npm run clean` deletes the `dist` directory to prepare for rebuilding the project
-- `npm run start:debug` runs the project in debug mode
-- `npm start` or `npm run start` runs the project, launches a live preview in your default browser, and watches for changes made to files in `src`
+```bash
+npm ci
+npm start      # dev server with live reload (http://localhost:3000)
+npm run build  # production build
+```
 
-You must have npm installed in order to use this build environment.
+Project structure:
 
-### Contact Form
+- `src/` → sources (assets, pug, scss, js)
+- `dist/` → static build artifacts
 
-The contact form available with this theme is prebuilt to use [SB Forms](https://startbootstrap.com/solution/contact-forms).
-SB Forms is a simple form solution for adding functional forms to your theme. Since this theme is prebuilt using our
-SB Forms markup, all you need to do is sign up for [SB Forms on Start Bootstrap](https://startbootstrap.com/solution/contact-forms).
+## Deployment
 
-After signing up you will need to set the domain name your form will be used on, and you will then see your
-access key. Copy this and paste it into the `data-sb-form-api-token='API_TOKEN'` data attribute in place of
-`API_TOKEN`. That's it! Your forms will be up and running!
+- Netlify builds from `main` and publishes `dist/`
+- Domain: `oioijewellery.it` with HTTPS enabled
+- Contact submissions are handled by Netlify Forms (enable email notifications in Netlify)
 
-If you aren't using SB Forms, simply delete the custom data attributes from the form, and remove the link above the
-closing `</body>` tag to SB Forms.
+## License
 
-
-## About
-
-Start Bootstrap is an open source library of free Bootstrap themes and templates. All of the free themes and templates on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
-
-- <https://startbootstrap.com>
-- <https://twitter.com/SBootstrap>
-
-Start Bootstrap was created by and is maintained by **[David Miller](https://davidmiller.io/)**.
-
-- <https://davidmiller.io>
-- <https://twitter.com/davidmillerhere>
-- <https://github.com/davidtmiller>
-
-Start Bootstrap is based on the [Bootstrap](https://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2023 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE) license.
+Base theme under [MIT](https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE). Customizations and content © OIOI Jewellery.

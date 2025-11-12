@@ -21,7 +21,7 @@ html(lang='it')
         // Google fonts
         link(rel='preconnect', href='https://fonts.googleapis.com')
         link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
-        link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Great+Vibes&display=swap', rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Great+Vibes&display=swap', rel='stylesheet')
 
         // SimpleLightbox plugin CSS
         link(href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css', rel='stylesheet')
@@ -34,7 +34,8 @@ html(lang='it')
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
             .container.px-4.px-lg-5
-                a.navbar-brand(href='#page-top') OIOI Jewellery
+                a.navbar-brand(href='#page-top')
+                    img(src='assets/img/logos/oioi_black.svg', alt='OIOI Jewellery Logo', style='height: 90px;')
                 button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarResponsive.collapse.navbar-collapse
@@ -53,14 +54,18 @@ html(lang='it')
             .container.px-4.px-lg-5.h-100
                 .row.gx-4.gx-lg-5.h-100.align-items-center.justify-content-center.text-center
                     .col-lg-8.align-self-end
-                        h1.font-calligraphy Gioielli Artigianali
+                        img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
+                        .d-flex.justify-content-center.align-items-center.mb-3
+                            span.decorative-icon.me-4 🜃✴︎
+                            h1.font-calligraphy.my-0 Gioielli Artigianali
+                            span.decorative-icon.ms-4 ✴︎🜃
                         p Magic shaped from raw matter & artisanal intelligence
                         hr.divider
                     .col-lg-8.align-self-baseline
                         p.mb-5
-                            | Florence-born jewellery — Magic shaped from raw matter & artisanal intelligence.
+                            | Magic shaped from raw matter & artisanal intelligence.
                         a(href='#portfolio')
-                            img(src='assets/img/buttons/vai-alle-collezioni.png', alt='Vai alle collezioni')
+                            img(src='assets/img/buttons/Vai_Alle_Collezioni_Button.svg', alt='Vai alle collezioni')
 
         //- About section removed
 
@@ -68,8 +73,8 @@ html(lang='it')
 
         // Portfolio
         #portfolio
-            .container-fluid.p-0
-                .row.g-0
+            .container-fluid
+                .row.g-2.justify-content-center
                     .col-lg-4.col-sm-6
                         img.img-fluid(src='assets/img/portfolio/thumbnails/1.jpg', alt='...')
                     .col-lg-4.col-sm-6
@@ -185,15 +190,10 @@ html(lang='it')
                             // Submit Button
                             .d-grid
                                 button#submitButton.btn-reset(type='submit')
-                                    img(src='assets/img/buttons/entra-in-contatto.svg', alt='Entra in contatto')
-
-                .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-4.text-center.mb-5.mb-lg-0
-                        i.bi-phone.fs-2.mb-3.text-muted
-                        div +1 (555) 123-4567
+                                    img(src='assets/img/buttons/Entra_In_Contatto.svg', alt='Entra in contatto')
 
         // Footer
-        footer.bg-light.py-5
+        footer.py-5
             .container.px-4.px-lg-5
                 .small.text-center.text-muted
                     | © 2025 - OIOI Jewellery · Florence || Handcrafted in Santo Spirito

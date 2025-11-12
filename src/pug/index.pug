@@ -19,8 +19,9 @@ html(lang='it')
         link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css', rel='stylesheet')
 
         // Google fonts
-        link(href='https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700', rel='stylesheet')
-        link(href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic', rel='stylesheet', type='text/css')
+        link(rel='preconnect', href='https://fonts.googleapis.com')
+        link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+        link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Great+Vibes&display=swap', rel='stylesheet')
 
         // SimpleLightbox plugin CSS
         link(href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css', rel='stylesheet')
@@ -33,135 +34,68 @@ html(lang='it')
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
             .container.px-4.px-lg-5
-                a.navbar-brand(href='#page-top') OIOI Jewellery
+                a.navbar-brand(href='#page-top')
+                    img(src='assets/img/logos/oioi_black.svg', alt='OIOI Jewellery Logo', style='height: 90px;')
                 button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.my-2.my-lg-0
                         li.nav-item
-                            //- Chi siamo nav removed
-                        li.nav-item
-                            a.nav-link(href='#services') Servizi
+                            a.nav-link(href='#') About
                         li.nav-item
                             a.nav-link(href='#portfolio') Collezioni
                         li.nav-item
-                            a.nav-link(href='#contact') Contatti
+                            a.nav-link(href='#contact') Enquiry
                         li.nav-item
-                            a.nav-link(href='https://www.instagram.com/oioi_artisanal_jewellery/' target='_blank' rel='noopener') Instagram
+                            a.nav-link(href='https://www.instagram.com/oioi_artisanal_jewellery/' target='_blank' rel='noopener') Social
 
         // Masthead
         header.masthead
             .container.px-4.px-lg-5.h-100
                 .row.gx-4.gx-lg-5.h-100.align-items-center.justify-content-center.text-center
                     .col-lg-8.align-self-end
-                        h1.text-white.font-weight-bold Gioielli artigianali
+                        img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
+                        .d-flex.justify-content-center.align-items-center.mb-3
+                            span.decorative-icon.me-4 🜃✴︎
+                            h1.font-calligraphy.my-0 Gioielli Artigianali
+                            span.decorative-icon.ms-4 ✴︎🜃
+                        p Magic shaped from raw matter & artisanal intelligence
                         hr.divider
                     .col-lg-8.align-self-baseline
-                        p.text-white-75.mb-5
-                            | Florence-born jewellery — Magic shaped from raw matter & artisanal intelligence.
-                        a.btn.btn-primary.btn-xl(href='#portfolio') Vai alle collezioni
+                        p.mb-5
+                            | Magic shaped from raw matter & artisanal intelligence.
+                        a(href='#portfolio')
+                            img(src='assets/img/buttons/Vai_Alle_Collezioni_Button.svg', alt='Vai alle collezioni')
 
         //- About section removed
 
-        // Services
-        section#services.page-section
-            .container.px-4.px-lg-5
-                h2.text-center.mt-0 I nostri servizi
-                hr.divider
-                .row.gx-4.gx-lg-5
-                    .col-lg-3.col-md-6.text-center
-                        .mt-5
-                            .mb-2
-                                i.bi-gem.fs-1.text-primary
-                            h3.h4.mb-2 Materiali di qualità
-                            p.text-muted.mb-0 Oro e argento selezionati, nichel free.
-                    .col-lg-3.col-md-6.text-center
-                        .mt-5
-                            .mb-2
-                                i.bi-laptop.fs-1.text-primary
-                            h3.h4.mb-2 Design contemporaneo
-                            p.text-muted.mb-0 Linee essenziali e senza tempo.
-                    .col-lg-3.col-md-6.text-center
-                        .mt-5
-                            .mb-2
-                                i.bi-globe.fs-1.text-primary
-                            h3.h4.mb-2 Pronti da indossare
-                            p.text-muted.mb-0 Confezione curata e spedizioni rapide.
-                    .col-lg-3.col-md-6.text-center
-                        .mt-5
-                            .mb-2
-                                i.bi-heart.fs-1.text-primary
-                            h3.h4.mb-2 Fatti con amore
-                            p.text-muted.mb-0 Ogni pezzo è rifinito a mano.
+        //- Services section removed
 
         // Portfolio
         #portfolio
-            .container-fluid.p-0
-                .row.g-0
+            .container-fluid
+                .row.g-2.justify-content-center
                     .col-lg-4.col-sm-6
-                        a.portfolio-box(href='assets/img/portfolio/fullsize/1.jpg', title='Project Name')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/1.jpg', alt='...')
-                            .portfolio-box-caption
-                                .project-category.text-white-50
-                                    | Category
-                                .project-name
-                                    | Project Name
+                        img.img-fluid(src='assets/img/portfolio/thumbnails/1.jpg', alt='...')
                     .col-lg-4.col-sm-6
-                        a.portfolio-box(href='assets/img/portfolio/fullsize/2.jpg', title='Project Name')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/2.jpg', alt='...')
-                            .portfolio-box-caption
-                                .project-category.text-white-50
-                                    | Category
-                                .project-name
-                                    | Project Name
+                        img.img-fluid(src='assets/img/portfolio/thumbnails/2.jpg', alt='...')
                     .col-lg-4.col-sm-6
-                        a.portfolio-box(href='assets/img/portfolio/fullsize/3.jpg', title='Project Name')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/3.jpg', alt='...')
-                            .portfolio-box-caption
-                                .project-category.text-white-50
-                                    | Category
-                                .project-name
-                                    | Project Name
+                        img.img-fluid(src='assets/img/portfolio/thumbnails/3.jpg', alt='...')
                     .col-lg-4.col-sm-6
-                        a.portfolio-box(href='assets/img/portfolio/fullsize/4.jpg', title='Project Name')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/4.jpg', alt='...')
-                            .portfolio-box-caption
-                                .project-category.text-white-50
-                                    | Category
-                                .project-name
-                                    | Project Name
+                        img.img-fluid(src='assets/img/portfolio/thumbnails/4.jpg', alt='...')
                     .col-lg-4.col-sm-6
-                        a.portfolio-box(href='assets/img/portfolio/fullsize/5.jpg', title='Project Name')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/5.jpg', alt='...')
-                            .portfolio-box-caption
-                                .project-category.text-white-50
-                                    | Category
-                                .project-name
-                                    | Project Name
+                        img.img-fluid(src='assets/img/portfolio/thumbnails/5.jpg', alt='...')
                     .col-lg-4.col-sm-6
-                        a.portfolio-box(href='assets/img/portfolio/fullsize/6.jpg', title='Project Name')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/6.jpg', alt='...')
-                            .portfolio-box-caption.p-3
-                                .project-category.text-white-50
-                                    | Category
-                                .project-name
-                                    | Project Name
-
-        // Call to action
-        section.page-section.bg-dark.text-white
-            .container.px-4.px-lg-5.text-center
-                h2.mb-4 Scopri la nuova collezione
-                a.btn.btn-light.btn-xl(href='#portfolio') Vai alle collezioni
+                        img.img-fluid(src='assets/img/portfolio/thumbnails/6.jpg', alt='...')
 
         // Contact
         section#contact.page-section
             .container.px-4.px-lg-5
                 .row.gx-4.gx-lg-5.justify-content-center
                     .col-lg-8.col-xl-6.text-center
-                        h2.mt-0 Contattaci
+                        h2.mt-0.font-calligraphy Ti aprirò la porta, e da li potremo cominciare a creare insieme
+                        p Se qualcosa ti ha incuriosito, scrivimi per parlarne
                         hr.divider
-                        p.text-muted.mb-5
-                            | Hai domande o richieste personalizzate? Scrivici e ti risponderemo al più presto.
                 .row.gx-4.gx-lg-5.justify-content-center.mb-5
                     .col-lg-6
 
@@ -187,8 +121,7 @@ html(lang='it')
                                 input#name.form-control(
                                     type='text',
                                     name='name',
-                                    placeholder='Enter your name...',
-                                    data-sb-validations='required'
+                                    placeholder='Enter your name...'
                                 )
                                 label(for='name') Full name
                                 .invalid-feedback(data-sb-feedback='name:required')
@@ -199,8 +132,7 @@ html(lang='it')
                                 input#email.form-control(
                                     type='email',
                                     name='email',
-                                    placeholder='name@example.com',
-                                    data-sb-validations='required,email'
+                                    placeholder='name@example.com'
                                 )
                                 label(for='email') Email address
                                 .invalid-feedback(data-sb-feedback='email:required')
@@ -213,8 +145,7 @@ html(lang='it')
                                 input#phone.form-control(
                                     type='tel',
                                     name='phone',
-                                    placeholder='(123) 456-7890',
-                                    data-sb-validations='required'
+                                    placeholder='(123) 456-7890'
                                 )
                                 label(for='phone') Phone number
                                 .invalid-feedback(data-sb-feedback='phone:required')
@@ -226,8 +157,7 @@ html(lang='it')
                                     type='text',
                                     name='message',
                                     placeholder='Enter your message here...',
-                                    style='height: 10rem;',
-                                    data-sb-validations='required'
+                                    style='height: 10rem;'
                                 )
                                 label(for='message') Message
                                 .invalid-feedback(data-sb-feedback='message:required')
@@ -255,20 +185,17 @@ html(lang='it')
 
                             // Submit Button
                             .d-grid
-                                button#submitButton.btn.btn-primary.btn-xl(type='submit') Invia
-
-                .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-4.text-center.mb-5.mb-lg-0
-                        i.bi-phone.fs-2.mb-3.text-muted
-                        div +1 (555) 123-4567
+                                button#submitButton.btn-reset(type='submit')
+                                    img(src='assets/img/buttons/Entra_In_Contatto.svg', alt='Entra in contatto')
 
         // Footer
-        footer.bg-light.py-5
+        footer.py-5
             .container.px-4.px-lg-5
                 .small.text-center.text-muted
-                    | Copyright &copy; 2025 - OIOI Jewellery · 
+                    | © 2025 - OIOI Jewellery · Florence || Handcrafted in Santo Spirito
+                    br
+                    | Gaia Cionnini - P.IVA 07327210485 · C.F. CNNGAI82D61A390A · 
                     a(href='https://www.instagram.com/oioi_artisanal_jewellery/' target='_blank' rel='noopener') Instagram
-                    |  · P. IVA 07327210485 · C.F. CNNGAI82D61A390A
 
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')

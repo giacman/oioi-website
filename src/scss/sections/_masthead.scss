@@ -9,8 +9,7 @@ header.masthead {
     // replace the masthead.jpg image in the /assets/img directory to change the image
     // if the image name change, make sure to update the url path below!
 
-    // solid gray background, no image
-    background: #3a3a3a;
+    background-color: $light-bg;
 
     background-position: center;
     background-repeat: no-repeat;
@@ -22,7 +21,7 @@ header.masthead {
     }
 
     @include media-breakpoint-up(lg) {
-        height: 100vh;
+        height: 80vh;
         min-height: 40rem;
         padding-top: $navbar-height;
         padding-bottom: 0;
@@ -41,4 +40,13 @@ header.masthead {
             font-size: 3.5rem;
         }
     }
+}
+
+.masthead-logotype {
+    height: 90px;
+    min-width: 225px;
+}
+
+.decorative-icon {
+    font-size: 1.5rem;
 }

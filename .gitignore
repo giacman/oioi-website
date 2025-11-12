@@ -1,7 +1,4 @@
-node_modules
+node_modules/
 .DS_Store
-
-dist/success.htmlskin_assets/
-dist/
 dist/
 skin_assets/

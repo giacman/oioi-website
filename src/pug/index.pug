@@ -97,22 +97,10 @@ html(lang='it')
         section#contact.page-section
             .container.px-4.px-lg-5
                 .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-8.col-xl-6.text-center
-                        h2.mt-0.font-calligraphy Ti aprirò la porta, e da li potremo cominciare a creare insieme
-                        p Se qualcosa ti ha incuriosito, scrivimi per parlarne
-                        hr.divider
-                .row.gx-4.gx-lg-5.justify-content-center.mb-5
-                    .col-lg-6
-
-                        // * * * * * * * * * * * * * * *
-                        // * * SB Forms Contact Form * *
-                        // * * * * * * * * * * * * * * *
-
-                        // This form is pre-integrated with SB Forms.
-                        // To make this form functional, sign up at
-                        // https://startbootstrap.com/solution/contact-forms
-                        // to get an API token!
-
+                    .col-lg-8
+                        h4.mb-4.text-center(style='font-size: 1.1rem;') Creazioni originali, disegnate e fatte a mano a Firenze
+                        p.font-calligraphy.text-center.mb-5(style='font-size: 2rem; line-height: 1.6;') Se qualcosa che hai visto ti ha fatto dire "Oioi", scrivimi magari è già pronto, o aspetta solo te per prendere forma
+                    .col-lg-5.col-md-8
                         // Netlify Forms
                         form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
 
@@ -155,8 +143,6 @@ html(lang='it')
                                     placeholder='(123) 456-7890'
                                 )
                                 label(for='phone') Phone number
-                                .invalid-feedback(data-sb-feedback='phone:required')
-                                    | A phone number is required.
 
                             // Message input
                             .form-floating.mb-3
@@ -171,28 +157,8 @@ html(lang='it')
                                 .invalid-feedback(data-sb-feedback='message:required')
                                     | A message is required.
 
-                            // Submit success message
-                            //
-                            // This is what your users will see when the form
-                            // has successfully submitted
-
-                            #submitSuccessMessage.d-none
-                                .text-center.mb-3
-                                    .fw-bolder Form submission successful!
-                                    | To activate this form, sign up at
-                                    br
-                                    a(href='https://startbootstrap.com/solution/contact-forms') https://startbootstrap.com/solution/contact-forms
-
-                            // Submit error message
-                            //
-                            // This is what your users will see when there is
-                            // an error submitting the form
-
-                            #submitErrorMessage.d-none
-                                .text-center.text-danger.mb-3 Error sending message!
-
                             // Submit Button
-                            .d-grid
+                            .d-grid.mt-4
                                 button#submitButton.btn-reset(type='submit')
                                     img(src='assets/img/buttons/Entra_In_Contatto.svg', alt='Entra in contatto')
 

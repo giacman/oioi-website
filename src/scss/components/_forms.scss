@@ -1,0 +1,17 @@
+// 
+// Forms
+// 
+
+#contactForm {
+    .form-control {
+        background-color: $light-bg;
+        border-color: $gray-900;
+
+        &:focus {
+            background-color: $light-bg;
+            border-color: $gray-900;
+            box-shadow: 0 0 0 0.25rem rgba($gray-900, 0.25);
+        }
+    }
+}
+

@@ -5,13 +5,12 @@ html(lang='it')
 
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='OIOI Jewellery — Florence-born artisanal jewellery. Magia plasmata dalla materia grezza e dall’intelligenza artigianale.')
+        meta(name='description', content='THEY, THEM Collection — OIOI Jewellery')
         meta(name='author', content='OIOI Jewellery')
 
-        title OIOI Jewellery
+        title THEY, THEM — OIOI Jewellery
 
         // Favicon
-        // Prefer SVG; fallback ICO remains in dist
         link(rel='icon', type='image/svg+xml', href='assets/favicon.svg')
         link(rel='alternate icon', type='image/x-icon', href='assets/favicon.ico')
 
@@ -23,9 +22,6 @@ html(lang='it')
         link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
         link(href='https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@400;500;700&display=swap', rel='stylesheet')
 
-        // SimpleLightbox plugin CSS
-        link(href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css', rel='stylesheet')
-
         // Core theme CSS (includes Bootstrap)
         link(href='css/styles.css', rel='stylesheet')
 
@@ -34,7 +30,7 @@ html(lang='it')
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
             .container.px-4.px-lg-5
-                a.navbar-brand(href='#page-top')
+                a.navbar-brand(href='index.html')
                     img(src='assets/img/logos/oioi_black.svg', alt='OIOI Jewellery Logo', style='height: 90px;')
                 button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
@@ -43,9 +39,9 @@ html(lang='it')
                         li.nav-item
                             a.nav-link(href='about.html') About
                         li.nav-item
-                            a.nav-link(href='#portfolio') Collezioni
+                            a.nav-link(href='index.html#portfolio') Collezioni
                         li.nav-item
-                            a.nav-link(href='#contact') Enquiry
+                            a.nav-link(href='index.html#contact') Enquiry
                         li.nav-item
                             a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener') Social
 
@@ -57,41 +53,31 @@ html(lang='it')
                         img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                         .d-flex.justify-content-center.align-items-center.mb-3
                             span.decorative-icon.me-4 🜃✴︎
-                            h1.font-calligraphy.my-0 Gioielli Artigianali
+                            h1.fw-medium.my-0(style='font-size: 2rem;') THEY, THEM
                             span.decorative-icon.ms-4 ✴︎🜃
-                        p Magic shaped from raw matter & artisanal intelligence
                         hr.divider
-                    .col-lg-8.align-self-baseline
-                        p.mb-5
-                        a(href='#portfolio')
-                            img(src='assets/img/buttons/Vai_Alle_Collezioni_Button.svg', alt='Vai alle collezioni')
+                        .text-center.mt-5.mb-5
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
-        //- About section removed
-
-        //- Services section removed
-
-        // Portfolio
-        #portfolio
-            .container-fluid
-                .row.g-2.justify-content-center
-                    .col-lg-4.col-sm-6
-                        a(href='bespoke.html')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/1.jpg', alt='Bespoke Collection')
-                    .col-lg-4.col-sm-6
-                        a(href='they-them.html')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/2.jpg', alt='THEY, THEM Collection')
-                    .col-lg-4.col-sm-6
-                        a(href='things.html')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/3.jpg', alt='T.H.I.N.G.S. Collection')
-                    .col-lg-4.col-sm-6
-                        a(href='they-them.html')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/4.jpg', alt='THEY, THEM Collection')
-                    .col-lg-4.col-sm-6
-                        a(href='they-them.html')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/5.jpg', alt='THEY, THEM Collection')
-                    .col-lg-4.col-sm-6
-                        a(href='bespoke.html')
-                            img.img-fluid(src='assets/img/portfolio/thumbnails/6.jpg', alt='Bespoke Collection')
+        // Collection Carousel
+        section.page-section
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-lg-10
+                        #theyThemCarousel.carousel.slide(data-bs-ride='carousel')
+                            .carousel-inner
+                                .carousel-item.active
+                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/2.jpg', alt='THEY, THEM Collection Image 1')
+                                .carousel-item
+                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/4.jpg', alt='THEY, THEM Collection Image 2')
+                                .carousel-item
+                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/5.jpg', alt='THEY, THEM Collection Image 3')
+                            button.carousel-control-prev(type='button', data-bs-target='#theyThemCarousel', data-bs-slide='prev')
+                                span.carousel-control-prev-icon(aria-hidden='true')
+                                span.visually-hidden Previous
+                            button.carousel-control-next(type='button', data-bs-target='#theyThemCarousel', data-bs-slide='next')
+                                span.carousel-control-next-icon(aria-hidden='true')
+                                span.visually-hidden Next
 
         // Contact
         section#contact.page-section
@@ -104,20 +90,12 @@ html(lang='it')
                 .row.gx-4.gx-lg-5.justify-content-center.mb-5
                     .col-lg-6
 
-                        // * * * * * * * * * * * * * * *
-                        // * * SB Forms Contact Form * *
-                        // * * * * * * * * * * * * * * *
-
-                        // This form is pre-integrated with SB Forms.
-                        // To make this form functional, sign up at
-                        // https://startbootstrap.com/solution/contact-forms
-                        // to get an API token!
-
                         // Netlify Forms
-                        form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+                        form#contactForm(name='contact-they-them', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
 
                             // Netlify Forms hidden fields
-                            input(type='hidden', name='form-name', value='contact')
+                            input(type='hidden', name='form-name', value='contact-they-them')
+                            input(type='hidden', name='collection', value='THEY, THEM')
                             // Honeypot field
                             input(type='text', name='bot-field', class='d-none')
 
@@ -155,8 +133,6 @@ html(lang='it')
                                     placeholder='(123) 456-7890'
                                 )
                                 label(for='phone') Phone number
-                                .invalid-feedback(data-sb-feedback='phone:required')
-                                    | A phone number is required.
 
                             // Message input
                             .form-floating.mb-3
@@ -170,26 +146,6 @@ html(lang='it')
                                 label(for='message') Message
                                 .invalid-feedback(data-sb-feedback='message:required')
                                     | A message is required.
-
-                            // Submit success message
-                            //
-                            // This is what your users will see when the form
-                            // has successfully submitted
-
-                            #submitSuccessMessage.d-none
-                                .text-center.mb-3
-                                    .fw-bolder Form submission successful!
-                                    | To activate this form, sign up at
-                                    br
-                                    a(href='https://startbootstrap.com/solution/contact-forms') https://startbootstrap.com/solution/contact-forms
-
-                            // Submit error message
-                            //
-                            // This is what your users will see when there is
-                            // an error submitting the form
-
-                            #submitErrorMessage.d-none
-                                .text-center.text-danger.mb-3 Error sending message!
 
                             // Submit Button
                             .d-grid
@@ -208,10 +164,6 @@ html(lang='it')
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
 
-        // SimpleLightbox plugin JS
-        script(src='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js')
-
         // Core theme JS
         script(src='js/scripts.js')
 
-        // Netlify Forms handles submissions server-side; no client JS needed

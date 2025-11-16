@@ -12,3 +12,11 @@
     border: none;
     border-radius: 10rem;
 }
+
+// Button images sizing
+.btn-reset img,
+a img[src*="buttons"] {
+    max-width: 200px;
+    height: auto;
+    width: 100%;
+}

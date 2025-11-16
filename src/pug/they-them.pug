@@ -5,13 +5,12 @@ html(lang='it')
 
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='OIOI Jewellery — Florence-born artisanal jewellery. Magia plasmata dalla materia grezza e dall’intelligenza artigianale.')
+        meta(name='description', content='THEY, THEM Collection — OIOI Jewellery')
         meta(name='author', content='OIOI Jewellery')
 
-        title OIOI Jewellery
+        title THEY, THEM — OIOI Jewellery
 
         // Favicon
-        // Prefer SVG; fallback ICO remains in dist
         link(rel='icon', type='image/svg+xml', href='assets/favicon.svg')
         link(rel='alternate icon', type='image/x-icon', href='assets/favicon.ico')
 
@@ -23,9 +22,6 @@ html(lang='it')
         link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
         link(href='https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@400;500;700&display=swap', rel='stylesheet')
 
-        // SimpleLightbox plugin CSS
-        link(href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css', rel='stylesheet')
-
         // Core theme CSS (includes Bootstrap)
         link(href='css/styles.css', rel='stylesheet')
 
@@ -34,7 +30,7 @@ html(lang='it')
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
             .container.px-4.px-lg-5
-                a.navbar-brand(href='#page-top')
+                a.navbar-brand(href='index.html')
                     img(src='assets/img/logos/oioi_black.svg', alt='OIOI Jewellery Logo', style='height: 90px;')
                 button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
@@ -43,100 +39,87 @@ html(lang='it')
                         li.nav-item
                             a.nav-link(href='about.html') About
                         li.nav-item
-                            a.nav-link(href='#portfolio') Collezioni
+                            a.nav-link(href='index.html#portfolio') Collezioni
                         li.nav-item
-                            a.nav-link(href='#contact') Enquiry
+                            a.nav-link(href='index.html#contact') Enquiry
                         li.nav-item
                             a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener') Social
 
         // Masthead
-        header.masthead
+        header.masthead(style='padding-bottom: 3rem;')
             .container.px-4.px-lg-5
                 .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
                     .col-lg-8.align-self-end
                         img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                         .d-flex.justify-content-center.align-items-center.mb-3
                             span.decorative-icon.me-4 🜃✴︎
-                            h1.my-0(style='font-size: 2rem;') Gioielli Artigianali
+                            h1.fw-medium.my-0(style='font-size: 2rem;') THEY, THEM
                             span.decorative-icon.ms-4 ✴︎🜃
-                        p Magic shaped from raw matter & artisanal intelligence
+                        p.mt-3 E' la I di OIOI
                         hr.divider
-                    .col-lg-8.align-self-baseline
-                        p.mb-5
-                        a(href='#portfolio')
-                            img(src='assets/img/buttons/Vai_Alle_Collezioni_Button.svg', alt='Vai alle collezioni')
 
-        //- About section removed
-
-        //- Services section removed
-
-        // Portfolio
-        #portfolio
-            .container-fluid
-                // Mobile Carousel (visible only on mobile)
-                .d-lg-none.mb-4
-                    #portfolioCarousel.carousel.slide(data-bs-ride='carousel')
-                        .carousel-inner
-                            .carousel-item.active
-                                a(href='opera.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/1.jpg', alt='Opera Collection')
-                            .carousel-item
-                                a(href='they-them.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/2.jpg', alt='THEY, THEM Collection')
-                            .carousel-item
-                                a(href='things.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/3.jpg', alt='T.H.I.N.G.S. Collection')
-                            .carousel-item
-                                a(href='they-them.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/4.jpg', alt='THEY, THEM Collection')
-                            .carousel-item
-                                a(href='they-them.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/5.jpg', alt='THEY, THEM Collection')
-                            .carousel-item
-                                a(href='opera.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/6.jpg', alt='Opera Collection')
-                        button.carousel-control-prev(type='button', data-bs-target='#portfolioCarousel', data-bs-slide='prev')
-                            span.carousel-control-prev-icon(aria-hidden='true')
-                            span.visually-hidden Previous
-                        button.carousel-control-next(type='button', data-bs-target='#portfolioCarousel', data-bs-slide='next')
-                            span.carousel-control-next-icon(aria-hidden='true')
-                            span.visually-hidden Next
-                
-                // Desktop Grid (visible only on desktop)
-                .d-none.d-lg-block
-                    .row.g-2.justify-content-center
-                        .col-lg-4.col-sm-6
-                            a(href='opera.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/1.jpg', alt='Opera Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='they-them.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/2.jpg', alt='THEY, THEM Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='things.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/3.jpg', alt='T.H.I.N.G.S. Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='they-them.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/4.jpg', alt='THEY, THEM Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='they-them.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/5.jpg', alt='THEY, THEM Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='opera.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/6.jpg', alt='Opera Collection')
-
-        // Contact
-        section#contact.page-section
+        // Collection Carousel
+        section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
             .container.px-4.px-lg-5
                 .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-8
-                        h4.mb-4.text-center(style='font-size: 1.1rem;') Creazioni originali, disegnate e fatte a mano a Firenze
-                        p.font-calligraphy.text-center.mb-5(style='font-size: 2rem; line-height: 1.6;') Se qualcosa che hai visto ti ha fatto dire "Oioi", scrivimi magari è già pronto, o aspetta solo te per prendere forma
-                    .col-lg-5.col-md-8
+                    .col-lg-10
+                        #theyThemCarousel.carousel.slide(data-bs-ride='carousel')
+                            .carousel-inner
+                                .carousel-item.active
+                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/2.jpg', alt='THEY, THEM Collection Image 1')
+                                .carousel-item
+                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/4.jpg', alt='THEY, THEM Collection Image 2')
+                                .carousel-item
+                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/5.jpg', alt='THEY, THEM Collection Image 3')
+                            button.carousel-control-prev(type='button', data-bs-target='#theyThemCarousel', data-bs-slide='prev')
+                                span.carousel-control-prev-icon(aria-hidden='true')
+                                span.visually-hidden Previous
+                            button.carousel-control-next(type='button', data-bs-target='#theyThemCarousel', data-bs-slide='next')
+                                span.carousel-control-next-icon(aria-hidden='true')
+                                span.visually-hidden Next
+
+        // Description and Contact
+        section#contact.page-section(style='padding-top: 2rem;')
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.align-items-start
+                    .col-lg-6
+                        p
+                            | THEY, THEM nasce da una forma sola: è la I di OIOI.
+                            br
+                            br
+                            | Una linea diventata volume.
+                            br
+                            | Un rettangolo colorato che vive come anello, ciondolo, orecchino singolo o coppia.
+                            br
+                            br
+                            | La forma è sempre la stessa. A cambiare è il colore.
+                            br
+                            br
+                            | La prima palette comprende quattro tonalità.
+                            br
+                            | Puoi sceglierne una oppure combinarle in modalità pick and mix.
+                            br
+                            br
+                            | Nel tempo arriveranno drop cromatici stagionali che espandono il vocabolario visivo della collezione.
+                            br
+                            br
+                            | THEY, THEM è essenziale, modulare, libera.
+                            br
+                            br
+                            | Una forma che non sceglie un ruolo, ma molte possibilità.
+                            br
+                            | Un frammento della mia grammatica visiva che prende identità sulla pelle.
+                            br
+                            br
+                            strong Perché noi non mettiamo i puntini sulle i.
+                    .col-lg-6
+
                         // Netlify Forms
-                        form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+                        form#contactForm(name='contact-they-them', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
 
                             // Netlify Forms hidden fields
-                            input(type='hidden', name='form-name', value='contact')
+                            input(type='hidden', name='form-name', value='contact-they-them')
+                            input(type='hidden', name='collection', value='THEY, THEM')
                             // Honeypot field
                             input(type='text', name='bot-field', class='d-none')
 
@@ -189,7 +172,7 @@ html(lang='it')
                                     | A message is required.
 
                             // Submit Button
-                            .d-grid.mt-4
+                            .d-grid
                                 button#submitButton.btn-reset(type='submit')
                                     img(src='assets/img/buttons/Entra_In_Contatto.svg', alt='Entra in contatto')
 
@@ -205,10 +188,6 @@ html(lang='it')
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
 
-        // SimpleLightbox plugin JS
-        script(src='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js')
-
         // Core theme JS
         script(src='js/scripts.js')
 
-        // Netlify Forms handles submissions server-side; no client JS needed

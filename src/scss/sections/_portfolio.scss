@@ -6,6 +6,32 @@
     .container-fluid {
         max-width: 1920px;
 
+        a {
+            display: block;
+            text-decoration: none;
+            transition: opacity 0.25s ease;
+
+            &:hover {
+                opacity: 0.9;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        // Carousel styles for mobile
+        .carousel {
+            .carousel-item {
+                a {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+
         .portfolio-box {
             position: relative;
             display: block;

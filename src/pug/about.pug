@@ -5,13 +5,12 @@ html(lang='it')
 
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='OIOI Jewellery — Florence-born artisanal jewellery. Magia plasmata dalla materia grezza e dall’intelligenza artigianale.')
+        meta(name='description', content='About OIOI Jewellery — Florence-born artisanal jewellery.')
         meta(name='author', content='OIOI Jewellery')
 
-        title OIOI Jewellery
+        title About — OIOI Jewellery
 
         // Favicon
-        // Prefer SVG; fallback ICO remains in dist
         link(rel='icon', type='image/svg+xml', href='assets/favicon.svg')
         link(rel='alternate icon', type='image/x-icon', href='assets/favicon.ico')
 
@@ -23,9 +22,6 @@ html(lang='it')
         link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
         link(href='https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@400;500;700&display=swap', rel='stylesheet')
 
-        // SimpleLightbox plugin CSS
-        link(href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css', rel='stylesheet')
-
         // Core theme CSS (includes Bootstrap)
         link(href='css/styles.css', rel='stylesheet')
 
@@ -34,7 +30,7 @@ html(lang='it')
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
             .container.px-4.px-lg-5
-                a.navbar-brand(href='#page-top')
+                a.navbar-brand(href='index.html')
                     img(src='assets/img/logos/oioi_black.svg', alt='OIOI Jewellery Logo', style='height: 90px;')
                 button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
@@ -43,9 +39,9 @@ html(lang='it')
                         li.nav-item
                             a.nav-link(href='about.html') About
                         li.nav-item
-                            a.nav-link(href='#portfolio') Collezioni
+                            a.nav-link(href='index.html#portfolio') Collezioni
                         li.nav-item
-                            a.nav-link(href='#contact') Enquiry
+                            a.nav-link(href='index.html#contact') Enquiry
                         li.nav-item
                             a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener') Social
 
@@ -57,81 +53,95 @@ html(lang='it')
                         img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                         .d-flex.justify-content-center.align-items-center.mb-3
                             span.decorative-icon.me-4 🜃✴︎
-                            h1.my-0(style='font-size: 2rem;') Gioielli Artigianali
+                            h1.my-0(style='font-size: 2rem;') About
                             span.decorative-icon.ms-4 ✴︎🜃
-                        p Magic shaped from raw matter & artisanal intelligence
                         hr.divider
-                    .col-lg-8.align-self-baseline
-                        p.mb-5
-                        a(href='#portfolio')
-                            img(src='assets/img/buttons/Vai_Alle_Collezioni_Button.svg', alt='Vai alle collezioni')
 
-        //- About section removed
+        // Image Placeholder
+        section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-lg-10
+                        img.img-fluid.w-100(src='assets/img/about/temporay_about_photo.jpg', alt='OIOI Jewellery')
 
-        //- Services section removed
+        // Content
+        section.page-section
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-lg-10
+                        .mb-5
+                            h2.mb-4 Intro
+                            p OIOI è gioielleria artigianale nata tra Arezzo, Firenze e Londra.
+                            p Una fusione viva di tecnica tradizionale, visione contemporanea e una sensibilità che intreccia arte, architettura, cinema, musica e cultura pop.
+                            p Ogni pezzo è un piccolo universo in metallo prezioso, pietre selezionate e smalti stratificati.
+                            p.mt-4 🜃 Fatti a Firenze, pensati per chi sente.
 
-        // Portfolio
-        #portfolio
-            .container-fluid
-                // Mobile Carousel (visible only on mobile)
-                .d-lg-none.mb-4
-                    #portfolioCarousel.carousel.slide(data-bs-ride='carousel')
-                        .carousel-inner
-                            .carousel-item.active
-                                a(href='opera.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/1.jpg', alt='Opera Collection')
-                            .carousel-item
-                                a(href='they-them.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/2.jpg', alt='THEY, THEM Collection')
-                            .carousel-item
-                                a(href='things.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/3.jpg', alt='T.H.I.N.G.S. Collection')
-                            .carousel-item
-                                a(href='they-them.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/4.jpg', alt='THEY, THEM Collection')
-                            .carousel-item
-                                a(href='they-them.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/5.jpg', alt='THEY, THEM Collection')
-                            .carousel-item
-                                a(href='opera.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/6.jpg', alt='Opera Collection')
-                        button.carousel-control-prev(type='button', data-bs-target='#portfolioCarousel', data-bs-slide='prev')
-                            span.carousel-control-prev-icon(aria-hidden='true')
-                            span.visually-hidden Previous
-                        button.carousel-control-next(type='button', data-bs-target='#portfolioCarousel', data-bs-slide='next')
-                            span.carousel-control-next-icon(aria-hidden='true')
-                            span.visually-hidden Next
-                
-                // Desktop Grid (visible only on desktop)
-                .d-none.d-lg-block
-                    .row.g-2.justify-content-center
-                        .col-lg-4.col-sm-6
-                            a(href='opera.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/1.jpg', alt='Opera Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='they-them.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/2.jpg', alt='THEY, THEM Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='things.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/3.jpg', alt='T.H.I.N.G.S. Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='they-them.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/4.jpg', alt='THEY, THEM Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='they-them.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/5.jpg', alt='THEY, THEM Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='opera.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/6.jpg', alt='Opera Collection')
+                        .mb-5
+                            h2.mb-4 La Porta
+                            p Il simbolo di OIOI nasce dall'antico stemma delle Arti Maggiori di Firenze.
+                            p La Porta dell'Arte della Seta — sotto cui lavoravano anche gli orafi — diventa oggi un segno contemporaneo: i battenti sono una O e una I che si intersecano, ripetendosi come un ritmo, un mantra, un codice.
+                            p È una soglia: tra passato e presente, tra mestiere e visione, tra rigore tecnico e libertà creativa.
+                            p La Porta è il mio modo di dire entra, c'è un mondo dentro.
+
+                        .mb-5
+                            h2.mb-4 Il mio linguaggio alchemico
+                            p OIOI è il mio modo di trasformare immagini, memorie e simboli in forme.
+                            p Una grammatica fatta di metallo, intuizione e connessioni invisibili.
+                            p Gioielli identitari, inclusivi, narrativi: oggetti che parlano e creano legami.
+
+                        .mb-5
+                            h2.mb-4 Il mio metodo
+                            p Disegno, studio proporzioni, volumi e architetture.
+                            p Poi al banco la materia risponde: metallo, cera, fuoco, smalti, pietre.
+                            p Lavoro con tecniche tradizionali – cera persa, lastra, filo, smalti vetrosi, costruzioni complesse – sempre con un approccio contemporaneo e personale.
+                            p Al banco entro in uno stato di flusso totale.
+                            p È come se un fuoco archetipico guidasse il gesto e la materia seguisse.
+                            p La tecnica diventa naturale, il pensiero si allinea alla mano.
+
+                        .mb-5
+                            h2.mb-4 Punk chic: l'estetica OIOI
+                            p Il mio stile vive in un territorio preciso: punk chic.
+                            p Rigore tecnico + libertà intuitiva.
+                            p Cultura alta + cultura pop.
+                            p Eleganza + irriverenza.
+                            p Una bellezza che nasce dal gesto, non dall'apparenza.
+                            p Una bellezza libera, mai addomesticata.
+
+                        .mb-5
+                            h2.mb-4 Gioielli che parlano
+                            p Creo gioielli che portano significato:
+                            p ex-voto contemporanei, cameo pop, amuleti affettivi, simboli personali.
+                            p Ogni pezzo è un frammento di storia: tua, mia, o di chi sceglie di indossarlo.
+
+                        .mb-5
+                            h2.mb-4 Gioielli per tutti
+                            p OIOI non ha genere.
+                            p I T.H.I.N.G.S., i they/them, le commissioni bespoke, le collezioni pop o concettuali:
+                            p tutto nasce per essere indossato da chi si riconosce nella vibrazione del pezzo.
+
+                        .mb-5
+                            h2.mb-4 Visione → Forma
+                            p La mia skill più profonda è vedere connessioni.
+                            p Trasformare elementi lontani – film, architetture, musica, simboli, cultura visiva, oggetti quotidiani – in una forma nuova.
+                            p Ogni gioiello è una narrazione in metallo: calibrata, unica, irripetibile.
+
+                        .mb-5
+                            h2.mb-4 Bussa e ti aprirò la porta
+                            p Il resto lo facciamo insieme: immaginare, scegliere, costruire.
+                            p Il tuo gioiello OIOI ti sta aspettando.
+                            p.mt-4 🜃
 
         // Contact
         section#contact.page-section
             .container.px-4.px-lg-5
                 .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-8
-                        h4.mb-4.text-center(style='font-size: 1.1rem;') Creazioni originali, disegnate e fatte a mano a Firenze
-                        p.font-calligraphy.text-center.mb-5(style='font-size: 2rem; line-height: 1.6;') Se qualcosa che hai visto ti ha fatto dire "Oioi", scrivimi magari è già pronto, o aspetta solo te per prendere forma
-                    .col-lg-5.col-md-8
+                    .col-lg-8.col-xl-6.text-center
+                        h2.mt-0.font-calligraphy Ti aprirò la porta, e da li potremo cominciare a creare insieme
+                        p Se qualcosa ti ha incuriosito, scrivimi per parlarne
+                        hr.divider
+                .row.gx-4.gx-lg-5.justify-content-center.mb-5
+                    .col-lg-6
+
                         // Netlify Forms
                         form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
 
@@ -189,7 +199,7 @@ html(lang='it')
                                     | A message is required.
 
                             // Submit Button
-                            .d-grid.mt-4
+                            .d-grid
                                 button#submitButton.btn-reset(type='submit')
                                     img(src='assets/img/buttons/Entra_In_Contatto.svg', alt='Entra in contatto')
 
@@ -205,10 +215,6 @@ html(lang='it')
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
 
-        // SimpleLightbox plugin JS
-        script(src='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js')
-
         // Core theme JS
         script(src='js/scripts.js')
 
-        // Netlify Forms handles submissions server-side; no client JS needed

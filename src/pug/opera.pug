@@ -5,13 +5,12 @@ html(lang='it')
 
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='OIOI Jewellery — Florence-born artisanal jewellery. Magia plasmata dalla materia grezza e dall’intelligenza artigianale.')
+        meta(name='description', content='Opera Collection — OIOI Jewellery')
         meta(name='author', content='OIOI Jewellery')
 
-        title OIOI Jewellery
+        title Opera — OIOI Jewellery
 
         // Favicon
-        // Prefer SVG; fallback ICO remains in dist
         link(rel='icon', type='image/svg+xml', href='assets/favicon.svg')
         link(rel='alternate icon', type='image/x-icon', href='assets/favicon.ico')
 
@@ -23,9 +22,6 @@ html(lang='it')
         link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
         link(href='https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@400;500;700&display=swap', rel='stylesheet')
 
-        // SimpleLightbox plugin CSS
-        link(href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css', rel='stylesheet')
-
         // Core theme CSS (includes Bootstrap)
         link(href='css/styles.css', rel='stylesheet')
 
@@ -34,7 +30,7 @@ html(lang='it')
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
             .container.px-4.px-lg-5
-                a.navbar-brand(href='#page-top')
+                a.navbar-brand(href='index.html')
                     img(src='assets/img/logos/oioi_black.svg', alt='OIOI Jewellery Logo', style='height: 90px;')
                 button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
@@ -43,100 +39,80 @@ html(lang='it')
                         li.nav-item
                             a.nav-link(href='about.html') About
                         li.nav-item
-                            a.nav-link(href='#portfolio') Collezioni
+                            a.nav-link(href='index.html#portfolio') Collezioni
                         li.nav-item
-                            a.nav-link(href='#contact') Enquiry
+                            a.nav-link(href='index.html#contact') Enquiry
                         li.nav-item
                             a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener') Social
 
         // Masthead
-        header.masthead
+        header.masthead(style='padding-bottom: 3rem;')
             .container.px-4.px-lg-5
                 .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
                     .col-lg-8.align-self-end
                         img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                         .d-flex.justify-content-center.align-items-center.mb-3
                             span.decorative-icon.me-4 🜃✴︎
-                            h1.my-0(style='font-size: 2rem;') Gioielli Artigianali
+                            h1.my-0(style='font-size: 1.4rem;') Opera
                             span.decorative-icon.ms-4 ✴︎🜃
-                        p Magic shaped from raw matter & artisanal intelligence
+                        p.mt-3 Una creazione che accade una sola volta
                         hr.divider
-                    .col-lg-8.align-self-baseline
-                        p.mb-5
-                        a(href='#portfolio')
-                            img(src='assets/img/buttons/Vai_Alle_Collezioni_Button.svg', alt='Vai alle collezioni')
 
-        //- About section removed
-
-        //- Services section removed
-
-        // Portfolio
-        #portfolio
-            .container-fluid
-                // Mobile Carousel (visible only on mobile)
-                .d-lg-none.mb-4
-                    #portfolioCarousel.carousel.slide(data-bs-ride='carousel')
-                        .carousel-inner
-                            .carousel-item.active
-                                a(href='opera.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/1.jpg', alt='Opera Collection')
-                            .carousel-item
-                                a(href='they-them.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/2.jpg', alt='THEY, THEM Collection')
-                            .carousel-item
-                                a(href='things.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/3.jpg', alt='T.H.I.N.G.S. Collection')
-                            .carousel-item
-                                a(href='they-them.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/4.jpg', alt='THEY, THEM Collection')
-                            .carousel-item
-                                a(href='they-them.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/5.jpg', alt='THEY, THEM Collection')
-                            .carousel-item
-                                a(href='opera.html')
-                                    img.d-block.w-100(src='assets/img/portfolio/thumbnails/6.jpg', alt='Opera Collection')
-                        button.carousel-control-prev(type='button', data-bs-target='#portfolioCarousel', data-bs-slide='prev')
-                            span.carousel-control-prev-icon(aria-hidden='true')
-                            span.visually-hidden Previous
-                        button.carousel-control-next(type='button', data-bs-target='#portfolioCarousel', data-bs-slide='next')
-                            span.carousel-control-next-icon(aria-hidden='true')
-                            span.visually-hidden Next
-                
-                // Desktop Grid (visible only on desktop)
-                .d-none.d-lg-block
-                    .row.g-2.justify-content-center
-                        .col-lg-4.col-sm-6
-                            a(href='opera.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/1.jpg', alt='Opera Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='they-them.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/2.jpg', alt='THEY, THEM Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='things.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/3.jpg', alt='T.H.I.N.G.S. Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='they-them.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/4.jpg', alt='THEY, THEM Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='they-them.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/5.jpg', alt='THEY, THEM Collection')
-                        .col-lg-4.col-sm-6
-                            a(href='opera.html')
-                                img.img-fluid(src='assets/img/portfolio/thumbnails/6.jpg', alt='Opera Collection')
-
-        // Contact
-        section#contact.page-section
+        // Collection Carousel
+        section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
             .container.px-4.px-lg-5
                 .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-8
-                        h4.mb-4.text-center(style='font-size: 1.1rem;') Creazioni originali, disegnate e fatte a mano a Firenze
-                        p.font-calligraphy.text-center.mb-5(style='font-size: 2rem; line-height: 1.6;') Se qualcosa che hai visto ti ha fatto dire "Oioi", scrivimi magari è già pronto, o aspetta solo te per prendere forma
-                    .col-lg-5.col-md-8
+                    .col-lg-10
+                        #operaCarousel.carousel.slide(data-bs-ride='carousel')
+                            .carousel-inner
+                                .carousel-item.active
+                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/1.jpg', alt='Opera Collection Image 1')
+                                .carousel-item
+                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/6.jpg', alt='Opera Collection Image 2')
+                            button.carousel-control-prev(type='button', data-bs-target='#operaCarousel', data-bs-slide='prev')
+                                span.carousel-control-prev-icon(aria-hidden='true')
+                                span.visually-hidden Previous
+                            button.carousel-control-next(type='button', data-bs-target='#operaCarousel', data-bs-slide='next')
+                                span.carousel-control-next-icon(aria-hidden='true')
+                                span.visually-hidden Next
+
+        // Description and Contact
+        section#contact.page-section(style='padding-top: 2rem;')
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.align-items-start
+                    .col-lg-6
+                        p
+                            | Forme irripetibili nate in dialogo con chi le indosserà.
+                            br
+                            br
+                            br
+                            | Gioielli costruiti con tecniche di oreficeria complesse, pietre selezionate, smalti preziosi e leghe scelte con cura.
+                            br
+                            br
+                            | Ogni OPERA prende forma da un processo condiviso: un intreccio di gesto, intuizione e progetto.
+                            br
+                            br
+                            | Può nascere da ciò che ti appartiene già - una pietra ereditata, un cammeo antico, un gioiello dimenticato - oppure da zero, scegliendo insieme pietre e materiali.
+                            br
+                            br
+                            | La mia grammatica di stratificazioni trasforma tutto in una nuova presenza: metallo, memoria, colore, fuoco.
+                            br
+                            br
+                            | Sono creazioni che non esistono prima della conversazione.
+                            br
+                            br
+                            | Emergono dalle intenzioni, dalle storie, dal momento - e dal metallo che risponde al fuoco.
+                            br
+                            br
+                            strong OPERA è una creazione che accade una sola volta, nel gesto, nel processo che trasforma il metallo prezioso.
+                    .col-lg-6
+
                         // Netlify Forms
-                        form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+                        form#contactForm(name='contact-opera', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
 
                             // Netlify Forms hidden fields
-                            input(type='hidden', name='form-name', value='contact')
+                            input(type='hidden', name='form-name', value='contact-opera')
+                            input(type='hidden', name='collection', value='Opera')
                             // Honeypot field
                             input(type='text', name='bot-field', class='d-none')
 
@@ -189,7 +165,7 @@ html(lang='it')
                                     | A message is required.
 
                             // Submit Button
-                            .d-grid.mt-4
+                            .d-grid
                                 button#submitButton.btn-reset(type='submit')
                                     img(src='assets/img/buttons/Entra_In_Contatto.svg', alt='Entra in contatto')
 
@@ -205,10 +181,6 @@ html(lang='it')
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
 
-        // SimpleLightbox plugin JS
-        script(src='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js')
-
         // Core theme JS
         script(src='js/scripts.js')
 
-        // Netlify Forms handles submissions server-side; no client JS needed

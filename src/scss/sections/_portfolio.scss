@@ -22,6 +22,16 @@
             }
         }
 
+        // Carousel styles for mobile
+        .carousel {
+            .carousel-item {
+                a {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+
         .portfolio-box {
             position: relative;
             display: block;

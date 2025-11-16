@@ -53,9 +53,155 @@ html(lang='it')
                         img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                         .d-flex.justify-content-center.align-items-center.mb-3
                             span.decorative-icon.me-4 🜃✴︎
-                            h1.font-calligraphy.my-0 Coming Soon
+                            h1.font-calligraphy.my-0 About
                             span.decorative-icon.ms-4 ✴︎🜃
                         hr.divider
+
+        // Image Placeholder
+        section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-lg-10
+                        img.img-fluid.w-100(src='assets/img/portfolio/fullsize/1.jpg', alt='OIOI Jewellery')
+
+        // Content
+        section.page-section
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-lg-10
+                        .mb-5
+                            h2.mb-4 Intro
+                            p OIOI è gioielleria artigianale nata tra Arezzo, Firenze e Londra.
+                            p Una fusione viva di tecnica tradizionale, visione contemporanea e una sensibilità che intreccia arte, architettura, cinema, musica e cultura pop.
+                            p Ogni pezzo è un piccolo universo in metallo prezioso, pietre selezionate e smalti stratificati.
+                            p.mt-4 🜃 Fatti a Firenze, pensati per chi sente.
+
+                        .mb-5
+                            h2.mb-4 La Porta
+                            p Il simbolo di OIOI nasce dall'antico stemma delle Arti Maggiori di Firenze.
+                            p La Porta dell'Arte della Seta — sotto cui lavoravano anche gli orafi — diventa oggi un segno contemporaneo: i battenti sono una O e una I che si intersecano, ripetendosi come un ritmo, un mantra, un codice.
+                            p È una soglia: tra passato e presente, tra mestiere e visione, tra rigore tecnico e libertà creativa.
+                            p La Porta è il mio modo di dire entra, c'è un mondo dentro.
+
+                        .mb-5
+                            h2.mb-4 Il mio linguaggio alchemico
+                            p OIOI è il mio modo di trasformare immagini, memorie e simboli in forme.
+                            p Una grammatica fatta di metallo, intuizione e connessioni invisibili.
+                            p Gioielli identitari, inclusivi, narrativi: oggetti che parlano e creano legami.
+
+                        .mb-5
+                            h2.mb-4 Il mio metodo
+                            p Disegno, studio proporzioni, volumi e architetture.
+                            p Poi al banco la materia risponde: metallo, cera, fuoco, smalti, pietre.
+                            p Lavoro con tecniche tradizionali – cera persa, lastra, filo, smalti vetrosi, costruzioni complesse – sempre con un approccio contemporaneo e personale.
+                            p Al banco entro in uno stato di flusso totale.
+                            p È come se un fuoco archetipico guidasse il gesto e la materia seguisse.
+                            p La tecnica diventa naturale, il pensiero si allinea alla mano.
+
+                        .mb-5
+                            h2.mb-4 Punk chic: l'estetica OIOI
+                            p Il mio stile vive in un territorio preciso: punk chic.
+                            p Rigore tecnico + libertà intuitiva.
+                            p Cultura alta + cultura pop.
+                            p Eleganza + irriverenza.
+                            p Una bellezza che nasce dal gesto, non dall'apparenza.
+                            p Una bellezza libera, mai addomesticata.
+
+                        .mb-5
+                            h2.mb-4 Gioielli che parlano
+                            p Creo gioielli che portano significato:
+                            p ex-voto contemporanei, cameo pop, amuleti affettivi, simboli personali.
+                            p Ogni pezzo è un frammento di storia: tua, mia, o di chi sceglie di indossarlo.
+
+                        .mb-5
+                            h2.mb-4 Gioielli per tutti
+                            p OIOI non ha genere.
+                            p I T.H.I.N.G.S., i they/them, le commissioni bespoke, le collezioni pop o concettuali:
+                            p tutto nasce per essere indossato da chi si riconosce nella vibrazione del pezzo.
+
+                        .mb-5
+                            h2.mb-4 Visione → Forma
+                            p La mia skill più profonda è vedere connessioni.
+                            p Trasformare elementi lontani – film, architetture, musica, simboli, cultura visiva, oggetti quotidiani – in una forma nuova.
+                            p Ogni gioiello è una narrazione in metallo: calibrata, unica, irripetibile.
+
+                        .mb-5
+                            h2.mb-4 Bussa e ti aprirò la porta
+                            p Il resto lo facciamo insieme: immaginare, scegliere, costruire.
+                            p Il tuo gioiello OIOI ti sta aspettando.
+                            p.mt-4 🜃
+
+        // Contact
+        section#contact.page-section
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-lg-8.col-xl-6.text-center
+                        h2.mt-0.font-calligraphy Ti aprirò la porta, e da li potremo cominciare a creare insieme
+                        p Se qualcosa ti ha incuriosito, scrivimi per parlarne
+                        hr.divider
+                .row.gx-4.gx-lg-5.justify-content-center.mb-5
+                    .col-lg-6
+
+                        // Netlify Forms
+                        form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+
+                            // Netlify Forms hidden fields
+                            input(type='hidden', name='form-name', value='contact')
+                            // Honeypot field
+                            input(type='text', name='bot-field', class='d-none')
+
+                            // Name input
+                            .form-floating.mb-3
+                                input#name.form-control(
+                                    type='text',
+                                    name='name',
+                                    placeholder='Enter your name...',
+                                    required
+                                )
+                                label(for='name') Full name
+                                .invalid-feedback(data-sb-feedback='name:required')
+                                    | A name is required.
+
+                            // Email address input
+                            .form-floating.mb-3
+                                input#email.form-control(
+                                    type='email',
+                                    name='email',
+                                    placeholder='name@example.com',
+                                    required
+                                )
+                                label(for='email') Email address
+                                .invalid-feedback(data-sb-feedback='email:required')
+                                    | An email is required.
+                                .invalid-feedback(data-sb-feedback='email:email')
+                                    | Email is not valid.
+
+                            // Phone number input
+                            .form-floating.mb-3
+                                input#phone.form-control(
+                                    type='tel',
+                                    name='phone',
+                                    placeholder='(123) 456-7890'
+                                )
+                                label(for='phone') Phone number
+
+                            // Message input
+                            .form-floating.mb-3
+                                textarea#message.form-control(
+                                    type='text',
+                                    name='message',
+                                    placeholder='Enter your message here...',
+                                    style='height: 10rem;',
+                                    required
+                                )
+                                label(for='message') Message
+                                .invalid-feedback(data-sb-feedback='message:required')
+                                    | A message is required.
+
+                            // Submit Button
+                            .d-grid
+                                button#submitButton.btn-reset(type='submit')
+                                    img(src='assets/img/buttons/Entra_In_Contatto.svg', alt='Entra in contatto')
 
         // Footer
         footer.py-5

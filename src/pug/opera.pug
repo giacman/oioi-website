@@ -5,10 +5,10 @@ html(lang='it')
 
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='Bespoke Collection — OIOI Jewellery')
+        meta(name='description', content='Opera Collection — OIOI Jewellery')
         meta(name='author', content='OIOI Jewellery')
 
-        title Bespoke — OIOI Jewellery
+        title Opera — OIOI Jewellery
 
         // Favicon
         link(rel='icon', type='image/svg+xml', href='assets/favicon.svg')
@@ -46,54 +46,73 @@ html(lang='it')
                             a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener') Social
 
         // Masthead
-        header.masthead
+        header.masthead(style='padding-bottom: 3rem;')
             .container.px-4.px-lg-5
                 .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
                     .col-lg-8.align-self-end
                         img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                         .d-flex.justify-content-center.align-items-center.mb-3
                             span.decorative-icon.me-4 🜃✴︎
-                            h1.font-calligraphy.my-0 Bespoke
+                            h1.font-calligraphy.my-0 Opera
                             span.decorative-icon.ms-4 ✴︎🜃
+                        p.mt-3 Una creazione che accade una sola volta
                         hr.divider
-                        .text-center.mt-5.mb-5
-                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
         // Collection Carousel
-        section.page-section
+        section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
             .container.px-4.px-lg-5
                 .row.gx-4.gx-lg-5.justify-content-center
                     .col-lg-10
-                        #bespokeCarousel.carousel.slide(data-bs-ride='carousel')
+                        #operaCarousel.carousel.slide(data-bs-ride='carousel')
                             .carousel-inner
                                 .carousel-item.active
-                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/1.jpg', alt='Bespoke Collection Image 1')
+                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/1.jpg', alt='Opera Collection Image 1')
                                 .carousel-item
-                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/6.jpg', alt='Bespoke Collection Image 2')
-                            button.carousel-control-prev(type='button', data-bs-target='#bespokeCarousel', data-bs-slide='prev')
+                                    img.d-block.w-100(src='assets/img/portfolio/fullsize/6.jpg', alt='Opera Collection Image 2')
+                            button.carousel-control-prev(type='button', data-bs-target='#operaCarousel', data-bs-slide='prev')
                                 span.carousel-control-prev-icon(aria-hidden='true')
                                 span.visually-hidden Previous
-                            button.carousel-control-next(type='button', data-bs-target='#bespokeCarousel', data-bs-slide='next')
+                            button.carousel-control-next(type='button', data-bs-target='#operaCarousel', data-bs-slide='next')
                                 span.carousel-control-next-icon(aria-hidden='true')
                                 span.visually-hidden Next
 
-        // Contact
-        section#contact.page-section
+        // Description and Contact
+        section#contact.page-section(style='padding-top: 2rem;')
             .container.px-4.px-lg-5
-                .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-8.col-xl-6.text-center
-                        h2.mt-0.font-calligraphy Ti aprirò la porta, e da li potremo cominciare a creare insieme
-                        p Se qualcosa ti ha incuriosito, scrivimi per parlarne
-                        hr.divider
-                .row.gx-4.gx-lg-5.justify-content-center.mb-5
+                .row.gx-4.gx-lg-5.align-items-start
+                    .col-lg-6
+                        p
+                            | Forme irripetibili nate in dialogo con chi le indosserà.
+                            br
+                            br
+                            br
+                            | Gioielli costruiti con tecniche di oreficeria complesse, pietre selezionate, smalti preziosi e leghe scelte con cura.
+                            br
+                            br
+                            | Ogni OPERA prende forma da un processo condiviso: un intreccio di gesto, intuizione e progetto.
+                            br
+                            br
+                            | Può nascere da ciò che ti appartiene già - una pietra ereditata, un cammeo antico, un gioiello dimenticato - oppure da zero, scegliendo insieme pietre e materiali.
+                            br
+                            br
+                            | La mia grammatica di stratificazioni trasforma tutto in una nuova presenza: metallo, memoria, colore, fuoco.
+                            br
+                            br
+                            | Sono creazioni che non esistono prima della conversazione.
+                            br
+                            br
+                            | Emergono dalle intenzioni, dalle storie, dal momento - e dal metallo che risponde al fuoco.
+                            br
+                            br
+                            strong OPERA è una creazione che accade una sola volta, nel gesto, nel processo che trasforma il metallo prezioso.
                     .col-lg-6
 
                         // Netlify Forms
-                        form#contactForm(name='contact-bespoke', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+                        form#contactForm(name='contact-opera', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
 
                             // Netlify Forms hidden fields
-                            input(type='hidden', name='form-name', value='contact-bespoke')
-                            input(type='hidden', name='collection', value='Bespoke')
+                            input(type='hidden', name='form-name', value='contact-opera')
+                            input(type='hidden', name='collection', value='Opera')
                             // Honeypot field
                             input(type='text', name='bot-field', class='d-none')
 

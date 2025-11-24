@@ -13,10 +13,7 @@ function _processFile(filePath) {
         && !filePath.match(/include/)
         && !filePath.match(/mixin/)
         && !filePath.match(/\/pug\/layouts\//)
-        && !filePath.match(/\/pug\/success\.pug/)
     ) {
-        renderPug(filePath);
-    } else if (filePath.match(/src\/pug\/success\.pug/)) {
         renderPug(filePath);
     }
 }

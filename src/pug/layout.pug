@@ -5,6 +5,20 @@ html(lang='it')
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
         
+        // Google Consent Mode v2 - Initialize before GTM
+        script.
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            
+            // Default consent state - deny all until user accepts
+            gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': 500
+            });
+        
         // Google Tag Manager
         script.
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -15,7 +29,7 @@ html(lang='it')
         // End Google Tag Manager
 
         block meta_description
-            meta(name='description', content='OIOI Jewellery — Florence-born artisanal jewellery. Magia plasmata dalla materia grezza e dall’intelligenza artigianale.')
+            meta(name='description', content="OIOI Jewellery — Florence-born artisanal jewellery. Magia plasmata dalla materia grezza e dall'intelligenza artigianale.")
         
         meta(name='author', content='OIOI Jewellery')
 
@@ -67,6 +81,17 @@ html(lang='it')
 
         block content
 
+        // Cookie Banner
+        #cookieBanner.cookie-banner(role='dialog', aria-label='Cookie consent', aria-hidden='true')
+            .cookie-banner-content
+                .cookie-banner-text
+                    p.mb-0
+                        | Questo sito utilizza cookie per migliorare l'esperienza di navigazione e per analizzare il traffico. 
+                        a(href='cookie-policy.html') Maggiori informazioni
+                .cookie-banner-actions
+                    button#cookieAccept.btn.btn-sm.btn-primary(type='button') Accetta
+                    button#cookieReject.btn.btn-sm.btn-outline-secondary(type='button') Rifiuta
+
         // Footer
         footer.py-5
             .container.px-4.px-lg-5
@@ -75,10 +100,14 @@ html(lang='it')
                     br
                     | Gaia Cionnini - P.IVA 07327210485 · C.F. CNNGAI82D61A390A
                     br
+                    .mt-2.mb-2
+                        a.me-2(href='cookie-policy.html') Cookie Policy
+                        span.me-2 |
+                        a.me-2(href='#', onclick='window.showCookiePreferences(); return false;') Gestisci cookie
                     .mt-2
                         a.me-3(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener', aria-label='Instagram')
                             i.bi.bi-instagram(style='font-size: 1.2rem;')
-                        a.me-3(href='https://wa.me/YOUR_PHONE_NUMBER' target='_blank' rel='noopener', aria-label='WhatsApp')
+                        a.me-3(href='https://wa.me/393475443897' target='_blank' rel='noopener', aria-label='WhatsApp')
                             i.bi.bi-whatsapp(style='font-size: 1.2rem;')
                         a(href='https://www.facebook.com/oioijewellery' target='_blank' rel='noopener', aria-label='Facebook')
                             i.bi.bi-facebook(style='font-size: 1.2rem;')
@@ -92,4 +121,6 @@ html(lang='it')
 
             // Core theme JS
             script(src='js/scripts.js')
-
+            
+            // Cookie Banner JS
+            script(src='js/cookie-banner.js')

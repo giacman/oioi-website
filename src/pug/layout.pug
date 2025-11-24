@@ -1,0 +1,135 @@
+doctype html
+html(lang='it')
+
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        
+        // Google Consent Mode v2 - Initialize before GTM
+        script.
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            
+            // Default consent state - deny all until user accepts
+            gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': 500
+            });
+        
+        // Google Tag Manager
+        script.
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-W759WSVM');
+        // End Google Tag Manager
+
+        block meta_description
+            meta(name='description', content='OIOI Jewellery — Florence-born artisanal jewellery. Magia plasmata dalla materia grezza e dall’intelligenza artigianale.')
+        
+        meta(name='author', content='OIOI Jewellery')
+
+        block title
+            title OIOI Jewellery
+
+        // Favicon
+        // Prefer SVG; fallback ICO remains in dist
+        link(rel='icon', type='image/svg+xml', href='assets/favicon.svg')
+        link(rel='alternate icon', type='image/x-icon', href='assets/favicon.ico')
+
+        // Bootstrap Icons
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css', rel='stylesheet')
+
+        // Google fonts
+        link(rel='preconnect', href='https://fonts.googleapis.com')
+        link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+        link(href='https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@400;500;700&display=swap', rel='stylesheet')
+
+        // SimpleLightbox plugin CSS
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css', rel='stylesheet')
+
+        // Core theme CSS (includes Bootstrap)
+        link(href='css/styles.css', rel='stylesheet')
+
+    body#page-top
+        // Google Tag Manager (noscript)
+        noscript
+            iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-W759WSVM', height='0', width='0', style='display:none;visibility:hidden')
+        // End Google Tag Manager (noscript)
+
+        // Navigation
+        nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
+            .container.px-4.px-lg-5
+                a.navbar-brand(href='/#page-top')
+                    img(src='assets/img/logos/oioi_black.svg', alt='OIOI Jewellery Logo', style='height: 90px;')
+                button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.ms-auto.my-2.my-lg-0
+                        li.nav-item
+                            a.nav-link(href='about.html') About
+                        li.nav-item
+                            a.nav-link(href='index.html#portfolio') Collezioni
+                        li.nav-item
+                            a.nav-link(href='index.html#contact') Enquiry
+                        li.nav-item
+                            a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener') Instagram
+
+        block content
+
+        // Cookie Banner
+        #cookieBanner.cookie-banner(role='dialog', aria-label='Cookie consent', aria-hidden='true')
+            .cookie-banner-content
+                .cookie-banner-text
+                    p.mb-0
+                        | Questo sito utilizza cookie per migliorare l'esperienza di navigazione e per analizzare il traffico. 
+                        a(href='#', data-bs-toggle='modal', data-bs-target='#cookiePolicyModal') Maggiori informazioni
+                .cookie-banner-actions
+                    button#cookieAccept.btn.btn-sm.btn-primary(type='button') Accetta
+                    button#cookieReject.btn.btn-sm.btn-outline-secondary(type='button') Rifiuta
+
+        // Cookie Policy Modal (optional - for detailed policy)
+        .modal.fade#cookiePolicyModal(tabindex='-1', aria-labelledby='cookiePolicyModalLabel', aria-hidden='true')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        h5.modal-title#cookiePolicyModalLabel Informativa sui Cookie
+                        button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close')
+                    .modal-body
+                        p Questo sito utilizza cookie tecnici e di analisi per migliorare l'esperienza utente e analizzare il traffico del sito.
+                        p I cookie di analisi ci aiutano a capire come i visitatori interagiscono con il sito web raccogliendo informazioni in forma anonima.
+                        p Puoi gestire le tue preferenze sui cookie utilizzando i pulsanti nel banner.
+
+        // Footer
+        footer.py-5
+            .container.px-4.px-lg-5
+                .small.text-center.text-muted
+                    | © 2025 - OIOI Jewellery · Florence || Handcrafted in Santo Spirito
+                    br
+                    | Gaia Cionnini - P.IVA 07327210485 · C.F. CNNGAI82D61A390A
+                    br
+                    .mt-2
+                        a.me-3(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener', aria-label='Instagram')
+                            i.bi.bi-instagram(style='font-size: 1.2rem;')
+                        a.me-3(href='https://wa.me/YOUR_PHONE_NUMBER' target='_blank' rel='noopener', aria-label='WhatsApp')
+                            i.bi.bi-whatsapp(style='font-size: 1.2rem;')
+                        a(href='https://www.facebook.com/oioijewellery' target='_blank' rel='noopener', aria-label='Facebook')
+                            i.bi.bi-facebook(style='font-size: 1.2rem;')
+
+        block scripts
+            // Bootstrap core JS
+            script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+
+            // SimpleLightbox plugin JS
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js')
+
+            // Core theme JS
+            script(src='js/scripts.js')
+            
+            // Cookie Banner JS
+            script(src='js/cookie-banner.js')
+

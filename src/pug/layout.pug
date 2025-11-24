@@ -87,22 +87,10 @@ html(lang='it')
                 .cookie-banner-text
                     p.mb-0
                         | Questo sito utilizza cookie per migliorare l'esperienza di navigazione e per analizzare il traffico. 
-                        a(href='#', data-bs-toggle='modal', data-bs-target='#cookiePolicyModal') Maggiori informazioni
+                        a(href='cookie-policy.html') Maggiori informazioni
                 .cookie-banner-actions
                     button#cookieAccept.btn.btn-sm.btn-primary(type='button') Accetta
                     button#cookieReject.btn.btn-sm.btn-outline-secondary(type='button') Rifiuta
-
-        // Cookie Policy Modal (optional - for detailed policy)
-        .modal.fade#cookiePolicyModal(tabindex='-1', aria-labelledby='cookiePolicyModalLabel', aria-hidden='true')
-            .modal-dialog
-                .modal-content
-                    .modal-header
-                        h5.modal-title#cookiePolicyModalLabel Informativa sui Cookie
-                        button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close')
-                    .modal-body
-                        p Questo sito utilizza cookie tecnici e di analisi per migliorare l'esperienza utente e analizzare il traffico del sito.
-                        p I cookie di analisi ci aiutano a capire come i visitatori interagiscono con il sito web raccogliendo informazioni in forma anonima.
-                        p Puoi gestire le tue preferenze sui cookie utilizzando i pulsanti nel banner.
 
         // Footer
         footer.py-5
@@ -112,10 +100,14 @@ html(lang='it')
                     br
                     | Gaia Cionnini - P.IVA 07327210485 · C.F. CNNGAI82D61A390A
                     br
+                    .mt-2.mb-2
+                        a.me-2(href='cookie-policy.html') Cookie Policy
+                        span.me-2 |
+                        a.me-2(href='#', onclick='window.showCookiePreferences(); return false;') Gestisci cookie
                     .mt-2
                         a.me-3(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener', aria-label='Instagram')
                             i.bi.bi-instagram(style='font-size: 1.2rem;')
-                        a.me-3(href='https://wa.me/YOUR_PHONE_NUMBER' target='_blank' rel='noopener', aria-label='WhatsApp')
+                        a.me-3(href='https://wa.me/393475443897' target='_blank' rel='noopener', aria-label='WhatsApp')
                             i.bi.bi-whatsapp(style='font-size: 1.2rem;')
                         a(href='https://www.facebook.com/oioijewellery' target='_blank' rel='noopener', aria-label='Facebook')
                             i.bi.bi-facebook(style='font-size: 1.2rem;')

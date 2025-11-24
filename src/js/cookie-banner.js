@@ -79,6 +79,25 @@
         hideCookieBanner();
     }
 
+    // Show cookie preferences (for managing existing preferences)
+    function showCookiePreferences() {
+        showCookieBanner();
+        
+        // Attach event listeners if not already attached
+        const acceptBtn = document.getElementById('cookieAccept');
+        const rejectBtn = document.getElementById('cookieReject');
+
+        if (acceptBtn && !acceptBtn.hasAttribute('data-listener-attached')) {
+            acceptBtn.addEventListener('click', handleAccept);
+            acceptBtn.setAttribute('data-listener-attached', 'true');
+        }
+
+        if (rejectBtn && !rejectBtn.hasAttribute('data-listener-attached')) {
+            rejectBtn.addEventListener('click', handleReject);
+            rejectBtn.setAttribute('data-listener-attached', 'true');
+        }
+    }
+
     // Initialize cookie banner
     function initCookieBanner() {
         const consentStatus = getConsentStatus();
@@ -99,12 +118,17 @@
 
         if (acceptBtn) {
             acceptBtn.addEventListener('click', handleAccept);
+            acceptBtn.setAttribute('data-listener-attached', 'true');
         }
 
         if (rejectBtn) {
             rejectBtn.addEventListener('click', handleReject);
+            rejectBtn.setAttribute('data-listener-attached', 'true');
         }
     }
+
+    // Expose function globally for "Manage cookies" link
+    window.showCookiePreferences = showCookiePreferences;
 
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {

@@ -1,0 +1,107 @@
+extends layout.pug
+
+block title
+    title Informativa sui Cookie — OIOI Jewellery
+
+block meta_description
+    meta(name='description', content='Informativa sui Cookie di OIOI Jewellery — Come utilizziamo i cookie e come gestire le tue preferenze.')
+
+block content
+    // Masthead
+    header.masthead(style='padding-bottom: 3rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
+                .col-lg-8.align-self-end
+                    img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
+                    .d-flex.justify-content-center.align-items-center.mb-3
+                        span.decorative-icon.me-2 🜃✴︎
+                        h1.my-0(style='font-size: 2rem;') Informativa sui Cookie
+                        span.decorative-icon.ms-2 ✴︎🜃
+                    hr.divider
+
+    // Cookie Policy Content
+    section.page-section
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.justify-content-center
+                .col-lg-8
+                    .mb-5
+                        p Ultimo aggiornamento: 24 novembre 2025
+                    
+                    .mb-5
+                        h2.mb-3 Cos'è un cookie?
+                        p I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo (computer, tablet, smartphone) quando visiti un sito web. I cookie permettono al sito di ricordare le tue azioni e preferenze per un periodo di tempo, così non devi reinserirle ogni volta che torni sul sito o navighi da una pagina all'altra.
+                    
+                    .mb-5
+                        h2.mb-3 Come utilizziamo i cookie
+                        p Questo sito utilizza i cookie per:
+                        ul
+                            li Migliorare la tua esperienza di navigazione
+                            li Analizzare il traffico del sito in modo anonimo e aggregato
+                            li Comprendere come i visitatori interagiscono con il sito
+                        
+                        p I dati raccolti sono utilizzati esclusivamente per fini statistici e di miglioramento del sito, e non vengono utilizzati per identificarti personalmente.
+                    
+                    .mb-5
+                        h2.mb-3 Tipi di cookie utilizzati
+                        
+                        h3.mb-3 Cookie tecnici (necessari)
+                        p Questi cookie sono essenziali per il funzionamento del sito e non possono essere disattivati. Includono cookie che permettono di ricordare le tue preferenze di consenso ai cookie.
+                        
+                        h3.mb-3 Cookie di analisi
+                        p Utilizziamo Google Analytics 4 (GA4) tramite Google Tag Manager per analizzare l'utilizzo del sito. Questi cookie raccolgono informazioni in forma anonima e aggregata su:
+                        ul
+                            li Numero di visitatori
+                            li Pagine più visitate
+                            li Tempo di permanenza sul sito
+                            li Provenienza dei visitatori
+                        
+                        p I dati sono raccolti in conformità con Google Consent Mode v2 e rispettano le tue preferenze di consenso. Quando rifiuti i cookie di analisi, i dati vengono comunque raccolti ma in forma completamente anonima, senza identificazione dell'utente.
+                    
+                    .mb-5
+                        h2.mb-3 Gestione dei cookie
+                        p Puoi gestire le tue preferenze sui cookie in qualsiasi momento utilizzando i pulsanti "Accetta" o "Rifiuta" nel banner dei cookie.
+                        
+                        p Tieni presente che la disattivazione di alcuni cookie potrebbe influire sulla funzionalità del sito.
+                    
+                    .mb-5
+                        h2.mb-3 Cookie di terze parti
+                        p Questo sito utilizza i seguenti servizi di terze parti che potrebbero impostare cookie:
+                        ul
+                            li 
+                                strong Google Analytics 4 (GA4)
+                                | : Servizio di analisi web fornito da Google LLC. Per maggiori informazioni: 
+                                a(href='https://policies.google.com/privacy', target='_blank', rel='noopener') Privacy Policy di Google
+                            li 
+                                strong Google Tag Manager
+                                | : Servizio di gestione tag fornito da Google LLC
+                        
+                        p Questi servizi rispettano le tue preferenze di consenso e raccolgono dati solo se hai accettato i cookie di analisi.
+                    
+                    .mb-5
+                        h2.mb-3 Durata dei cookie
+                        p I cookie utilizzati da questo sito hanno durate diverse:
+                        ul
+                            li Cookie di sessione: vengono eliminati quando chiudi il browser
+                            li Cookie persistenti: rimangono sul tuo dispositivo per un periodo determinato o fino a quando non li elimini manualmente
+                            li Cookie di consenso: vengono salvati per ricordare le tue preferenze (durata: 12 mesi)
+                    
+                    .mb-5
+                        h2.mb-3 I tuoi diritti
+                        p In conformità con il GDPR, hai il diritto di:
+                        ul
+                            li Essere informato sull'utilizzo dei cookie
+                            li Accettare o rifiutare i cookie non essenziali
+                            li Revocare il consenso in qualsiasi momento
+                            li Eliminare i cookie dal tuo browser
+                            li Richiedere informazioni sui dati raccolti
+                    
+                    .mb-5
+                        h2.mb-3 Contatti
+                        p Per domande o richieste riguardo all'utilizzo dei cookie, puoi contattarci tramite il 
+                            a(href='index.html#contact') modulo di contatto
+                            |  presente sul sito.
+                    
+                    .text-center.mt-5
+                        a.btn.btn-outline-secondary.me-2(href='#', onclick='window.showCookiePreferences(); return false;') Gestisci cookie
+                        a.btn.btn-primary(href='index.html') Torna alla Homepage
+

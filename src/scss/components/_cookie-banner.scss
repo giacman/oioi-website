@@ -95,8 +95,8 @@
 }
 
 // Prevent body scroll when banner is visible (optional)
-body.cookie-banner-visible {
-    // You can add padding-bottom to prevent content from being hidden
-    // padding-bottom: 120px; // Adjust based on banner height
-}
+// Uncomment if needed:
+// body.cookie-banner-visible {
+//     padding-bottom: 120px; // Adjust based on banner height
+// }
 

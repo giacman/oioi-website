@@ -1,227 +1,166 @@
-doctype html
-html(lang='it')
+extends layout.pug
 
-    head
+block title
+    title About — OIOI Jewellery
 
-        meta(charset='utf-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='About OIOI Jewellery — Florence-born artisanal jewellery.')
-        meta(name='author', content='OIOI Jewellery')
+block meta_description
+    meta(name='description', content='About OIOI Jewellery — Florence-born artisanal jewellery.')
 
-        title About — OIOI Jewellery
+block content
+    // Masthead
+    header.masthead(style='padding-bottom: 1rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
+                .col-lg-8.align-self-end
+                    img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
+                    .d-flex.justify-content-center.align-items-center.mb-3
+                        span.decorative-icon.me-2 🜃✴︎
+                        h1.my-0(style='font-size: 2rem;') About
+                        span.decorative-icon.ms-2 ✴︎🜃
+                    hr.divider
 
-        // Favicon
-        link(rel='icon', type='image/svg+xml', href='assets/favicon.svg')
-        link(rel='alternate icon', type='image/x-icon', href='assets/favicon.ico')
+    // Image Placeholder
+    section.page-section(style='padding-top: 1rem; padding-bottom: 1rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.justify-content-center
+                .col-lg-10
+                    img.img-fluid.w-100(src='assets/img/about/temporay_about_photo.jpg', alt='OIOI Jewellery')
 
-        // Bootstrap Icons
-        link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css', rel='stylesheet')
+    // Content
+    section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.justify-content-center
+                .col-lg-10
+                    .mb-5
+                        h2.mb-4 Intro
+                        p OIOI è gioielleria artigianale nata tra Arezzo, Firenze e Londra.
+                        p Una fusione viva di tecnica tradizionale, visione contemporanea e una sensibilità che intreccia arte, architettura, cinema, musica e cultura pop.
+                        p Ogni pezzo è un piccolo universo in metallo prezioso, pietre selezionate e smalti stratificati.
+                        p.mt-4 🜃 Fatti a Firenze, pensati per chi sente.
 
-        // Google fonts
-        link(rel='preconnect', href='https://fonts.googleapis.com')
-        link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
-        link(href='https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@400;500;700&display=swap', rel='stylesheet')
+                    .mb-5
+                        h2.mb-4 La Porta
+                        p Il simbolo di OIOI nasce dall'antico stemma delle Arti Maggiori di Firenze.
+                        p La Porta dell'Arte della Seta — sotto cui lavoravano anche gli orafi — diventa oggi un segno contemporaneo: i battenti sono una O e una I che si intersecano, ripetendosi come un ritmo, un mantra, un codice.
+                        p È una soglia: tra passato e presente, tra mestiere e visione, tra rigore tecnico e libertà creativa.
+                        p La Porta è il mio modo di dire entra, c'è un mondo dentro.
 
-        // Core theme CSS (includes Bootstrap)
-        link(href='css/styles.css', rel='stylesheet')
+                    .mb-5
+                        h2.mb-4 Il mio linguaggio alchemico
+                        p OIOI è il mio modo di trasformare immagini, memorie e simboli in forme.
+                        p Una grammatica fatta di metallo, intuizione e connessioni invisibili.
+                        p Gioielli identitari, inclusivi, narrativi: oggetti che parlano e creano legami.
 
-    body#page-top
+                    .mb-5
+                        h2.mb-4 Il mio metodo
+                        p Disegno, studio proporzioni, volumi e architetture.
+                        p Poi al banco la materia risponde: metallo, cera, fuoco, smalti, pietre.
+                        p Lavoro con tecniche tradizionali – cera persa, lastra, filo, smalti vetrosi, costruzioni complesse – sempre con un approccio contemporaneo e personale.
+                        p Al banco entro in uno stato di flusso totale.
+                        p È come se un fuoco archetipico guidasse il gesto e la materia seguisse.
+                        p La tecnica diventa naturale, il pensiero si allinea alla mano.
 
-        // Navigation
-        nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
-            .container.px-4.px-lg-5
-                a.navbar-brand(href='index.html')
-                    img(src='assets/img/logos/oioi_black.svg', alt='OIOI Jewellery Logo', style='height: 90px;')
-                button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
-                    span.navbar-toggler-icon
-                #navbarResponsive.collapse.navbar-collapse
-                    ul.navbar-nav.ms-auto.my-2.my-lg-0
-                        li.nav-item
-                            a.nav-link(href='about.html') About
-                        li.nav-item
-                            a.nav-link(href='index.html#portfolio') Collezioni
-                        li.nav-item
-                            a.nav-link(href='index.html#contact') Enquiry
-                        li.nav-item
-                            a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener') Social
+                    .mb-5
+                        h2.mb-4 Punk chic: l'estetica OIOI
+                        p Il mio stile vive in un territorio preciso: punk chic.
+                        p Rigore tecnico + libertà intuitiva.
+                        p Cultura alta + cultura pop.
+                        p Eleganza + irriverenza.
+                        p Una bellezza che nasce dal gesto, non dall'apparenza.
+                        p Una bellezza libera, mai addomesticata.
 
-        // Masthead
-        header.masthead(style='padding-bottom: 1rem;')
-            .container.px-4.px-lg-5
-                .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
-                    .col-lg-8.align-self-end
-                        img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
-                        .d-flex.justify-content-center.align-items-center.mb-3
-                            span.decorative-icon.me-2 🜃✴︎
-                            h1.my-0(style='font-size: 2rem;') About
-                            span.decorative-icon.ms-2 ✴︎🜃
-                        hr.divider
+                    .mb-5
+                        h2.mb-4 Gioielli che parlano
+                        p Creo gioielli che portano significato:
+                        p ex-voto contemporanei, cameo pop, amuleti affettivi, simboli personali.
+                        p Ogni pezzo è un frammento di storia: tua, mia, o di chi sceglie di indossarlo.
 
-        // Image Placeholder
-        section.page-section(style='padding-top: 1rem; padding-bottom: 1rem;')
-            .container.px-4.px-lg-5
-                .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-10
-                        img.img-fluid.w-100(src='assets/img/about/temporay_about_photo.jpg', alt='OIOI Jewellery')
+                    .mb-5
+                        h2.mb-4 Gioielli per tutti
+                        p OIOI non ha genere.
+                        p I T.H.I.N.G.S., i they/them, le commissioni bespoke, le collezioni pop o concettuali:
+                        p tutto nasce per essere indossato da chi si riconosce nella vibrazione del pezzo.
 
-        // Content
-        section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
-            .container.px-4.px-lg-5
-                .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-10
-                        .mb-5
-                            h2.mb-4 Intro
-                            p OIOI è gioielleria artigianale nata tra Arezzo, Firenze e Londra.
-                            p Una fusione viva di tecnica tradizionale, visione contemporanea e una sensibilità che intreccia arte, architettura, cinema, musica e cultura pop.
-                            p Ogni pezzo è un piccolo universo in metallo prezioso, pietre selezionate e smalti stratificati.
-                            p.mt-4 🜃 Fatti a Firenze, pensati per chi sente.
+                    .mb-5
+                        h2.mb-4 Visione → Forma
+                        p La mia skill più profonda è vedere connessioni.
+                        p Trasformare elementi lontani – film, architetture, musica, simboli, cultura visiva, oggetti quotidiani – in una forma nuova.
+                        p Ogni gioiello è una narrazione in metallo: calibrata, unica, irripetibile.
 
-                        .mb-5
-                            h2.mb-4 La Porta
-                            p Il simbolo di OIOI nasce dall'antico stemma delle Arti Maggiori di Firenze.
-                            p La Porta dell'Arte della Seta — sotto cui lavoravano anche gli orafi — diventa oggi un segno contemporaneo: i battenti sono una O e una I che si intersecano, ripetendosi come un ritmo, un mantra, un codice.
-                            p È una soglia: tra passato e presente, tra mestiere e visione, tra rigore tecnico e libertà creativa.
-                            p La Porta è il mio modo di dire entra, c'è un mondo dentro.
+                    .mb-5
+                        h2.mb-4 Bussa e ti aprirò la porta
+                        p Il resto lo facciamo insieme: immaginare, scegliere, costruire.
+                        p Il tuo gioiello OIOI ti sta aspettando.
+                        p.mt-4 🜃
 
-                        .mb-5
-                            h2.mb-4 Il mio linguaggio alchemico
-                            p OIOI è il mio modo di trasformare immagini, memorie e simboli in forme.
-                            p Una grammatica fatta di metallo, intuizione e connessioni invisibili.
-                            p Gioielli identitari, inclusivi, narrativi: oggetti che parlano e creano legami.
+    // Contact
+    section#contact.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.justify-content-center
+                .col-lg-8.col-xl-6.text-center
+                    h2.mt-0.font-calligraphy Ti aprirò la porta, e da li potremo cominciare a creare insieme
+                    p Se qualcosa ti ha incuriosito, scrivimi per parlarne
+                    hr.divider
+            .row.gx-4.gx-lg-5.justify-content-center.mb-5
+                .col-lg-6
 
-                        .mb-5
-                            h2.mb-4 Il mio metodo
-                            p Disegno, studio proporzioni, volumi e architetture.
-                            p Poi al banco la materia risponde: metallo, cera, fuoco, smalti, pietre.
-                            p Lavoro con tecniche tradizionali – cera persa, lastra, filo, smalti vetrosi, costruzioni complesse – sempre con un approccio contemporaneo e personale.
-                            p Al banco entro in uno stato di flusso totale.
-                            p È come se un fuoco archetipico guidasse il gesto e la materia seguisse.
-                            p La tecnica diventa naturale, il pensiero si allinea alla mano.
+                    // Netlify Forms
+                    form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
 
-                        .mb-5
-                            h2.mb-4 Punk chic: l'estetica OIOI
-                            p Il mio stile vive in un territorio preciso: punk chic.
-                            p Rigore tecnico + libertà intuitiva.
-                            p Cultura alta + cultura pop.
-                            p Eleganza + irriverenza.
-                            p Una bellezza che nasce dal gesto, non dall'apparenza.
-                            p Una bellezza libera, mai addomesticata.
+                        // Netlify Forms hidden fields
+                        input(type='hidden', name='form-name', value='contact')
+                        // Honeypot field
+                        input(type='text', name='bot-field', class='d-none')
 
-                        .mb-5
-                            h2.mb-4 Gioielli che parlano
-                            p Creo gioielli che portano significato:
-                            p ex-voto contemporanei, cameo pop, amuleti affettivi, simboli personali.
-                            p Ogni pezzo è un frammento di storia: tua, mia, o di chi sceglie di indossarlo.
+                        // Name input
+                        .form-floating.mb-3
+                            input#name.form-control(
+                                type='text',
+                                name='name',
+                                placeholder='Enter your name...',
+                                required
+                            )
+                            label(for='name') Full name
+                            .invalid-feedback(data-sb-feedback='name:required')
+                                | A name is required.
 
-                        .mb-5
-                            h2.mb-4 Gioielli per tutti
-                            p OIOI non ha genere.
-                            p I T.H.I.N.G.S., i they/them, le commissioni bespoke, le collezioni pop o concettuali:
-                            p tutto nasce per essere indossato da chi si riconosce nella vibrazione del pezzo.
+                        // Email address input
+                        .form-floating.mb-3
+                            input#email.form-control(
+                                type='email',
+                                name='email',
+                                placeholder='name@example.com',
+                                required
+                            )
+                            label(for='email') Email address
+                            .invalid-feedback(data-sb-feedback='email:required')
+                                | An email is required.
+                            .invalid-feedback(data-sb-feedback='email:email')
+                                | Email is not valid.
 
-                        .mb-5
-                            h2.mb-4 Visione → Forma
-                            p La mia skill più profonda è vedere connessioni.
-                            p Trasformare elementi lontani – film, architetture, musica, simboli, cultura visiva, oggetti quotidiani – in una forma nuova.
-                            p Ogni gioiello è una narrazione in metallo: calibrata, unica, irripetibile.
+                        // Phone number input
+                        .form-floating.mb-3
+                            input#phone.form-control(
+                                type='tel',
+                                name='phone',
+                                placeholder='(123) 456-7890'
+                            )
+                            label(for='phone') Phone number
 
-                        .mb-5
-                            h2.mb-4 Bussa e ti aprirò la porta
-                            p Il resto lo facciamo insieme: immaginare, scegliere, costruire.
-                            p Il tuo gioiello OIOI ti sta aspettando.
-                            p.mt-4 🜃
+                        // Message input
+                        .form-floating.mb-3
+                            textarea#message.form-control(
+                                type='text',
+                                name='message',
+                                placeholder='Enter your message here...',
+                                style='height: 10rem;',
+                                required
+                            )
+                            label(for='message') Message
+                            .invalid-feedback(data-sb-feedback='message:required')
+                                | A message is required.
 
-        // Contact
-        section#contact.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
-            .container.px-4.px-lg-5
-                .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-8.col-xl-6.text-center
-                        h2.mt-0.font-calligraphy Ti aprirò la porta, e da li potremo cominciare a creare insieme
-                        p Se qualcosa ti ha incuriosito, scrivimi per parlarne
-                        hr.divider
-                .row.gx-4.gx-lg-5.justify-content-center.mb-5
-                    .col-lg-6
-
-                        // Netlify Forms
-                        form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
-
-                            // Netlify Forms hidden fields
-                            input(type='hidden', name='form-name', value='contact')
-                            // Honeypot field
-                            input(type='text', name='bot-field', class='d-none')
-
-                            // Name input
-                            .form-floating.mb-3
-                                input#name.form-control(
-                                    type='text',
-                                    name='name',
-                                    placeholder='Enter your name...',
-                                    required
-                                )
-                                label(for='name') Full name
-                                .invalid-feedback(data-sb-feedback='name:required')
-                                    | A name is required.
-
-                            // Email address input
-                            .form-floating.mb-3
-                                input#email.form-control(
-                                    type='email',
-                                    name='email',
-                                    placeholder='name@example.com',
-                                    required
-                                )
-                                label(for='email') Email address
-                                .invalid-feedback(data-sb-feedback='email:required')
-                                    | An email is required.
-                                .invalid-feedback(data-sb-feedback='email:email')
-                                    | Email is not valid.
-
-                            // Phone number input
-                            .form-floating.mb-3
-                                input#phone.form-control(
-                                    type='tel',
-                                    name='phone',
-                                    placeholder='(123) 456-7890'
-                                )
-                                label(for='phone') Phone number
-
-                            // Message input
-                            .form-floating.mb-3
-                                textarea#message.form-control(
-                                    type='text',
-                                    name='message',
-                                    placeholder='Enter your message here...',
-                                    style='height: 10rem;',
-                                    required
-                                )
-                                label(for='message') Message
-                                .invalid-feedback(data-sb-feedback='message:required')
-                                    | A message is required.
-
-                            // Submit Button
-                            .d-grid
-                                button#submitButton.btn-reset(type='submit')
-                                    img(src='assets/img/buttons/Entra_In_Contatto.svg', alt='Entra in contatto', style='max-width: 180px;')
-
-        // Footer
-        footer.py-5
-            .container.px-4.px-lg-5
-                .small.text-center.text-muted
-                    | © 2025 - OIOI Jewellery · Florence || Handcrafted in Santo Spirito
-                    br
-                    | Gaia Cionnini - P.IVA 07327210485 · C.F. CNNGAI82D61A390A
-                    br
-                    .mt-2
-                        a.me-3(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener', aria-label='Instagram')
-                            i.bi.bi-instagram(style='font-size: 1.2rem;')
-                        a.me-3(href='https://wa.me/YOUR_PHONE_NUMBER' target='_blank' rel='noopener', aria-label='WhatsApp')
-                            i.bi.bi-whatsapp(style='font-size: 1.2rem;')
-                        a(href='https://www.facebook.com/oioijewellery' target='_blank' rel='noopener', aria-label='Facebook')
-                            i.bi.bi-facebook(style='font-size: 1.2rem;')
-
-        // Bootstrap core JS
-        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
-
-        // Core theme JS
-        script(src='js/scripts.js')
-
+                        // Submit Button
+                        .d-grid
+                            button#submitButton.btn-reset(type='submit')
+                                img(src='assets/img/buttons/Entra_In_Contatto.svg', alt='Entra in contatto', style='max-width: 180px;')

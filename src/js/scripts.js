@@ -51,21 +51,4 @@ window.addEventListener('DOMContentLoaded', event => {
         elements: '#portfolio a.portfolio-box'
     });
 
-    // Handle hover effect for buttons with data-hover-src
-    document.querySelectorAll('.hover-effect-button').forEach(buttonImage => {
-        buttonImage.addEventListener('mouseover', () => {
-            const hoverSrc = buttonImage.getAttribute('data-hover-src');
-            if (hoverSrc) {
-                buttonImage.src = hoverSrc;
-            }
-        });
-
-        buttonImage.addEventListener('mouseout', () => {
-            const originalSrc = buttonImage.getAttribute('data-original-src');
-            if (originalSrc) {
-                buttonImage.src = originalSrc;
-            }
-        });
-    });
-
 });

@@ -4,6 +4,9 @@
 
 window.addEventListener('DOMContentLoaded', event => {
 
+    // Force scroll to top on page load
+    window.scrollTo(0, 0);
+
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');

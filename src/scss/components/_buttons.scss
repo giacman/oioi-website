@@ -20,3 +20,28 @@ a img[src*="buttons"] {
     height: auto;
     width: 100%;
 }
+
+// SVG Button Hover Effect
+.button-svg {
+    // Preserve the original fill for the background shape (e.g., #faf4f1)
+    path[fill="#faf4f1"] {
+        fill: #faf4f1; // Ensure background remains unchanged
+    }
+
+    // Transition for all fill/stroke properties inside the SVG
+    path, g {
+        transition: fill 0.25s ease, stroke 0.25s ease;
+    }
+
+    &:hover,
+    &:focus {
+        // Change the fill color for elements that are originally black
+        path[fill="#000000"], g[fill="#000000"] {
+            fill: #ff7a57;
+        }
+        // Change the stroke color for elements that are originally black
+        path[stroke="#000000"] {
+            stroke: #ff7a57;
+        }
+    }
+}

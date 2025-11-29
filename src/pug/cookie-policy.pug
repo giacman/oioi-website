@@ -8,7 +8,7 @@ block meta_description
 
 block content
     // Masthead
-    header.masthead(style='padding-bottom: 3rem;')
+    header.masthead(style='padding-bottom: 1rem;')
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
                 .col-lg-8.align-self-end
@@ -18,14 +18,14 @@ block content
                         h1.my-0(style='font-size: 1.4rem;') Informativa sui Cookie
                         span.decorative-icon.ms-2 ✴︎🜃
                     hr.divider
-
+    
     // Cookie Policy Content
-    section.page-section
+    section.page-section(style='padding-top: 2rem;')
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.justify-content-center
                 .col-lg-8
-                    .mb-5
-                        p Ultimo aggiornamento: 24 novembre 2025
+                    .mb-4
+                        p.text-muted Ultimo aggiornamento: 29 novembre 2025
                     
                     .mb-5
                         h2.mb-3 Cos'è un cookie?
@@ -38,13 +38,14 @@ block content
                             li Migliorare la tua esperienza di navigazione
                             li Analizzare il traffico del sito in modo anonimo e aggregato
                             li Comprendere come i visitatori interagiscono con il sito
+                            li Mostrare annunci pubblicitari pertinenti e misurarne l'efficacia (solo previo consenso)
                         
-                        p I dati raccolti sono utilizzati esclusivamente per fini statistici e di miglioramento del sito, e non vengono utilizzati per identificarti personalmente.
+                        p I dati raccolti sono utilizzati esclusivamente per fini statistici, di marketing e di miglioramento del sito.
                     
                     .mb-5
                         h2.mb-3 Tipi di cookie utilizzati
                         
-                        h3.mb-3 Cookie tecnici (necessari)
+                        h3.mb-3.mt-4 Cookie tecnici (necessari)
                         p Questi cookie sono essenziali per il funzionamento del sito e non possono essere disattivati. Includono cookie che permettono di ricordare le tue preferenze di consenso ai cookie.
                         
                         h3.mb-3 Cookie di analisi
@@ -56,12 +57,22 @@ block content
                             li Provenienza dei visitatori
                         
                         p I dati sono raccolti in conformità con Google Consent Mode v2 e rispettano le tue preferenze di consenso. Quando rifiuti i cookie di analisi, i dati vengono comunque raccolti ma in forma completamente anonima, senza identificazione dell'utente.
+
+                        h3.mb-3 Cookie di marketing
+                        p Utilizziamo Google Ads e altri strumenti di marketing per mostrare annunci pertinenti e misurarne l'efficacia. Questi cookie potrebbero tracciare la tua navigazione attraverso diversi siti web per creare un profilo dei tuoi interessi.
+                        ul
+                            li Misurazione delle conversioni pubblicitarie
+                            li Remarketing e personalizzazione degli annunci
+                            li Prevenzione delle frodi pubblicitarie
+                        
+                        p Questi cookie vengono attivati solo se fornisci il tuo consenso esplicito. Puoi modificare le tue preferenze in qualsiasi momento in questa pagina.
                     
                     .mb-5
                         h2.mb-3 Gestione dei cookie
-                        p Puoi gestire le tue preferenze sui cookie in qualsiasi momento utilizzando i pulsanti "Accetta" o "Rifiuta" nel banner dei cookie.
+                        p Puoi gestire le tue preferenze sui cookie in qualsiasi momento utilizzando il pannello di controllo presente in fondo a questa pagina.
+                        p Hai la possibilità di abilitare o disabilitare selettivamente i cookie di analisi e di marketing. I cookie tecnici, essendo necessari, non possono essere disabilitati.
                         
-                        p Tieni presente che la disattivazione di alcuni cookie potrebbe influire sulla funzionalità del sito.
+                        p Tieni presente che la disattivazione di alcuni cookie potrebbe influire sulla tua esperienza di navigazione o impedirti di visualizzare contenuti personalizzati.
                     
                     .mb-5
                         h2.mb-3 Cookie di terze parti
@@ -74,6 +85,10 @@ block content
                             li 
                                 strong Google Tag Manager
                                 | : Servizio di gestione tag fornito da Google LLC
+                            li 
+                                strong Google Ads
+                                | : Servizio pubblicitario fornito da Google LLC. Per maggiori informazioni: 
+                                a(href='https://policies.google.com/privacy', target='_blank', rel='noopener') Privacy Policy di Google
                         
                         p Questi servizi rispettano le tue preferenze di consenso e raccolgono dati solo se hai accettato i cookie di analisi.
                     
@@ -102,6 +117,37 @@ block content
                             |  presente sul sito.
                     
                     .text-center.mt-5
-                        a.btn.btn-outline-secondary.me-2(href='#', onclick='window.showCookiePreferences(); return false;') Gestisci cookie
-                        a.btn.btn-primary(href='index.html') Torna alla Homepage
+                        h3.mb-4 Le tue preferenze di consenso
+                        
+                        form#cookiePreferencesForm.text-start.d-inline-block.mx-auto.mb-4(style='max-width: 500px; width: 100%;')
+                            // Technical Cookies
+                            .form-check.form-switch.mb-3
+                                input#consentTechnical.form-check-input(type='checkbox', checked, disabled)
+                                label.form-check-label(for='consentTechnical')
+                                    strong Cookie tecnici (Necessari)
+                                    br
+                                    small.text-muted Necessari per il funzionamento del sito e per salvare le tue preferenze.
+                            
+                            // Analytics Cookies
+                            .form-check.form-switch.mb-3
+                                input#consentAnalytics.form-check-input(type='checkbox')
+                                label.form-check-label(for='consentAnalytics')
+                                    strong Cookie di analisi
+                                    br
+                                    small.text-muted Ci aiutano a capire come visiti il sito per migliorarlo (Google Analytics 4).
+                            
+                            // Advertising Cookies
+                            .form-check.form-switch.mb-4
+                                input#consentMarketing.form-check-input(type='checkbox')
+                                label.form-check-label(for='consentMarketing')
+                                    strong Cookie di marketing
+                                    br
+                                    small.text-muted Utilizzati per misurare l'efficacia delle campagne pubblicitarie (Google Ads).
+
+                            .d-grid.gap-2.d-md-block.text-center
+                                button#savePreferencesBtn.btn.btn-primary.me-md-2(type='button', onclick='window.handleSavePreferences()') Salva preferenze
+                                button.btn.btn-outline-secondary(type='button', onclick='window.handleAccept()') Accetta tutti
+
+                        br
+                        a.btn.btn-link.mt-3(href='index.html') Torna alla Homepage
 

@@ -62,18 +62,29 @@
         display: flex;
         gap: 0.75rem;
         flex-shrink: 0;
+        width: 100%;
+        
+        @media (min-width: 768px) {
+            width: auto;
+        }
         
         .btn {
-            min-width: 100px;
-            padding: 0.5rem 1.25rem;
-            font-size: 0.9rem;
+            min-width: 120px;
+            padding: 0.6rem 1.5rem;
+            font-size: 0.95rem;
             border-radius: 4px;
             transition: all 0.2s ease;
+            width: 100%; // Full width on mobile
+            
+            @media (min-width: 768px) {
+                width: auto; // Auto width on desktop
+            }
             
             &.btn-primary {
                 background-color: #ff7a57;
                 border-color: #ff7a57;
                 color: #fff;
+                font-weight: 500;
                 
                 &:hover {
                     background-color: #ff8a67;
@@ -84,10 +95,15 @@
             &.btn-outline-secondary {
                 border-color: rgba(0, 0, 0, 0.3);
                 color: $black;
+                text-decoration: none; // Ensure link looks like button
+                display: inline-flex; // Align icon/text centered
+                align-items: center;
+                justify-content: center;
                 
                 &:hover {
                     background-color: rgba(0, 0, 0, 0.05);
                     border-color: rgba(0, 0, 0, 0.5);
+                    color: $black;
                 }
             }
         }

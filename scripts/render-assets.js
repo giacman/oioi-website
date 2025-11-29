@@ -8,4 +8,9 @@ module.exports = function renderAssets() {
     const destPath = upath.resolve(upath.dirname(__filename), '../dist/.');
     
     sh.cp('-R', sourcePath, destPath)
+
+    // Copy SEO files (sitemap.xml, robots.txt) to root
+    const srcRoot = upath.resolve(upath.dirname(__filename), '../src');
+    sh.cp(upath.join(srcRoot, 'sitemap.xml'), destPath);
+    sh.cp(upath.join(srcRoot, 'robots.txt'), destPath);
 };

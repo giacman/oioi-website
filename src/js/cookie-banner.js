@@ -15,32 +15,44 @@
     }
 
     // Save consent status
-    function saveConsentStatus(status) {
+    function saveConsentStatus(consentData) {
+        // consentData should be { analytics: boolean, marketing: boolean, status: 'custom'|'accepted'|'rejected' }
         localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify({
-            status: status,
+            ...consentData,
             timestamp: new Date().getTime()
         }));
     }
 
     // Update Google Consent Mode
-    function updateConsentMode(accepted) {
+    // input can be boolean (all/nothing) or object { analytics: bool, marketing: bool }
+    function updateConsentMode(consent) {
+        let analytics, marketing;
+
+        if (typeof consent === 'boolean') {
+            analytics = consent;
+            marketing = consent;
+        } else {
+            analytics = consent.analytics;
+            marketing = consent.marketing;
+        }
+
         if (typeof gtag === 'function') {
             gtag('consent', 'update', {
-                'analytics_storage': accepted ? 'granted' : 'denied',
-                'ad_storage': accepted ? 'granted' : 'denied',
-                'ad_user_data': accepted ? 'granted' : 'denied',
-                'ad_personalization': accepted ? 'granted' : 'denied'
+                'analytics_storage': analytics ? 'granted' : 'denied',
+                'ad_storage': marketing ? 'granted' : 'denied',
+                'ad_user_data': marketing ? 'granted' : 'denied',
+                'ad_personalization': marketing ? 'granted' : 'denied'
             });
         }
         
-        // Also update dataLayer for GTM
+        // Also update dataLayer for GTM triggers
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'event': 'consent_update',
-            'consent_analytics_storage': accepted ? 'granted' : 'denied',
-            'consent_ad_storage': accepted ? 'granted' : 'denied',
-            'consent_ad_user_data': accepted ? 'granted' : 'denied',
-            'consent_ad_personalization': accepted ? 'granted' : 'denied'
+            'consent_analytics_storage': analytics ? 'granted' : 'denied',
+            'consent_ad_storage': marketing ? 'granted' : 'denied',
+            'consent_ad_user_data': marketing ? 'granted' : 'denied',
+            'consent_ad_personalization': marketing ? 'granted' : 'denied'
         });
     }
 
@@ -50,7 +62,6 @@
         if (banner) {
             banner.setAttribute('aria-hidden', 'false');
             banner.classList.add('show');
-            // Add class to body to prevent scroll when banner is visible
             document.body.classList.add('cookie-banner-visible');
         }
     }
@@ -65,70 +76,92 @@
         }
     }
 
-    // Handle accept button
+    // Handle accept all button (from banner or policy)
     function handleAccept() {
-        saveConsentStatus('accepted');
+        const consentData = { analytics: true, marketing: true, status: 'accepted' };
+        saveConsentStatus(consentData);
         updateConsentMode(true);
         hideCookieBanner();
+        
+        // Update checkboxes if on policy page
+        updatePolicyCheckboxes(true, true);
+        
+        if (document.getElementById('savePreferencesBtn')) {
+            alert('Hai accettato tutti i cookie.');
+        }
     }
 
-    // Handle reject button
+    // Handle reject button (legacy or policy reject all)
     function handleReject() {
-        saveConsentStatus('rejected');
+        const consentData = { analytics: false, marketing: false, status: 'rejected' };
+        saveConsentStatus(consentData);
         updateConsentMode(false);
         hideCookieBanner();
-    }
-
-    // Show cookie preferences (for managing existing preferences)
-    function showCookiePreferences() {
-        showCookieBanner();
         
-        // Attach event listeners if not already attached
-        const acceptBtn = document.getElementById('cookieAccept');
-        const rejectBtn = document.getElementById('cookieReject');
-
-        if (acceptBtn && !acceptBtn.hasAttribute('data-listener-attached')) {
-            acceptBtn.addEventListener('click', handleAccept);
-            acceptBtn.setAttribute('data-listener-attached', 'true');
-        }
-
-        if (rejectBtn && !rejectBtn.hasAttribute('data-listener-attached')) {
-            rejectBtn.addEventListener('click', handleReject);
-            rejectBtn.setAttribute('data-listener-attached', 'true');
-        }
+        // Update checkboxes if on policy page
+        updatePolicyCheckboxes(false, false);
     }
 
-    // Initialize cookie banner
+    // Handle save preferences from policy page form
+    function handleSavePreferences() {
+        const analytics = document.getElementById('consentAnalytics')?.checked || false;
+        const marketing = document.getElementById('consentMarketing')?.checked || false;
+        
+        const consentData = { 
+            analytics: analytics, 
+            marketing: marketing, 
+            status: 'custom' 
+        };
+        
+        saveConsentStatus(consentData);
+        updateConsentMode(consentData);
+        hideCookieBanner(); // In case it was open
+        
+        alert('Preferenze salvate correttamente.');
+    }
+
+    // Update checkboxes UI based on current consent
+    function updatePolicyCheckboxes(analytics, marketing) {
+        const analyticsBox = document.getElementById('consentAnalytics');
+        const marketingBox = document.getElementById('consentMarketing');
+        
+        if (analyticsBox) analyticsBox.checked = analytics;
+        if (marketingBox) marketingBox.checked = marketing;
+    }
+
+    // Initialize cookie banner and preferences
     function initCookieBanner() {
         const consentStatus = getConsentStatus();
         
-        // If consent was already given, update consent mode and don't show banner
         if (consentStatus) {
-            const accepted = consentStatus.status === 'accepted';
-            updateConsentMode(accepted);
-            return;
+            // Apply saved consent
+            // Support legacy stored format if necessary, but usually we overwrote it
+            const analytics = consentStatus.analytics !== undefined ? consentStatus.analytics : (consentStatus.status === 'accepted');
+            const marketing = consentStatus.marketing !== undefined ? consentStatus.marketing : (consentStatus.status === 'accepted');
+            
+            updateConsentMode({ analytics, marketing });
+            
+            // Update UI checkboxes if present
+            updatePolicyCheckboxes(analytics, marketing);
+            
+            return; // Don't show banner
         }
 
         // Show banner if consent not given
         showCookieBanner();
 
-        // Attach event listeners
+        // Attach event listener to banner accept button
         const acceptBtn = document.getElementById('cookieAccept');
-        const rejectBtn = document.getElementById('cookieReject');
-
         if (acceptBtn) {
             acceptBtn.addEventListener('click', handleAccept);
-            acceptBtn.setAttribute('data-listener-attached', 'true');
-        }
-
-        if (rejectBtn) {
-            rejectBtn.addEventListener('click', handleReject);
-            rejectBtn.setAttribute('data-listener-attached', 'true');
         }
     }
 
-    // Expose function globally for "Manage cookies" link
-    window.showCookiePreferences = showCookiePreferences;
+    // Expose functions globally
+    window.showCookiePreferences = showCookieBanner; // Re-opens banner
+    window.handleAccept = handleAccept;
+    window.handleReject = handleReject;
+    window.handleSavePreferences = handleSavePreferences;
 
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
@@ -138,4 +171,3 @@
     }
 
 })();
-

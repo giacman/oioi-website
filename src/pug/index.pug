@@ -4,25 +4,25 @@ block title
     title OIOI Jewellery
 
 block content
-    // Masthead
-    header.masthead
+        // Masthead
+        header.masthead
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
-                .col-lg-8.align-self-end
+                    .col-lg-8.align-self-end
                     img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                     .d-flex.justify-content-center.align-items-center.mb-3
                         span.decorative-icon.me-2 🜃✴︎
                         h1.my-0(style='font-size: 1.4rem;') Gioielli Artigianali
                         span.decorative-icon.ms-2 ✴︎🜃
                     p Magic shaped from raw matter & artisanal intelligence
-                    hr.divider
-                .col-lg-8.align-self-baseline
+                        hr.divider
+                    .col-lg-8.align-self-baseline
                     p.mb-5
                     a(href='#portfolio')
-                        img.hover-effect-button(src='assets/img/buttons/Vai_Alle_Collezioni_Button.svg', data-original-src='assets/img/buttons/Vai_Alle_Collezioni_Button.svg', data-hover-src='assets/img/buttons/Vai_Alle_Collezioni_Rosa_Sapote.svg', alt='Vai alle collezioni', style='max-width: 180px;')
+                        +svg-vai-alle-collezioni('Vai alle collezioni', '180px')
 
-    // Portfolio
-    #portfolio
+        // Portfolio
+        #portfolio
         .container-fluid
             // Mobile Carousel (visible only on mobile)
             .d-lg-none.mb-4
@@ -75,10 +75,10 @@ block content
                         a(href='opera.html')
                             img.img-fluid(src='assets/img/portfolio/opera/thumbnails/ring2.jpg', alt='Opera Collection')
 
-    // Contact
-    section#contact.page-section
-        .container.px-4.px-lg-5
-            .row.gx-4.gx-lg-5.justify-content-center
+        // Contact
+        section#contact.page-section
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
                 .col-lg-8
                     h4.mb-4.text-center(style='font-size: 1.1rem;') Creazioni originali, disegnate e fatte a mano a Firenze
                     p.font-calligraphy.text-center.mb-5(style='font-size: 2rem; line-height: 1.6;') Se qualcosa che hai visto ti ha fatto dire "Oioi", scrivimi magari è già pronto, o aspetta solo te per prendere forma
@@ -91,55 +91,55 @@ block content
                         // Honeypot field
                         input(type='text', name='bot-field', class='d-none')
 
-                        // Name input
-                        .form-floating.mb-3
-                            input#name.form-control(
-                                type='text',
+                            // Name input
+                            .form-floating.mb-3
+                                input#name.form-control(
+                                    type='text',
                                 name='name',
-                                placeholder='Enter your name...',
+                                    placeholder='Enter your name...',
                                 required
-                            )
-                            label(for='name') Full name
-                            .invalid-feedback(data-sb-feedback='name:required')
-                                | A name is required.
+                                )
+                                label(for='name') Full name
+                                .invalid-feedback(data-sb-feedback='name:required')
+                                    | A name is required.
 
-                        // Email address input
-                        .form-floating.mb-3
-                            input#email.form-control(
-                                type='email',
+                            // Email address input
+                            .form-floating.mb-3
+                                input#email.form-control(
+                                    type='email',
                                 name='email',
-                                placeholder='name@example.com',
+                                    placeholder='name@example.com',
                                 required
-                            )
-                            label(for='email') Email address
-                            .invalid-feedback(data-sb-feedback='email:required')
-                                | An email is required.
-                            .invalid-feedback(data-sb-feedback='email:email')
-                                | Email is not valid.
+                                )
+                                label(for='email') Email address
+                                .invalid-feedback(data-sb-feedback='email:required')
+                                    | An email is required.
+                                .invalid-feedback(data-sb-feedback='email:email')
+                                    | Email is not valid.
 
-                        // Phone number input
-                        .form-floating.mb-3
-                            input#phone.form-control(
-                                type='tel',
+                            // Phone number input
+                            .form-floating.mb-3
+                                input#phone.form-control(
+                                    type='tel',
                                 name='phone',
                                 placeholder='(123) 456-7890'
-                            )
-                            label(for='phone') Phone number
+                                )
+                                label(for='phone') Phone number
 
-                        // Message input
-                        .form-floating.mb-3
-                            textarea#message.form-control(
-                                type='text',
+                            // Message input
+                            .form-floating.mb-3
+                                textarea#message.form-control(
+                                    type='text',
                                 name='message',
-                                placeholder='Enter your message here...',
-                                style='height: 10rem;',
+                                    placeholder='Enter your message here...',
+                                    style='height: 10rem;',
                                 required
-                            )
-                            label(for='message') Message
-                            .invalid-feedback(data-sb-feedback='message:required')
-                                | A message is required.
+                                )
+                                label(for='message') Message
+                                .invalid-feedback(data-sb-feedback='message:required')
+                                    | A message is required.
 
-                        // Submit Button
+                            // Submit Button
                         .d-grid.mt-4
                             button#submitButton.btn-reset(type='submit')
-                                img.hover-effect-button(src='assets/img/buttons/Entra_In_Contatto.svg', data-original-src='assets/img/buttons/Entra_In_Contatto.svg', data-hover-src='assets/img/buttons/Entra_In_Contatto_Rosa_Sapote.svg', alt='Entra in contatto', style='max-width: 180px;')
+                                +svg-entra-in-contatto('Entra in contatto', '180px')

@@ -87,60 +87,60 @@ block content
                         // Netlify Forms
                         form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
 
-                        // Netlify Forms hidden fields
-                        input(type='hidden', name='form-name', value='contact')
-                        // Honeypot field
-                        input(type='text', name='bot-field', class='d-none')
+                            // Netlify Forms hidden fields
+                            input(type='hidden', name='form-name', value='contact')
+                            // Honeypot field
+                            input(type='text', name='bot-field', class='d-none')
 
-                        // Name input
-                        .form-floating.mb-3
-                            input#name.form-control(
-                                type='text',
-                                name='name',
-                                placeholder='Enter your name...',
-                                required
-                            )
-                            label(for='name') Full name
-                            .invalid-feedback(data-sb-feedback='name:required')
-                                | A name is required.
+                            // Name input
+                            .form-floating.mb-3
+                                input#name.form-control(
+                                    type='text',
+                                    name='name',
+                                    placeholder='Enter your name...',
+                                    required
+                                )
+                                label(for='name') Full name
+                                .invalid-feedback(data-sb-feedback='name:required')
+                                    | A name is required.
 
-                        // Email address input
-                        .form-floating.mb-3
-                            input#email.form-control(
-                                type='email',
-                                name='email',
-                                placeholder='name@example.com',
-                                required
-                            )
-                            label(for='email') Email address
-                            .invalid-feedback(data-sb-feedback='email:required')
-                                | An email is required.
-                            .invalid-feedback(data-sb-feedback='email:email')
-                                | Email is not valid.
+                            // Email address input
+                            .form-floating.mb-3
+                                input#email.form-control(
+                                    type='email',
+                                    name='email',
+                                    placeholder='name@example.com',
+                                    required
+                                )
+                                label(for='email') Email address
+                                .invalid-feedback(data-sb-feedback='email:required')
+                                    | An email is required.
+                                .invalid-feedback(data-sb-feedback='email:email')
+                                    | Email is not valid.
 
-                        // Phone number input
-                        .form-floating.mb-3
-                            input#phone.form-control(
-                                type='tel',
-                                name='phone',
-                                placeholder='(123) 456-7890'
-                            )
-                            label(for='phone') Phone number
+                            // Phone number input
+                            .form-floating.mb-3
+                                input#phone.form-control(
+                                    type='tel',
+                                    name='phone',
+                                    placeholder='(123) 456-7890'
+                                )
+                                label(for='phone') Phone number
 
-                        // Message input
-                        .form-floating.mb-3
-                            textarea#message.form-control(
-                                type='text',
-                                name='message',
-                                placeholder='Enter your message here...',
-                                style='height: 10rem;',
-                                required
-                            )
-                            label(for='message') Message
-                            .invalid-feedback(data-sb-feedback='message:required')
-                                | A message is required.
+                            // Message input
+                            .form-floating.mb-3
+                                textarea#message.form-control(
+                                    type='text',
+                                    name='message',
+                                    placeholder='Enter your message here...',
+                                    style='height: 10rem;',
+                                    required
+                                )
+                                label(for='message') Message
+                                .invalid-feedback(data-sb-feedback='message:required')
+                                    | A message is required.
 
-                        // Submit Button
-                        .d-grid.mt-4
-                            button#submitButton.btn-reset(type='submit')
-                                +svg-entra-in-contatto('Entra in contatto', '180px')
+                            // Submit Button
+                            .d-grid.mt-4
+                                button#submitButton.btn-reset(type='submit')
+                                    +svg-entra-in-contatto('Entra in contatto', '180px')

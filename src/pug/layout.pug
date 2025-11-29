@@ -41,6 +41,21 @@ html(lang='it')
         block canonical
             link(rel='canonical', href='https://oioijewellery.it/')
 
+        // Schema.org Organization Markup
+        script(type='application/ld+json').
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "OIOI Jewellery",
+                "url": "https://oioijewellery.it",
+                "logo": "https://oioijewellery.it/assets/img/logos/oioi_black.svg",
+                "description": "Gioielli artigianali realizzati a mano a Firenze. Magia plasmata dalla materia grezza e dall'intelligenza artigianale.",
+                "sameAs": [
+                    "https://www.instagram.com/oioijewellery/",
+                    "https://www.facebook.com/oioijewellery"
+                ]
+            }
+
         // Favicon
         // Prefer SVG; fallback ICO remains in dist
         link(rel='icon', type='image/svg+xml', href='assets/favicon.svg')

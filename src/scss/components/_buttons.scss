@@ -28,18 +28,27 @@ a img[src*="buttons"] {
         fill: #faf4f1; // Ensure background remains unchanged
     }
 
-    // Transition for all fill/stroke properties inside the SVG
-    path, g {
+    // Transition for all fill/stroke properties directly on paths
+    path {
         transition: fill 0.25s ease, stroke 0.25s ease;
     }
 
+    // Active state (handled by JS on mobile) and Hover/Focus
+    &.is-active,
     &:hover,
     &:focus {
-        // Change the fill color for elements that are originally black
-        path[fill="#000000"], g[fill="#000000"] {
+        // Change the fill color for paths inside black groups (Text)
+        // We force the fill on the path itself to ensure transition triggers directly
+        g[fill="#000000"] path {
             fill: #ff7a57;
         }
-        // Change the stroke color for elements that are originally black
+        
+        // Change the fill color for paths that are explicitly black
+        path[fill="#000000"] {
+            fill: #ff7a57;
+        }
+
+        // Change the stroke color for elements that are originally black (Door)
         path[stroke="#000000"] {
             stroke: #ff7a57;
         }

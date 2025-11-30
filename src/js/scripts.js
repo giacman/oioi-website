@@ -54,4 +54,25 @@ window.addEventListener('DOMContentLoaded', event => {
         elements: '#portfolio a.portfolio-box'
     });
 
+    // Mobile touch support for SVG buttons
+    const svgButtons = document.querySelectorAll('.button-svg');
+    svgButtons.forEach(btn => {
+        // Add active class on touch start
+        btn.addEventListener('touchstart', function() {
+            this.classList.add('is-active');
+        }, { passive: true });
+
+        // Remove active class on touch end with a slight delay to show the effect
+        btn.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.classList.remove('is-active');
+            }, 200);
+        });
+
+        // Also remove on touchcancel just in case
+        btn.addEventListener('touchcancel', function() {
+            this.classList.remove('is-active');
+        });
+    });
+
 });

@@ -29,7 +29,7 @@ block content
                 // Opera Collection
                 .col-lg-4.col-md-6.mb-5.text-center
                     a(href='opera.html')
-                        img.img-fluid.mb-3(src='assets/img/portfolio/opera/thumbnails/ring1.jpg', alt='Opera Collection', loading='lazy')
+                        img.img-fluid.mb-3(src='assets/img/portfolio/opera/thumbnails/ring2.jpg', alt='Opera Collection', loading='lazy')
                     h3(style='font-size: 1.2rem;') Opera
                 
                 // Things Collection
@@ -46,16 +46,16 @@ block content
                             p.mb-0(style='font-size: 1.5rem; color: #888;') Coming Soon
                     h3(style='font-size: 1.2rem;') THEY, THEM
 
-        // Contact
-        section#contact.page-section(style='padding-bottom: 2rem;')
-            .container.px-4.px-lg-5
-                .row.gx-4.gx-lg-5.justify-content-center
-                    .col-lg-8
-                        p.mb-3.text-center(style='font-size: 1.1rem;') Se qualcosa ti ha incuriosito, scrivimi per parlarne
-                        p.font-calligraphy.text-center.mb-3(style='font-size: 2rem; line-height: 1.6;') Ti aprirò la porta, e da li potremo cominciare a creare insieme
-                    .col-lg-5.col-md-8
-                        // Netlify Forms
-                        form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+    // Contact
+    section#contact.page-section(style='padding-bottom: 2rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.justify-content-center
+                .col-lg-8
+                    p.mb-3.text-center(style='font-size: 1.1rem;') Se qualcosa ti ha incuriosito, scrivimi per parlarne
+                    p.font-calligraphy.text-center.mb-3(style='font-size: 2rem; line-height: 1.6;') Ti aprirò la porta, e da li potremo cominciare a creare insieme
+                .col-lg-5.col-md-8
+                    // Netlify Forms
+                    form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
 
                             // Netlify Forms hidden fields
                             input(type='hidden', name='form-name', value='contact')

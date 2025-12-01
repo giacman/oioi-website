@@ -23,21 +23,12 @@ block content
                     p.mt-3 The Heirloom I Never Got Stolen
                     hr.divider
 
-    // Collection Carousel
+    // Collection Gallery
     section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
         .container.px-4.px-lg-5
-            .row.gx-4.gx-lg-5.justify-content-center
-                .col-lg-10
-                    #thingsCarousel.carousel.slide(data-bs-ride='carousel')
-                        .carousel-inner
-                            .carousel-item.active
-                                img.d-block.w-100(src='assets/img/portfolio/things/fullsize/pesce.jpg', alt='T.H.I.N.G.S. Collection Image')
-                        button.carousel-control-prev(type='button', data-bs-target='#thingsCarousel', data-bs-slide='prev')
-                            span.carousel-control-prev-icon(aria-hidden='true')
-                            span.visually-hidden Previous
-                        button.carousel-control-next(type='button', data-bs-target='#thingsCarousel', data-bs-slide='next')
-                            span.carousel-control-next-icon(aria-hidden='true')
-                            span.visually-hidden Next
+            .row.g-4.justify-content-center
+                .col-lg-4.col-md-6
+                    img.img-fluid(src='assets/img/portfolio/things/fullsize/pesce.jpg', alt='T.H.I.N.G.S. Collection Image')
 
     // Description and Contact
     section#contact.page-section(style='padding-top: 2rem;')
@@ -142,4 +133,4 @@ block content
                         // Submit Button
                         .d-grid
                             button#submitButton.btn-reset(type='submit')
-                                +svg-entra-in-contatto('Entra in contatto', '180px')
+                                +svg-entra-in-contatto('Entra in contatto', '140px')

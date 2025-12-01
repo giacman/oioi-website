@@ -23,29 +23,20 @@ block content
                     p.mt-3 Una creazione che accade una sola volta
                     hr.divider
 
-    // Collection Carousel
+    // Collection Gallery
     section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
         .container.px-4.px-lg-5
-            .row.gx-4.gx-lg-5.justify-content-center
-                .col-lg-10
-                    #operaCarousel.carousel.slide(data-bs-ride='carousel')
-                        .carousel-inner
-                            .carousel-item.active
-                                img.d-block.w-100(src='assets/img/portfolio/opera/fullsize/ring1.jpg', alt='Opera Collection Image 1')
-                            .carousel-item
-                                img.d-block.w-100(src='assets/img/portfolio/opera/fullsize/dfg_blu.jpg', alt='Opera Collection Image 2', loading='lazy')
-                            .carousel-item
-                                img.d-block.w-100(src='assets/img/portfolio/opera/fullsize/dfg_red.jpg', alt='Opera Collection Image 3', loading='lazy')
-                            .carousel-item
-                                img.d-block.w-100(src='assets/img/portfolio/opera/fullsize/dfg_green.jpg', alt='Opera Collection Image 4', loading='lazy')
-                            .carousel-item
-                                img.d-block.w-100(src='assets/img/portfolio/opera/fullsize/ring2.jpg', alt='Opera Collection Image 5', loading='lazy')
-                        button.carousel-control-prev(type='button', data-bs-target='#operaCarousel', data-bs-slide='prev')
-                            span.carousel-control-prev-icon(aria-hidden='true')
-                            span.visually-hidden Previous
-                        button.carousel-control-next(type='button', data-bs-target='#operaCarousel', data-bs-slide='next')
-                            span.carousel-control-next-icon(aria-hidden='true')
-                            span.visually-hidden Next
+            .row.g-4.justify-content-center
+                .col-lg-4.col-md-6
+                    img.img-fluid(src='assets/img/portfolio/opera/fullsize/ring1.jpg', alt='Opera Collection Image 1')
+                .col-lg-4.col-md-6
+                    img.img-fluid(src='assets/img/portfolio/opera/fullsize/dfg_blu.jpg', alt='Opera Collection Image 2', loading='lazy')
+                .col-lg-4.col-md-6
+                    img.img-fluid(src='assets/img/portfolio/opera/fullsize/dfg_red.jpg', alt='Opera Collection Image 3', loading='lazy')
+                .col-lg-4.col-md-6
+                    img.img-fluid(src='assets/img/portfolio/opera/fullsize/dfg_green.jpg', alt='Opera Collection Image 4', loading='lazy')
+                .col-lg-4.col-md-6
+                    img.img-fluid(src='assets/img/portfolio/opera/fullsize/ring2.jpg', alt='Opera Collection Image 5', loading='lazy')
 
     // Description and Contact
     section#contact.page-section(style='padding-top: 2rem;')
@@ -137,4 +128,4 @@ block content
                         // Submit Button
                         .d-grid
                             button#submitButton.btn-reset(type='submit')
-                                +svg-entra-in-contatto('Entra in contatto', '180px')
+                                +svg-entra-in-contatto('Entra in contatto', '140px')

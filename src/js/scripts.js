@@ -49,10 +49,13 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-    // Activate SimpleLightbox plugin for portfolio items
-    new SimpleLightbox({
-        elements: '#portfolio a.portfolio-box'
-    });
+    // Activate SimpleLightbox plugin for portfolio items (collection pages only)
+    const portfolioLinks = document.querySelectorAll('.portfolio-box');
+    if (portfolioLinks.length > 0) {
+        new SimpleLightbox({
+            elements: '.portfolio-box'
+        });
+    }
 
     // Mobile touch support for SVG buttons
     const svgButtons = document.querySelectorAll('.button-svg');

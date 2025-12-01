@@ -20,25 +20,16 @@ block content
                     p.mt-3 E' la I di OIOI
                     hr.divider
 
-    // Collection Carousel
+    // Collection Gallery
     section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
         .container.px-4.px-lg-5
-            .row.gx-4.gx-lg-5.justify-content-center
-                .col-lg-10
-                    #theyThemCarousel.carousel.slide(data-bs-ride='carousel')
-                        .carousel-inner
-                            .carousel-item.active
-                                img.d-block.w-100(src='assets/img/portfolio/fullsize/2.jpg', alt='THEY, THEM Collection Image 1')
-                            .carousel-item
-                                img.d-block.w-100(src='assets/img/portfolio/fullsize/4.jpg', alt='THEY, THEM Collection Image 2', loading='lazy')
-                            .carousel-item
-                                img.d-block.w-100(src='assets/img/portfolio/fullsize/5.jpg', alt='THEY, THEM Collection Image 3', loading='lazy')
-                        button.carousel-control-prev(type='button', data-bs-target='#theyThemCarousel', data-bs-slide='prev')
-                            span.carousel-control-prev-icon(aria-hidden='true')
-                            span.visually-hidden Previous
-                        button.carousel-control-next(type='button', data-bs-target='#theyThemCarousel', data-bs-slide='next')
-                            span.carousel-control-next-icon(aria-hidden='true')
-                            span.visually-hidden Next
+            .row.g-4.justify-content-center
+                .col-lg-4.col-md-6
+                    img.img-fluid(src='assets/img/portfolio/fullsize/2.jpg', alt='THEY, THEM Collection Image 1')
+                .col-lg-4.col-md-6
+                    img.img-fluid(src='assets/img/portfolio/fullsize/4.jpg', alt='THEY, THEM Collection Image 2', loading='lazy')
+                .col-lg-4.col-md-6
+                    img.img-fluid(src='assets/img/portfolio/fullsize/5.jpg', alt='THEY, THEM Collection Image 3', loading='lazy')
 
     // Description and Contact
     section#contact.page-section(style='padding-top: 2rem;')

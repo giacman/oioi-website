@@ -63,6 +63,14 @@
             banner.setAttribute('aria-hidden', 'false');
             banner.classList.add('show');
             document.body.classList.add('cookie-banner-visible');
+            
+            // Attach event listener to accept button (in case it was reopened)
+            const acceptBtn = document.getElementById('cookieAccept');
+            if (acceptBtn) {
+                // Remove existing listener to avoid duplicates
+                acceptBtn.removeEventListener('click', handleAccept);
+                acceptBtn.addEventListener('click', handleAccept);
+            }
         }
     }
 
@@ -149,12 +157,6 @@
 
         // Show banner if consent not given
         showCookieBanner();
-
-        // Attach event listener to banner accept button
-        const acceptBtn = document.getElementById('cookieAccept');
-        if (acceptBtn) {
-            acceptBtn.addEventListener('click', handleAccept);
-        }
     }
 
     // Expose functions globally

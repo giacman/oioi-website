@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // Activate SimpleLightbox plugin for portfolio items (collection pages only)
     const portfolioLinks = document.querySelectorAll('.portfolio-box');
     if (portfolioLinks.length > 0) {
-        new SimpleLightbox({
+    new SimpleLightbox({
             elements: '.portfolio-box'
         });
     }

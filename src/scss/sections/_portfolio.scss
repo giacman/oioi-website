@@ -2,6 +2,13 @@
 // Portfolio
 // 
 
+// Consistent card image sizing (used on homepage and collection pages)
+.portfolio-card-img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
 #portfolio {
     .container-fluid {
         max-width: 1920px;

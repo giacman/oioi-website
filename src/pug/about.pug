@@ -10,7 +10,7 @@ block canonical
     link(rel='canonical', href='https://oioijewellery.it/about.html')
 
 block content
-    // Masthead
+    // Masthead (centered, consistent with other pages)
     header.masthead(style='padding-bottom: 1rem;')
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
@@ -22,12 +22,22 @@ block content
                         span.decorative-icon.ms-2 ✴︎🜃
                     hr.divider
 
-    // Image Placeholder
+    // Hero — two-column layout (text left, image right)
     section.page-section(style='padding-top: 1rem; padding-bottom: 1rem;')
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.justify-content-center
                 .col-lg-10
-                    img.img-fluid.w-100(src='assets/img/about/temporay_about_photo.jpg', alt='OIOI Jewellery', loading='lazy')
+                    .row.align-items-center
+                        // Text column (appears first on mobile)
+                        .col-lg-6.mb-4.mb-lg-0
+                            p OIOI è gioielleria artigianale realizzata a Firenze.
+                            p Pezzi costruiti con tecniche tradizionali, leghe selezionate, smalti preziosi e pietre scelte con cura.
+                            p Creazioni che vivono fuori scala, fuori algoritmo, fuori tendenza.
+                            p Forme chiare, simboli, proporzioni pensate e dettagli che a volte spostano l'equilibrio, a volte lo rimettono in asse.
+                            p.mt-4 Fatti a mano, pensati per chi sente.
+                        // Image column
+                        .col-lg-6
+                            img.img-fluid.w-100(src='assets/img/about/about_hero.png', alt='OIOI Jewellery')
 
     // Content
     section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
@@ -35,48 +45,66 @@ block content
             .row.gx-4.gx-lg-5.justify-content-center
                 .col-lg-10
                     .mb-5
-                        h2.mb-4(style='font-size: 1rem;') INTRO
-                        p OIOI è gioielleria artigianale realizzata a Firenze.
-                        p Pezzi costruiti con tecniche tradizionali, leghe selezionate, smalti preziosi e pietre scelte con cura.
-                        p Creazioni che vivono fuori scala, fuori algoritmo, fuori tendenza.
-                        p Forme chiare, simboli, proporzioni pensate e dettagli che a volte spostano l’equilibrio, a volte lo rimettono in asse.
-                        p.mt-4 Fatti a mano, pensati per chi sente.
-
-                    .mb-5
                         h2.mb-4(style='font-size: 1rem;') LA PORTA
-                        p Il simbolo di OIOI si ispira all’antico stemma delle Arti Maggiori.
-                        p La porta dell’Arte di Por Santa Maria, sotto cui lavoravano anche gli orafi, è il mio riferimento.
+                        p Il simbolo di OIOI si ispira all'antico stemma delle Arti Maggiori.
+                        p La porta dell'Arte di Por Santa Maria, sotto cui lavoravano anche gli orafi, è il mio riferimento.
                         p I battenti sono una O e una I che si intersecano, ripetendosi come un ritmo, un mantra, un codice.
                         p È la soglia tra ciò che raccolgo e ciò che costruisco.
                         p Tiene insieme passato e presente, mestiere e visione, tecnica e libertà creativa.
-                        p La porta è il mio modo di dire: entra, c’è un mondo dentro.
+                        p La porta è il mio modo di dire: entra, c'è un mondo dentro.
 
-                    .mb-5
-                        h2.mb-4(style='font-size: 1rem;') IL METODO
-                        p Disegno, studio proporzioni, volumi e architetture.
-                        p Al banco la forma prende corpo: lastra di metallo, cera, lime, saldature, incastri, superfici da portare a punto, soluzioni da trovare.
-                        p Lavoro con tecniche artigianali come la cera persa e la lavorazione della lastra, con l’incastonatura quando il progetto lo richiede.
-                        p Il mio approccio nasce dall’intreccio tra materiali, simboli, immagini, architetture e memoria.
-                        p Il processo unisce precisione, sensibilità e quell’occhio che riconosce quando una forma “funziona”: equilibrio, intensità, carattere.
-                        p Ogni pezzo è un ecosistema calibrato.
+    // IL METODO — two-column layout (text left, image right)
+    section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.justify-content-center
+                .col-lg-10
+                    .row.align-items-center
+                        .col-lg-6.mb-4.mb-lg-0
+                            h2.mb-4(style='font-size: 1rem;') IL METODO
+                            p Disegno, studio proporzioni, volumi e architetture.
+                            p Al banco la forma prende corpo: lastra di metallo, cera, lime, saldature, incastri, superfici da portare a punto, soluzioni da trovare.
+                            p Lavoro con tecniche artigianali come la cera persa e la lavorazione della lastra, con l'incastonatura quando il progetto lo richiede.
+                            p Il mio approccio nasce dall'intreccio tra materiali, simboli, immagini, architetture e memoria.
+                            p Il processo unisce precisione, sensibilità e quell'occhio che riconosce quando una forma "funziona": equilibrio, intensità, carattere.
+                            p Ogni pezzo è un ecosistema calibrato.
+                        .col-lg-6
+                            img.img-fluid.w-100(src='assets/img/about/metodo_hero.png', alt='OIOI - Il Metodo')
 
+    // Content continued
+    section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.justify-content-center
+                .col-lg-10
                     .mb-5
                         h2.mb-4(style='font-size: 1rem;') ESTETICA
                         p OIOI è Firenze filtrata da uno sguardo che si è formato altrove.
                         p Cinema, architettura, arte, musica, immaginari complessi: tutto diventa grammatica visiva. Segni netti, contrasti, proporzioni.
-                        p Un’estetica essenziale, simbolica, precisa.
+                        p Un'estetica essenziale, simbolica, precisa.
                         p Con memoria, ma senza maniera.
 
-                    .mb-5
-                        h2.mb-4(style='font-size: 1rem;') ATTITUDINE
-                        p OIOI parla con una voce fiorentina, asciutta, ironica, affilata.
-                        p Quel vecchio lamento che non è mai vittimismo, ma sguardo critico.
-                        p Dire le cose come stanno, senza fronzoli, senza compiacere, con un sorriso di lato e una battuta che alleggerisce mentre punge.
-                        p È una lingua che nasce in bottega e finisce nella forma.
-                        p Rigorosa ma mai rigida, intelligente ma mai snob, libera ma mai leziosa.
-                        p È la lente con cui OIOI guarda tutto: proporzioni, simboli, scarti, intuizioni.
-                        p OIOI è anche questo: fieramente fiorentino, elegantemente insofferente.
+    // ATTITUDINE — two-column layout (text left, image right)
+    section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.justify-content-center
+                .col-lg-10
+                    .row.align-items-center
+                        .col-lg-6.mb-4.mb-lg-0
+                            h2.mb-4(style='font-size: 1rem;') ATTITUDINE
+                            p OIOI parla con una voce fiorentina, asciutta, ironica, affilata.
+                            p Quel vecchio lamento che non è mai vittimismo, ma sguardo critico.
+                            p Dire le cose come stanno, senza fronzoli, senza compiacere, con un sorriso di lato e una battuta che alleggerisce mentre punge.
+                            p È una lingua che nasce in bottega e finisce nella forma.
+                            p Rigorosa ma mai rigida, intelligente ma mai snob, libera ma mai leziosa.
+                            p È la lente con cui OIOI guarda tutto: proporzioni, simboli, scarti, intuizioni.
+                            p OIOI è anche questo: fieramente fiorentino, elegantemente insofferente.
+                        .col-lg-6
+                            img.img-fluid.w-100(src='assets/img/about/attitudine_hero.png', alt='OIOI - Attitudine')
 
+    // Content continued
+    section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.justify-content-center
+                .col-lg-10
                     .mb-5
                         h2.mb-4(style='font-size: 1rem;') PER CHI È
                         p OIOI non ha genere.
@@ -86,11 +114,11 @@ block content
                     .mb-5
                         h2.mb-4(style='font-size: 1rem;') CHI LA FA
                         p Sono Gaia Cionnini.
-                        p Nata ad Arezzo, Città dell’Oro, un luogo dove la tradizione orafa non è un mestiere: è aria, infanzia, cultura condivisa.
+                        p Nata ad Arezzo, Città dell'Oro, un luogo dove la tradizione orafa non è un mestiere: è aria, infanzia, cultura condivisa.
                         p Sono cresciuta tra banchi da lavoro, strumenti, gesti antichi.
                         p La mia traiettoria attraversa Arezzo, Firenze e Londra: studi tra cinema, scenografia e arti visive, e molti anni nel marketing creativo.
                         p Strati che hanno modellato il mio sguardo.
-                        p Al banco queste vite si incontrano con la mia manualità, un’intelligenza artigianale fatta di gesto, occhio e cultura visiva.
+                        p Al banco queste vite si incontrano con la mia manualità, un'intelligenza artigianale fatta di gesto, occhio e cultura visiva.
                         p È lì che OIOI smette di essere un lamento.
 
                     .mb-5

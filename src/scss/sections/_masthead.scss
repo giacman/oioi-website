@@ -48,3 +48,18 @@ header.masthead {
 .decorative-icon {
     font-size: 1.5rem;
 }
+
+// About page two-column hero
+.masthead-about {
+    .divider {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    @include media-breakpoint-up(lg) {
+        .col-lg-6 img {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+}

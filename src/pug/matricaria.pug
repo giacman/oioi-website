@@ -1,0 +1,136 @@
+extends layout.pug
+
+block title
+    title MATRICARIA — OIOI Jewellery
+
+block meta_description
+    meta(name='description', content='MATRICARIA Collection — OIOI Jewellery')
+
+block og_title
+    meta(property='og:title', content='MATRICARIA — OIOI Jewellery')
+block og_description
+    meta(property='og:description', content='MATRICARIA Collection — OIOI Jewellery')
+block og_image
+    meta(property='og:image', content='https://oioijewellery.it/assets/img/portfolio/matricaria_coming_soon.png')
+block og_url
+    meta(property='og:url', content='https://oioijewellery.it/matricaria.html')
+
+block content
+    // Masthead
+    header.masthead(style='padding-bottom: 3rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
+                .col-lg-8.align-self-end
+                    img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
+                    .d-flex.justify-content-center.align-items-center.mb-3
+                        span.decorative-icon.me-2 🜃✴︎
+                        h1.fw-medium.my-0(style='font-size: 1.4rem;') MATRICARIA
+                        span.decorative-icon.ms-2 ✴︎🜃
+                    p.mt-3 Il nome botanico della margherita
+                    hr.divider
+
+    // Description and Contact
+    section#contact.page-section(style='padding-top: 2rem;')
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.align-items-start
+                .col-lg-6
+                    p
+                        | MATRICARIA prende il nome botanico della margherita, fiore archetipico e simbolo di origine.
+                        br
+                        | Un'immagine primaria tradotta in forma di gioiello scultoreo.
+                        br
+                        br
+                        | Il modello nasce da una ricerca sulla struttura del fiore come forma generativa: un centro attorno a cui tutto si organizza, cresce, prende volume.
+                        br
+                        | Ogni anello è progettato come un corpo tridimensionale: volumi pieni, petali che si avvolgono attorno al corpo dell'anello, superfici organiche che rendono visibile il gesto artigianale.
+                        br
+                        | Le pietre ne coronano la struttura.
+                        br
+                        br
+                        | MATRICARIA è un omaggio all'oreficeria bold italiana degli anni '90, quando il gioiello era presenza, materia, architettura, reinterpretata in chiave contemporanea.
+                        br
+                        br
+                        | MATRICARIA è un modello aperto, riproducibile e declinabile in materiali e pietre diverse.
+                        br
+                        | Ogni pezzo viene realizzato su ordinazione e messo a misura.
+                        br
+                        br
+                        | Le versioni attualmente disponibili in pre-ordine, in argento 925, sono:
+                        br
+                        br
+                        | – Ag 925, ametista
+                        br
+                        | – Ag 925, topazio blu
+                        br
+                        | – Ag 925 placcato oro 24k, quarzo citrino
+                        br
+                        | – Ag 925 placcato oro 24k, quarzo fumé
+                        br
+                        br
+                        | Le versioni in oro 18k sono disponibili su commissione.
+                        br
+                        br
+                        | (Tempo di produzione: minimo due settimane)
+                .col-lg-6
+
+                    // Netlify Forms
+                    form#contactForm(name='contact-matricaria', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+
+                        // Netlify Forms hidden fields
+                        input(type='hidden', name='form-name', value='contact-matricaria')
+                        input(type='hidden', name='collection', value='MATRICARIA')
+                        // Honeypot field
+                        input(type='text', name='bot-field', class='d-none')
+
+                        // Name input
+                        .form-floating.mb-3
+                            input#name.form-control(
+                                type='text',
+                                name='name',
+                                placeholder='Enter your name...',
+                                required
+                            )
+                            label(for='name') Full name
+                            .invalid-feedback(data-sb-feedback='name:required')
+                                | A name is required.
+
+                        // Email address input
+                        .form-floating.mb-3
+                            input#email.form-control(
+                                type='email',
+                                name='email',
+                                placeholder='name@example.com',
+                                required
+                            )
+                            label(for='email') Email address
+                            .invalid-feedback(data-sb-feedback='email:required')
+                                | An email is required.
+                            .invalid-feedback(data-sb-feedback='email:email')
+                                | Email is not valid.
+
+                        // Phone number input
+                        .form-floating.mb-3
+                            input#phone.form-control(
+                                type='tel',
+                                name='phone',
+                                placeholder='(123) 456-7890'
+                            )
+                            label(for='phone') Phone number
+
+                        // Message input
+                        .form-floating.mb-3
+                            textarea#message.form-control(
+                                type='text',
+                                name='message',
+                                placeholder='Enter your message here...',
+                                style='height: 10rem;',
+                                required
+                            )
+                            label(for='message') Message
+                            .invalid-feedback(data-sb-feedback='message:required')
+                                | A message is required.
+
+                        // Submit Button
+                        .d-grid
+                            button#submitButton.btn-reset(type='submit')
+                                +svg-entra-in-contatto('Entra in contatto', '140px')

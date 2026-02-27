@@ -8,16 +8,21 @@ window.addEventListener('DOMContentLoaded', event => {
     window.scrollTo(0, 0);
 
     // Shop links: point to local Shopify theme dev server when on localhost
-    const shopBaseUrl = window.location.hostname === 'localhost' ? 'http://localhost:9292' : 'https://shop.oioijewellery.it';
-    const shopLink = document.getElementById('nav-shop-link');
-    if (shopLink) {
-        shopLink.href = shopBaseUrl + '/';
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const shopBaseUrl = isLocal ? 'http://localhost:9292' : 'https://shop.oioijewellery.it';
+
+    if (isLocal) {
+        document.querySelectorAll('a[href*="shop.oioijewellery.it"]').forEach(link => {
+            link.href = link.href.replace(/https:\/\/shop\.oioijewellery\.it/g, shopBaseUrl);
+        });
     }
+
     document.querySelectorAll('.shop-collection-link').forEach(link => {
         const collection = link.dataset.collection;
         if (collection) {
             link.href = shopBaseUrl + '/collections/' + collection;
         }
+        link.setAttribute('data-cross-domain', '');
     });
 
     // Navbar shrink function

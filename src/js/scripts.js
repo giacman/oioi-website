@@ -7,6 +7,19 @@ window.addEventListener('DOMContentLoaded', event => {
     // Force scroll to top on page load
     window.scrollTo(0, 0);
 
+    // Shop links: point to local Shopify theme dev server when on localhost
+    const shopBaseUrl = window.location.hostname === 'localhost' ? 'http://localhost:9292' : 'https://shop.oioijewellery.it';
+    const shopLink = document.getElementById('nav-shop-link');
+    if (shopLink) {
+        shopLink.href = shopBaseUrl + '/';
+    }
+    document.querySelectorAll('.shop-collection-link').forEach(link => {
+        const collection = link.dataset.collection;
+        if (collection) {
+            link.href = shopBaseUrl + '/collections/' + collection;
+        }
+    });
+
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');

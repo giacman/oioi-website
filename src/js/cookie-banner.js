@@ -140,7 +140,17 @@
         alert(lang === 'it' ? 'Preferenze salvate correttamente.' : 'Preferences saved successfully.');
     }
 
-    // Update checkboxes UI based on current consent
+    function getConsentFromCookie() {
+        var m = document.cookie.match(/(?:^|;\s*)oioi_consent=([^;]*)/);
+        if (!m) return null;
+        var v = m[1];
+        return {
+            analytics: v.indexOf('a1') !== -1,
+            marketing: v.indexOf('m1') !== -1,
+            status: 'cookie'
+        };
+    }
+
     function updatePolicyCheckboxes(analytics, marketing) {
         const analyticsBox = document.getElementById('consentAnalytics');
         const marketingBox = document.getElementById('consentMarketing');
@@ -151,8 +161,15 @@
 
     // Initialize cookie banner and preferences
     function initCookieBanner() {
-        const consentStatus = getConsentStatus();
-        
+        var consentStatus = getConsentStatus();
+
+        if (!consentStatus) {
+            consentStatus = getConsentFromCookie();
+            if (consentStatus) {
+                saveConsentStatus(consentStatus);
+            }
+        }
+
         if (consentStatus) {
             const analytics = consentStatus.analytics !== undefined ? consentStatus.analytics : (consentStatus.status === 'accepted');
             const marketing = consentStatus.marketing !== undefined ? consentStatus.marketing : (consentStatus.status === 'accepted');
@@ -164,7 +181,6 @@
             return;
         }
 
-        // Show banner if consent not given
         showCookieBanner();
     }
 

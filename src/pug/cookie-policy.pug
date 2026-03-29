@@ -106,7 +106,7 @@ block content
                         h2.mb-3= t('cookie_policy.contact.title')
                         p
                             = t('cookie_policy.contact.text')
-                            a(href=basePath + 'index.html#contact')= t('cookie_policy.contact.link_text')
+                            a(href='index.html#contact')= t('cookie_policy.contact.link_text')
                             = t('cookie_policy.contact.text_after')
                     
                     .text-center.mt-5
@@ -142,5 +142,5 @@ block content
                                 button.btn.btn-outline-secondary(type='button', onclick='window.handleAccept()')= t('cookie_policy.preferences.accept_all')
 
                         br
-                        a.btn.btn-link.mt-3(href=basePath + 'index.html')= t('cookie_policy.preferences.back_home')
+                        a.btn.btn-link.mt-3(href='index.html')= t('cookie_policy.preferences.back_home')
 

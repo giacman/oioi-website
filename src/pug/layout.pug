@@ -21,18 +21,21 @@ html(lang=i18n.meta.lang)
                     var m=document.cookie.match(new RegExp('(?:^|;\\s*)'+COOKIE+'=([^;]+)'));
                     saved=m?m[1]:null;
                 }
-                if(!saved){
-                    var bl=(navigator.language||'').substring(0,2);
-                    saved=(bl==='it')?'it':'en';
-                }
                 var onIt=/^\/it(\/|$)/.test(window.location.pathname);
-                var needsIt=(saved==='it');
                 if(window.location.hostname==='localhost'||window.location.hostname==='127.0.0.1')return;
-                if(needsIt&&!onIt){
-                    window.location.replace('/it'+window.location.pathname+window.location.search);
-                }else if(!needsIt&&onIt){
-                    var p=window.location.pathname.replace(/^\/it/,'')||'/';
-                    window.location.replace(p+window.location.search);
+                if(saved){
+                    var needsIt=(saved==='it');
+                    if(needsIt&&!onIt){
+                        window.location.replace('/it'+window.location.pathname+window.location.search);
+                    }else if(!needsIt&&onIt){
+                        var p=window.location.pathname.replace(/^\/it/,'')||'/';
+                        window.location.replace(p+window.location.search);
+                    }
+                }else if(!onIt){
+                    var bl=(navigator.language||'').substring(0,2);
+                    if(bl==='it'){
+                        window.location.replace('/it'+window.location.pathname+window.location.search);
+                    }
                 }
             })();
         

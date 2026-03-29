@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // Force scroll to top on page load
     window.scrollTo(0, 0);
 
-    // Shop links: point to local Shopify theme dev server when on localhost
+    // Shop: in locale vai allo storefront dev; in produzione restano link interni (coming soon) o shop per API/cart
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const shopBaseUrl = isLocal ? 'http://localhost:9292' : 'https://shop.oioijewellery.it';
 
@@ -15,15 +15,28 @@ window.addEventListener('DOMContentLoaded', event => {
         document.querySelectorAll('a[href*="shop.oioijewellery.it"]').forEach(link => {
             link.href = link.href.replace(/https:\/\/shop\.oioijewellery\.it/g, shopBaseUrl);
         });
-    }
-
-    document.querySelectorAll('.shop-collection-link').forEach(link => {
-        const collection = link.dataset.collection;
-        if (collection) {
-            link.href = shopBaseUrl + '/collections/' + collection;
+        const navShop = document.getElementById('nav-shop-link');
+        if (navShop) {
+            navShop.href = shopBaseUrl + '/collections/all';
+            navShop.setAttribute('data-cross-domain', '');
         }
-        link.setAttribute('data-cross-domain', '');
-    });
+        document.querySelectorAll('.shop-collection-link').forEach(link => {
+            const collection = link.dataset.collection;
+            if (collection) {
+                link.href = shopBaseUrl + '/collections/' + collection;
+            }
+            link.setAttribute('data-cross-domain', '');
+        });
+    } else {
+        document.querySelectorAll('.shop-collection-link').forEach(link => {
+            link.href = 'shop-coming-soon.html';
+            link.removeAttribute('data-cross-domain');
+        });
+        document.querySelectorAll('#cartPreview a.cart-preview__cta[data-cross-domain]').forEach(link => {
+            link.href = 'shop-coming-soon.html';
+            link.removeAttribute('data-cross-domain');
+        });
+    }
 
     // Navbar shrink function
     var navbarShrink = function () {

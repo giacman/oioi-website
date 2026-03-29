@@ -107,9 +107,24 @@ html(lang='it')
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.my-2.my-lg-0
                         li.nav-item
-                            a.nav-link(href='about.html') About
+                            a.nav-link(href='index.html') Home
                         li.nav-item
-                            a.nav-link(href='index.html#portfolio') Collezioni
+                            a.nav-link(href='about.html') About
+                        li.nav-item.nav-item--cart#cartNavItem
+                            a.nav-link#nav-shop-link(href='shop-coming-soon.html')
+                                | Shop 
+                                span.nav-cart-badge.d-none#cartBadge 0
+                            .cart-preview#cartPreview(aria-hidden='true')
+                                .cart-preview__empty#cartPreviewEmpty
+                                    p Il carrello è vuoto
+                                    a.cart-preview__cta(href='https://shop.oioijewellery.it/collections/all', data-cross-domain) Scopri lo shop
+                                .cart-preview__body.d-none#cartPreviewBody
+                                    ul.cart-preview__items#cartPreviewItems
+                                    .cart-preview__footer
+                                        .cart-preview__total
+                                            span Totale
+                                            span#cartPreviewTotal
+                                        a.cart-preview__cta#cartPreviewCheckout(href='https://shop.oioijewellery.it/cart', data-cross-domain) Vai al carrello
                         li.nav-item
                             a.nav-link(href='index.html#contact') Enquiry
                         li.nav-item
@@ -160,3 +175,29 @@ html(lang='it')
             
             // Cookie Banner JS
             script(src='js/cookie-banner.js')
+
+            // Cart — Storefront API
+            script(src='js/oioi-cart.js')
+            script.
+                window.oioiCart = new OioiCart({
+                    token: '8e43de797137357bb233ec0a6befa723',
+                    domain: 'oioi-shop-dev-basic.myshopify.com'
+                });
+                window.oioiCart.onChange(function (cart) {
+                    window.oioiCart.patchCrossDomainLinks();
+                    updateCartBadge(cart);
+                });
+                window.oioiCart.init().then(function (cart) {
+                    window.oioiCart.patchCrossDomainLinks();
+                    updateCartBadge(cart);
+                });
+                function updateCartBadge(cart) {
+                    if (!cart) return;
+                    var count = cart.totalQuantity || 0;
+                    document.querySelectorAll('.nav-cart-badge').forEach(function(b) {
+                        b.textContent = count;
+                        if (count > 0) { b.classList.remove('d-none'); }
+                        else { b.classList.add('d-none'); }
+                    });
+                }
+            script(src='js/oioi-cart-preview.js')

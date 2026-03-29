@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "lang": "en",
+    "og_locale": "en_US"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "shop": "Shop",
+    "enquiry": "Enquiry",
+    "instagram": "Instagram"
+  },
+  "cart_preview": {
+    "empty": "Your cart is empty",
+    "discover": "Discover the shop",
+    "total": "Total",
+    "go_to_cart": "Go to cart",
+    "qty": "Qty"
+  },
+  "cookie_banner": {
+    "text": "This site uses cookies to improve your browsing experience and to analyse traffic. ",
+    "more_info": "More information",
+    "accept": "Accept",
+    "manage": "Manage cookies"
+  },
+  "footer": {
+    "copyright": "© 2025 - OIOI Jewellery · Florence || Handcrafted in Santo Spirito",
+    "vat": "Gaia Cionnini - P.IVA 07327210485 · C.F. CNNGAI82D61A390A",
+    "cookie_policy": "Cookie Policy",
+    "manage_cookies": "Manage cookies"
+  },
+  "form": {
+    "full_name": "Full name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "message": "Message",
+    "name_required": "A name is required.",
+    "email_required": "An email is required.",
+    "email_invalid": "Email is not valid.",
+    "message_required": "A message is required.",
+    "submit_cta": "Get in touch"
+  },
+  "index": {
+    "title": "OIOI Jewellery",
+    "subtitle": "Artisanal Jewellery",
+    "tagline": "Magic shaped from raw matter & artisanal intelligence",
+    "contact_intro": "If something caught your curiosity, write to me to talk about it",
+    "contact_calligraphy": "I'll open the door, and from there we can begin to create together"
+  },
+  "about": {
+    "title": "About — OIOI Jewellery",
+    "meta_description": "About OIOI Jewellery — Florence-born artisanal jewellery.",
+    "heading": "About",
+    "intro": [
+      "OIOI is artisanal jewellery made in Florence.",
+      "Pieces built with traditional techniques, selected alloys, precious enamels and carefully chosen stones.",
+      "Creations that live off-scale, off-algorithm, off-trend.",
+      "Clear forms, symbols, considered proportions and details that sometimes shift the balance, sometimes set it straight."
+    ],
+    "intro_closing": "Handmade, designed for those who feel.",
+    "la_porta": {
+      "title": "THE DOOR",
+      "paragraphs": [
+        "The symbol of OIOI is inspired by the ancient crest of the Major Guilds.",
+        "The door of the Arte di Por Santa Maria, under which goldsmiths also worked, is my reference.",
+        "The panels are an O and an I that intersect, repeating like a rhythm, a mantra, a code.",
+        "It is the threshold between what I gather and what I build.",
+        "It holds together past and present, craft and vision, technique and creative freedom.",
+        "The door is my way of saying: come in, there's a world inside."
+      ]
+    },
+    "il_metodo": {
+      "title": "THE METHOD",
+      "paragraphs": [
+        "I draw, study proportions, volumes and architectures.",
+        "At the bench the form takes shape: metal sheet, wax, files, soldering, inlays, surfaces to refine, solutions to find.",
+        "I work with artisanal techniques such as lost-wax casting and sheet metalworking, with stone setting when the project demands it.",
+        "My approach stems from the interweaving of materials, symbols, images, architectures and memory.",
+        "The process unites precision, sensitivity and that eye which recognises when a form 'works': balance, intensity, character.",
+        "Each piece is a calibrated ecosystem."
+      ]
+    },
+    "estetica": {
+      "title": "AESTHETICS",
+      "paragraphs": [
+        "OIOI is Florence filtered through a gaze shaped elsewhere.",
+        "Cinema, architecture, art, music, complex imaginaries: everything becomes visual grammar. Sharp signs, contrasts, proportions.",
+        "An essential, symbolic, precise aesthetic.",
+        "With memory, but without mannerism."
+      ]
+    },
+    "attitudine": {
+      "title": "ATTITUDE",
+      "paragraphs": [
+        "OIOI speaks with a Florentine voice — dry, ironic, sharp.",
+        "That old lament that is never self-pity, but a critical gaze.",
+        "Telling it like it is, without frills, without flattery, with a sideways smile and a quip that lightens while it stings.",
+        "It is a language born in the workshop and ending in the form.",
+        "Rigorous but never rigid, intelligent but never snobbish, free but never precious.",
+        "It is the lens through which OIOI sees everything: proportions, symbols, offcuts, intuitions.",
+        "OIOI is also this: fiercely Florentine, elegantly impatient."
+      ]
+    },
+    "per_chi": {
+      "title": "FOR WHOM",
+      "paragraphs": [
+        "OIOI has no gender.",
+        "It is for those who recognise a sign, a vibration, an inner balance.",
+        "It is for those who seek presence, not approval."
+      ]
+    },
+    "chi_la_fa": {
+      "title": "WHO MAKES IT",
+      "paragraphs": [
+        "I am Gaia Cionnini.",
+        "Born in Arezzo, the City of Gold, a place where the goldsmithing tradition is not a trade: it is air, childhood, shared culture.",
+        "I grew up among workbenches, tools, ancient gestures.",
+        "My trajectory crosses Arezzo, Florence and London: studies in cinema, set design and visual arts, and many years in creative marketing.",
+        "Layers that have shaped my gaze.",
+        "At the bench these lives meet my manual skill, an artisanal intelligence made of gesture, eye and visual culture.",
+        "It is there that OIOI stops being a lament."
+      ]
+    },
+    "contact_intro": "If something caught your curiosity, write to me to talk about it",
+    "contact_calligraphy": "I'll open the door, and from there we can begin to create together"
+  },
+  "opera": {
+    "title": "OPERA — OIOI Jewellery",
+    "meta_description": "Opera Collection — OIOI Jewellery. A creation that happens only once.",
+    "subtitle": "A creation that happens only once",
+    "shop_now": "Shop now",
+    "description": [
+      "Unrepeatable forms born in dialogue with those who will wear them.",
+      "Jewellery built with complex goldsmithing techniques, selected stones, precious enamels and carefully chosen alloys.",
+      "Each OPERA comes to life through a shared process: a weaving of commission, interpretation and design.",
+      "It can start from something you already own — an inherited stone, an antique cameo, a forgotten piece of jewellery — or from a new idea, or from an existing OIOI model, rebuilt to measure by choosing materials, finishes and gems together.",
+      "My grammar of layering gives form to a new presence: metal, memory, colour, light.",
+      "These are creations that do not exist before the conversation.",
+      "They emerge from intentions, stories, from the moment — and from the metal that lets itself be transformed."
+    ],
+    "description_closing": "OPERA is a uniqueness that happens only once: the instant when matter, as if it had a soul, recognises what we suggest it become and finds identity in its new form."
+  },
+  "things": {
+    "title": "T.H.I.N.G.S. — OIOI Jewellery",
+    "meta_description": "T.H.I.N.G.S. - The Heirloom I Never Get Stolen — OIOI Jewellery",
+    "subtitle": "The Heirloom I Never Get Stolen",
+    "shop_now": "Shop now",
+    "description_opening": "The idea is born from an act of identity.",
+    "description": [
+      "They are the heirlooms no one left you.",
+      "Not inheritance, but choice.",
+      "Symbols that become important because they speak of you.",
+      "An identity that cannot be stolen.",
+      "Heirlooms built, not received.",
+      "Affective, ironic, identity-driven jewellery.",
+      "Small signs to wear every day, able to tell what you love, what you remember or what you revere.",
+      "Pop medals, contemporary ex-votos, personal talismans.",
+      "A dog, a moka pot, the first carp you ever caught, the symbol of your work, your instrument, a wrench.",
+      "And then everything else.",
+      "Simple objects, charged with meaning, yours.",
+      "Enamel seals the symbol and holds its story.",
+      "You choose the colour.",
+      "Some T.H.I.N.G.S. are already available.",
+      "Others are born together, from an image or an idea that feels yours.",
+      "They are turned into metal and sealed with enamel according to the OIOI grammar."
+    ],
+    "description_closing_1": "OIOI T.H.I.N.G.S.",
+    "description_closing_2": "The heirloom you choose and no one can take from you."
+  },
+  "they_them": {
+    "title": "THEY THEM — OIOI Jewellery",
+    "meta_description": "THEY THEM Collection — OIOI Jewellery",
+    "subtitle": "It is the I of OIOI",
+    "shop_now": "Shop now",
+    "description_opening": "THEY THEM is born from a single form.",
+    "description": [
+      "It is the I of OIOI.",
+      "A coloured rectangle that lives as a ring, pendant, earrings or bracelet.",
+      "The shape is always the same.",
+      "What changes is the colour.",
+      "The first palette includes two enamel tones: Quarry Blue and Magnolia.",
+      "Two colours developed from family recipes, calibrated on precise vibrations.",
+      "You can wear them alone or combine them.",
+      "Rings, pendants and necklaces are designed to speak to each other.",
+      "The pendant can live on its own or with its chain.",
+      "Then stay.",
+      "Or multiply.",
+      "Rings layer up.",
+      "Earrings talk to each other.",
+      "Bracelets set the rhythm.",
+      "Colours shift the balance.",
+      "Over time, seasonal colour drops will expand the visual vocabulary of the collection."
+    ],
+    "description_closing_1": "THEY THEM is essential, modular, free.",
+    "description_closing_2": "A shape that doesn't choose a role, but many possibilities.",
+    "description_closing_3": "A sign from my visual grammar that takes identity on the skin."
+  },
+  "matricaria": {
+    "title": "MATRICARIA — OIOI Jewellery",
+    "meta_description": "MATRICARIA Collection — OIOI Jewellery",
+    "subtitle": "The botanical name of the daisy",
+    "shop_now": "Shop now",
+    "description": [
+      "MATRICARIA takes the botanical name of the daisy, an archetypal flower and symbol of origin.",
+      "A primary image translated into sculptural jewellery.",
+      "The design stems from a study of the flower as a generative form: a centre around which everything organises, grows, takes volume.",
+      "Each ring is conceived as a three-dimensional body: solid volumes, petals that wrap around the band, organic surfaces that make the artisan's hand visible.",
+      "Stones crown the structure.",
+      "MATRICARIA is a tribute to the bold Italian goldsmithing of the 1990s, when jewellery was presence, matter, architecture — reinterpreted through a contemporary lens.",
+      "MATRICARIA is an open model, reproducible and adaptable to different materials and stones.",
+      "Each piece is made to order and sized to fit.",
+      "The versions currently available for pre-order, in 925 silver, are:"
+    ],
+    "variants": [
+      "Ag 925, amethyst",
+      "Ag 925, blue topaz",
+      "Ag 925 plated in 24k gold, citrine quartz",
+      "Ag 925 plated in 24k gold, smoky quartz"
+    ],
+    "gold_note": "18k gold versions are available on commission.",
+    "production_time": "(Production time: minimum two weeks)"
+  },
+  "cookie_policy": {
+    "title": "Cookie Policy — OIOI Jewellery",
+    "meta_description": "OIOI Jewellery Cookie Policy — How we use cookies and how to manage your preferences.",
+    "heading": "Cookie Policy",
+    "last_updated": "Last updated: 29 November 2025",
+    "what_is": {
+      "title": "What is a cookie?",
+      "text": "Cookies are small text files that are stored on your device (computer, tablet, smartphone) when you visit a website. Cookies allow the site to remember your actions and preferences for a period of time, so you do not have to re-enter them every time you return to the site or navigate from one page to another."
+    },
+    "how_we_use": {
+      "title": "How we use cookies",
+      "intro": "This site uses cookies to:",
+      "items": [
+        "Improve your browsing experience",
+        "Analyse site traffic anonymously and in aggregate",
+        "Understand how visitors interact with the site",
+        "Show relevant advertisements and measure their effectiveness (only with consent)"
+      ],
+      "closing": "The data collected is used exclusively for statistical, marketing and site improvement purposes."
+    },
+    "types": {
+      "title": "Types of cookies used",
+      "technical": {
+        "title": "Technical cookies (necessary)",
+        "text": "These cookies are essential for the operation of the site and cannot be disabled. They include cookies that allow the site to remember your cookie consent preferences."
+      },
+      "analytics": {
+        "title": "Analytics cookies",
+        "intro": "We use Google Analytics 4 (GA4) via Google Tag Manager to analyse site usage. These cookies collect information anonymously and in aggregate about:",
+        "items": [
+          "Number of visitors",
+          "Most visited pages",
+          "Time spent on the site",
+          "Visitor provenance"
+        ],
+        "closing": "Data is collected in compliance with Google Consent Mode v2 and respects your consent preferences. When you reject analytics cookies, data is still collected but in completely anonymous form, without user identification."
+      },
+      "marketing": {
+        "title": "Marketing cookies",
+        "intro": "We use Google Ads and other marketing tools to show relevant advertisements and measure their effectiveness. These cookies may track your browsing across different websites to create a profile of your interests.",
+        "items": [
+          "Measurement of advertising conversions",
+          "Remarketing and ad personalisation",
+          "Prevention of advertising fraud"
+        ],
+        "closing": "These cookies are activated only if you provide your explicit consent. You can change your preferences at any time on this page."
+      }
+    },
+    "management": {
+      "title": "Cookie management",
+      "paragraphs": [
+        "You can manage your cookie preferences at any time using the control panel at the bottom of this page.",
+        "You can selectively enable or disable analytics and marketing cookies. Technical cookies, being necessary, cannot be disabled.",
+        "Please note that disabling some cookies may affect your browsing experience or prevent you from viewing personalised content."
+      ]
+    },
+    "third_party": {
+      "title": "Third-party cookies",
+      "intro": "This site uses the following third-party services that may set cookies:",
+      "ga4": "Web analytics service provided by Google LLC. For more information: ",
+      "ga4_link": "Google Privacy Policy",
+      "gtm": "Tag management service provided by Google LLC",
+      "gads": "Advertising service provided by Google LLC. For more information: ",
+      "gads_link": "Google Privacy Policy",
+      "closing": "These services respect your consent preferences and collect data only if you have accepted analytics cookies."
+    },
+    "duration": {
+      "title": "Cookie duration",
+      "intro": "The cookies used by this site have different durations:",
+      "items": [
+        "Session cookies: deleted when you close your browser",
+        "Persistent cookies: remain on your device for a set period or until you delete them manually",
+        "Consent cookies: saved to remember your preferences (duration: 12 months)"
+      ]
+    },
+    "rights": {
+      "title": "Your rights",
+      "intro": "In accordance with the GDPR, you have the right to:",
+      "items": [
+        "Be informed about the use of cookies",
+        "Accept or reject non-essential cookies",
+        "Withdraw consent at any time",
+        "Delete cookies from your browser",
+        "Request information about collected data"
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "text": "For questions or requests regarding the use of cookies, you can contact us via the ",
+      "link_text": "contact form",
+      "text_after": " on the site."
+    },
+    "preferences": {
+      "title": "Your consent preferences",
+      "technical_label": "Technical cookies (Necessary)",
+      "technical_desc": "Necessary for the operation of the site and to save your preferences.",
+      "analytics_label": "Analytics cookies",
+      "analytics_desc": "Help us understand how you visit the site so we can improve it (Google Analytics 4).",
+      "marketing_label": "Marketing cookies",
+      "marketing_desc": "Used to measure the effectiveness of advertising campaigns (Google Ads).",
+      "save": "Save preferences",
+      "accept_all": "Accept all",
+      "back_home": "Back to Homepage"
+    }
+  },
+  "success": {
+    "title": "Message sent",
+    "heading": "Thank you!",
+    "message": "Your message has been sent. We will get back to you shortly.",
+    "back_home": "Back to home"
+  },
+  "shop_coming_soon": {
+    "title": "Shop — coming soon — OIOI Jewellery",
+    "meta_description": "The OIOI shop is coming soon. Come back soon or write to us from the home page.",
+    "heading": "Shop",
+    "message_1": "The online shop is coming soon.",
+    "message_2": "In the meantime, you can write to us from the home page for information and commissions.",
+    "back_home": "Back to home",
+    "thanks": "Thank you for your patience."
+  }
+}

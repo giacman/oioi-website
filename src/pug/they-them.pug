@@ -1,19 +1,22 @@
 extends layout.pug
 
 block title
-    title THEY THEM — OIOI Jewellery
+    title= t('they_them.title')
 
 block meta_description
-    meta(name='description', content='THEY THEM Collection — OIOI Jewellery')
+    meta(name='description', content=t('they_them.meta_description'))
+
+block canonical
+    link(rel='canonical', href=canonicalBase + localePrefix + 'they-them.html')
 
 block og_title
-    meta(property='og:title', content='THEY THEM — OIOI Jewellery')
+    meta(property='og:title', content=t('they_them.title'))
 block og_description
-    meta(property='og:description', content='THEY THEM Collection — OIOI Jewellery')
+    meta(property='og:description', content=t('they_them.meta_description'))
 block og_image
-    meta(property='og:image', content='https://oioijewellery.it/assets/img/portfolio/theythem.png')
+    meta(property='og:image', content=canonicalBase + 'assets/img/portfolio/theythem.png')
 block og_url
-    meta(property='og:url', content='https://oioijewellery.it/they-them.html')
+    meta(property='og:url', content=canonicalBase + localePrefix + 'they-them.html')
 
 block content
     // Masthead
@@ -21,12 +24,12 @@ block content
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
                 .col-lg-8.align-self-end
-                    img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
+                    img.mb-4.masthead-logotype(src=basePath + 'assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                     .d-flex.justify-content-center.align-items-center.mb-3
                         span.decorative-icon.me-2 🜃✴︎
                         h1.fw-medium.my-0(style='font-size: 1.4rem;') THEY THEM
                         span.decorative-icon.ms-2 ✴︎🜃
-                    p.mt-3 E' la I di OIOI
+                    p.mt-3= t('they_them.subtitle')
                     hr.divider
 
     // Collection Gallery
@@ -34,23 +37,23 @@ block content
         .container.px-4.px-lg-5
             .row.shop-cta-row.justify-content-center
                 .col-12.text-center
-                    a.shop-collection-link.shop-cta(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them') Shop now
+                    a.shop-collection-link.shop-cta(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')= t('they_them.shop_now')
             .row.g-4.justify-content-center
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/they-them/01-collection.png', alt='THEY THEM - Collezione')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/they-them/01-collection.png', alt='THEY THEM - Collezione')
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/they-them/02-rings-all.png', alt='THEY THEM - Anelli', loading='lazy')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/they-them/02-rings-all.png', alt='THEY THEM - Anelli', loading='lazy')
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/they-them/03-rings-double.png', alt='THEY THEM - Anelli doppi', loading='lazy')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/they-them/03-rings-double.png', alt='THEY THEM - Anelli doppi', loading='lazy')
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/they-them/04-rings-stack.png', alt='THEY THEM - Anelli impilati', loading='lazy')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/they-them/04-rings-stack.png', alt='THEY THEM - Anelli impilati', loading='lazy')
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/they-them/05-earrings.png', alt='THEY THEM - Orecchini', loading='lazy')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/they-them/05-earrings.png', alt='THEY THEM - Orecchini', loading='lazy')
 
     // Description and Contact
     section#contact.page-section(style='padding-top: 2rem;')
@@ -58,61 +61,26 @@ block content
             .row.gx-4.gx-lg-5.align-items-start
                 .col-lg-6
                     p
-                        strong THEY THEM nasce da una forma sola.
-                        br
-                        | È la I di OIOI.
+                        strong= t('they_them.description_opening')
                         br
                         br
-                        | Un rettangolo colorato che vive come anello, ciondolo, orecchini o bracciale.
+                        each p_text, idx in i18n.they_them.description
+                            if idx > 0
+                                br
+                            = p_text
                         br
                         br
-                        | La forma è sempre la stessa.
-                        br
-                        | A cambiare è il colore.
+                        strong= t('they_them.description_closing_1')
                         br
                         br
-                        | La prima palette comprende due tonalità di smalto: Quarry Blue e Magnolia.
-                        br
-                        | Due colori sviluppati da ricette di famiglia, calibrati su vibrazioni precise.
+                        strong= t('they_them.description_closing_2')
                         br
                         br
-                        | Puoi indossarli singoli o combinarli.
-                        br
-                        | Anelli, ciondoli e collane sono pensati per dialogare tra loro.
-                        br
-                        br
-                        | Il ciondolo può vivere da solo o con la sua collana.
-                        br
-                        | Poi restare.
-                        br
-                        | Oppure moltiplicarsi.
-                        br
-                        br
-                        | Gli anelli si stratificano.
-                        br
-                        | Gli orecchini dialogano tra loro.
-                        br
-                        | I bracciali segnano il ritmo.
-                        br
-                        | I colori cambiano l'equilibrio.
-                        br
-                        br
-                        | Nel tempo arriveranno drop cromatici stagionali che ampliano il vocabolario visivo della collezione.
-                        br
-                        br
-                        strong THEY THEM è essenziale, modulare, libera.
-                        br
-                        br
-                        | Una forma che non sceglie un ruolo, ma molte possibilità.
-                        br
-                        | Un segno della mia grammatica visiva che prende identità sulla pelle.
-                        br
-                        br
-                        strong Perché noi non mettiamo i puntini sulle i.
+                        strong= t('they_them.description_closing_3')
                 .col-lg-6
 
                     // Netlify Forms
-                    form#contactForm(name='contact-they-them', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+                    form#contactForm(name='contact-they-them', method='POST', data-netlify='true', netlify-honeypot='bot-field', action=(locale === 'en' ? '/success.html' : '/it/success.html'))
 
                         // Netlify Forms hidden fields
                         input(type='hidden', name='form-name', value='contact-they-them')
@@ -128,9 +96,9 @@ block content
                                 placeholder='Enter your name...',
                                 required
                             )
-                            label(for='name') Full name
+                            label(for='name')= t('form.full_name')
                             .invalid-feedback(data-sb-feedback='name:required')
-                                | A name is required.
+                                = t('form.name_required')
 
                         // Email address input
                         .form-floating.mb-3
@@ -140,11 +108,11 @@ block content
                                 placeholder='name@example.com',
                                 required
                             )
-                            label(for='email') Email address
+                            label(for='email')= t('form.email')
                             .invalid-feedback(data-sb-feedback='email:required')
-                                | An email is required.
+                                = t('form.email_required')
                             .invalid-feedback(data-sb-feedback='email:email')
-                                | Email is not valid.
+                                = t('form.email_invalid')
 
                         // Phone number input
                         .form-floating.mb-3
@@ -153,7 +121,7 @@ block content
                                 name='phone',
                                 placeholder='(123) 456-7890'
                             )
-                            label(for='phone') Phone number
+                            label(for='phone')= t('form.phone')
 
                         // Message input
                         .form-floating.mb-3
@@ -164,11 +132,11 @@ block content
                                 style='height: 10rem;',
                                 required
                             )
-                            label(for='message') Message
+                            label(for='message')= t('form.message')
                             .invalid-feedback(data-sb-feedback='message:required')
-                                | A message is required.
+                                = t('form.message_required')
 
                         // Submit Button
                         .d-grid
                             button#submitButton.btn-reset(type='submit')
-                                +svg-entra-in-contatto('Entra in contatto', '140px')
+                                +svg-entra-in-contatto(t('form.submit_cta'), '140px')

@@ -1,37 +1,37 @@
 extends layout.pug
 
 block title
-    title Shop — in arrivo — OIOI Jewellery
+    title= t('shop_coming_soon.title')
 
 block meta_description
-    meta(name='description', content='Lo shop OIOI è in arrivo. Torna presto o scrivici dalla home.')
+    meta(name='description', content=t('shop_coming_soon.meta_description'))
 
 block canonical
-    link(rel='canonical', href='https://oioijewellery.it/shop-coming-soon.html')
+    link(rel='canonical', href=canonicalBase + localePrefix + 'shop-coming-soon.html')
 
 block og_title
-    meta(property='og:title', content='Shop — in arrivo — OIOI Jewellery')
+    meta(property='og:title', content=t('shop_coming_soon.title'))
 block og_description
-    meta(property='og:description', content='Lo shop OIOI è in arrivo. Torna presto o scrivici dalla home.')
+    meta(property='og:description', content=t('shop_coming_soon.meta_description'))
 block og_url
-    meta(property='og:url', content='https://oioijewellery.it/shop-coming-soon.html')
+    meta(property='og:url', content=canonicalBase + localePrefix + 'shop-coming-soon.html')
 
 block content
     header.masthead(style='padding-bottom: 2rem;')
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
                 .col-lg-8.align-self-end
-                    img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
+                    img.mb-4.masthead-logotype(src=basePath + 'assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                     .d-flex.justify-content-center.align-items-center.mb-3
                         span.decorative-icon.me-2 🜃✴︎
-                        h1.my-0(style='font-size: 1.4rem;') Shop
+                        h1.my-0(style='font-size: 1.4rem;')= t('shop_coming_soon.heading')
                         span.decorative-icon.ms-2 ✴︎🜃
-                    p.mt-3 Lo shop online è in arrivo.
-                    p.mb-0 Nel frattempo puoi scriverci dalla home per informazioni e commissioni.
+                    p.mt-3= t('shop_coming_soon.message_1')
+                    p.mb-0= t('shop_coming_soon.message_2')
                     hr.divider
 
     section.page-section(style='padding-top: 0; padding-bottom: 3rem;')
         .container.px-4.px-lg-5.text-center
             p.mb-4
-                a(href='index.html') Torna alla home
-            p.small.text-muted Grazie per la pazienza.
+                a(href=basePath + 'index.html')= t('shop_coming_soon.back_home')
+            p.small.text-muted= t('shop_coming_soon.thanks')

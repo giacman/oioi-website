@@ -1,12 +1,34 @@
 'use strict';
 
 const _ = require('lodash');
+const fs = require('fs');
 const chokidar = require('chokidar');
 const upath = require('upath');
 const renderAssets = require('./render-assets');
 const renderPug = require('./render-pug');
 const renderScripts = require('./render-scripts');
 const renderSCSS = require('./render-scss');
+
+const srcPath = upath.resolve(upath.dirname(__filename), '../src');
+const locales = ['en', 'it'];
+
+function loadLocaleData() {
+    var data = {};
+    locales.forEach(function(locale) {
+        data[locale] = JSON.parse(fs.readFileSync(
+            upath.resolve(srcPath, 'locales', locale + '.json'), 'utf8'
+        ));
+    });
+    return data;
+}
+
+var localeData = loadLocaleData();
+
+function renderPugAllLocales(filePath) {
+    locales.forEach(function(locale) {
+        renderPug(filePath, locale, localeData[locale]);
+    });
+}
 
 const watcher = chokidar.watch('src', {
     persistent: true,
@@ -41,6 +63,11 @@ function _processFile(filePath, watchEvent) {
 
     console.log(`### INFO: File event: ${watchEvent}: ${filePath}`);
 
+    if (filePath.match(/\.json$/) && filePath.match(/locales/)) {
+        localeData = loadLocaleData();
+        return _renderAllPug();
+    }
+
     if (filePath.match(/\.pug$/)) {
         return _handlePug(filePath, watchEvent);
     }
@@ -67,17 +94,17 @@ function _handlePug(filePath, watchEvent) {
         if (filePath.match(/includes/) || filePath.match(/mixins/) || filePath.match(/\/pug\/layouts\//)) {
             return _renderAllPug();
         }
-        return renderPug(filePath);
+        return renderPugAllLocales(filePath);
     }
     if (!filePath.match(/includes/) && !filePath.match(/mixins/) && !filePath.match(/\/pug\/layouts\//)) {
-        return renderPug(filePath);
+        return renderPugAllLocales(filePath);
     }
 }
 
 function _renderAllPug() {
     console.log('### INFO: Rendering All');
     _.each(allPugFiles, (value, filePath) => {
-        renderPug(filePath);
+        renderPugAllLocales(filePath);
     });
 }
 

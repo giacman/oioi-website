@@ -1,10 +1,10 @@
 extends layout.pug
 
 block title
-    title Informativa sui Cookie — OIOI Jewellery
+    title= t('cookie_policy.title')
 
 block meta_description
-    meta(name='description', content='Informativa sui Cookie di OIOI Jewellery — Come utilizziamo i cookie e come gestire le tue preferenze.')
+    meta(name='description', content=t('cookie_policy.meta_description'))
 
 block content
     // Masthead
@@ -12,10 +12,10 @@ block content
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
                 .col-lg-8.align-self-end
-                    img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
+                    img.mb-4.masthead-logotype(src=basePath + 'assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                     .d-flex.justify-content-center.align-items-center.mb-3
                         span.decorative-icon.me-2 🜃✴︎
-                        h1.my-0(style='font-size: 1.4rem;') Informativa sui Cookie
+                        h1.my-0(style='font-size: 1.4rem;')= t('cookie_policy.heading')
                         span.decorative-icon.ms-2 ✴︎🜃
                     hr.divider
     
@@ -25,129 +25,122 @@ block content
             .row.gx-4.gx-lg-5.justify-content-center
                 .col-lg-8
                     .mb-4
-                        p.text-muted Ultimo aggiornamento: 29 novembre 2025
+                        p.text-muted= t('cookie_policy.last_updated')
                     
                     .mb-5
-                        h2.mb-3 Cos'è un cookie?
-                        p I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo (computer, tablet, smartphone) quando visiti un sito web. I cookie permettono al sito di ricordare le tue azioni e preferenze per un periodo di tempo, così non devi reinserirle ogni volta che torni sul sito o navighi da una pagina all'altra.
+                        h2.mb-3= t('cookie_policy.what_is.title')
+                        p= t('cookie_policy.what_is.text')
                     
                     .mb-5
-                        h2.mb-3 Come utilizziamo i cookie
-                        p Questo sito utilizza i cookie per:
+                        h2.mb-3= t('cookie_policy.how_we_use.title')
+                        p= t('cookie_policy.how_we_use.intro')
                         ul
-                            li Migliorare la tua esperienza di navigazione
-                            li Analizzare il traffico del sito in modo anonimo e aggregato
-                            li Comprendere come i visitatori interagiscono con il sito
-                            li Mostrare annunci pubblicitari pertinenti e misurarne l'efficacia (solo previo consenso)
+                            each item in i18n.cookie_policy.how_we_use.items
+                                li= item
                         
-                        p I dati raccolti sono utilizzati esclusivamente per fini statistici, di marketing e di miglioramento del sito.
+                        p= t('cookie_policy.how_we_use.closing')
                     
                     .mb-5
-                        h2.mb-3 Tipi di cookie utilizzati
+                        h2.mb-3= t('cookie_policy.types.title')
                         
-                        h3.mb-3.mt-4 Cookie tecnici (necessari)
-                        p Questi cookie sono essenziali per il funzionamento del sito e non possono essere disattivati. Includono cookie che permettono di ricordare le tue preferenze di consenso ai cookie.
+                        h3.mb-3.mt-4= t('cookie_policy.types.technical.title')
+                        p= t('cookie_policy.types.technical.text')
                         
-                        h3.mb-3 Cookie di analisi
-                        p Utilizziamo Google Analytics 4 (GA4) tramite Google Tag Manager per analizzare l'utilizzo del sito. Questi cookie raccolgono informazioni in forma anonima e aggregata su:
+                        h3.mb-3= t('cookie_policy.types.analytics.title')
+                        p= t('cookie_policy.types.analytics.intro')
                         ul
-                            li Numero di visitatori
-                            li Pagine più visitate
-                            li Tempo di permanenza sul sito
-                            li Provenienza dei visitatori
+                            each item in i18n.cookie_policy.types.analytics.items
+                                li= item
                         
-                        p I dati sono raccolti in conformità con Google Consent Mode v2 e rispettano le tue preferenze di consenso. Quando rifiuti i cookie di analisi, i dati vengono comunque raccolti ma in forma completamente anonima, senza identificazione dell'utente.
+                        p= t('cookie_policy.types.analytics.closing')
 
-                        h3.mb-3 Cookie di marketing
-                        p Utilizziamo Google Ads e altri strumenti di marketing per mostrare annunci pertinenti e misurarne l'efficacia. Questi cookie potrebbero tracciare la tua navigazione attraverso diversi siti web per creare un profilo dei tuoi interessi.
+                        h3.mb-3= t('cookie_policy.types.marketing.title')
+                        p= t('cookie_policy.types.marketing.intro')
                         ul
-                            li Misurazione delle conversioni pubblicitarie
-                            li Remarketing e personalizzazione degli annunci
-                            li Prevenzione delle frodi pubblicitarie
+                            each item in i18n.cookie_policy.types.marketing.items
+                                li= item
                         
-                        p Questi cookie vengono attivati solo se fornisci il tuo consenso esplicito. Puoi modificare le tue preferenze in qualsiasi momento in questa pagina.
+                        p= t('cookie_policy.types.marketing.closing')
                     
                     .mb-5
-                        h2.mb-3 Gestione dei cookie
-                        p Puoi gestire le tue preferenze sui cookie in qualsiasi momento utilizzando il pannello di controllo presente in fondo a questa pagina.
-                        p Hai la possibilità di abilitare o disabilitare selettivamente i cookie di analisi e di marketing. I cookie tecnici, essendo necessari, non possono essere disabilitati.
-                        
-                        p Tieni presente che la disattivazione di alcuni cookie potrebbe influire sulla tua esperienza di navigazione o impedirti di visualizzare contenuti personalizzati.
+                        h2.mb-3= t('cookie_policy.management.title')
+                        each para in i18n.cookie_policy.management.paragraphs
+                            p= para
                     
                     .mb-5
-                        h2.mb-3 Cookie di terze parti
-                        p Questo sito utilizza i seguenti servizi di terze parti che potrebbero impostare cookie:
+                        h2.mb-3= t('cookie_policy.third_party.title')
+                        p= t('cookie_policy.third_party.intro')
                         ul
                             li 
                                 strong Google Analytics 4 (GA4)
-                                | : Servizio di analisi web fornito da Google LLC. Per maggiori informazioni: 
-                                a(href='https://policies.google.com/privacy', target='_blank', rel='noopener') Privacy Policy di Google
+                                | : 
+                                = t('cookie_policy.third_party.ga4')
+                                a(href='https://policies.google.com/privacy', target='_blank', rel='noopener')= t('cookie_policy.third_party.ga4_link')
                             li 
                                 strong Google Tag Manager
-                                | : Servizio di gestione tag fornito da Google LLC
+                                | : 
+                                = t('cookie_policy.third_party.gtm')
                             li 
                                 strong Google Ads
-                                | : Servizio pubblicitario fornito da Google LLC. Per maggiori informazioni: 
-                                a(href='https://policies.google.com/privacy', target='_blank', rel='noopener') Privacy Policy di Google
+                                | : 
+                                = t('cookie_policy.third_party.gads')
+                                a(href='https://policies.google.com/privacy', target='_blank', rel='noopener')= t('cookie_policy.third_party.gads_link')
                         
-                        p Questi servizi rispettano le tue preferenze di consenso e raccolgono dati solo se hai accettato i cookie di analisi.
+                        p= t('cookie_policy.third_party.closing')
                     
                     .mb-5
-                        h2.mb-3 Durata dei cookie
-                        p I cookie utilizzati da questo sito hanno durate diverse:
+                        h2.mb-3= t('cookie_policy.duration.title')
+                        p= t('cookie_policy.duration.intro')
                         ul
-                            li Cookie di sessione: vengono eliminati quando chiudi il browser
-                            li Cookie persistenti: rimangono sul tuo dispositivo per un periodo determinato o fino a quando non li elimini manualmente
-                            li Cookie di consenso: vengono salvati per ricordare le tue preferenze (durata: 12 mesi)
+                            each item in i18n.cookie_policy.duration.items
+                                li= item
                     
                     .mb-5
-                        h2.mb-3 I tuoi diritti
-                        p In conformità con il GDPR, hai il diritto di:
+                        h2.mb-3= t('cookie_policy.rights.title')
+                        p= t('cookie_policy.rights.intro')
                         ul
-                            li Essere informato sull'utilizzo dei cookie
-                            li Accettare o rifiutare i cookie non essenziali
-                            li Revocare il consenso in qualsiasi momento
-                            li Eliminare i cookie dal tuo browser
-                            li Richiedere informazioni sui dati raccolti
+                            each item in i18n.cookie_policy.rights.items
+                                li= item
                     
                     .mb-5
-                        h2.mb-3 Contatti
-                        p Per domande o richieste riguardo all'utilizzo dei cookie, puoi contattarci tramite il 
-                            a(href='index.html#contact') modulo di contatto
-                            |  presente sul sito.
+                        h2.mb-3= t('cookie_policy.contact.title')
+                        p
+                            = t('cookie_policy.contact.text')
+                            a(href=basePath + 'index.html#contact')= t('cookie_policy.contact.link_text')
+                            = t('cookie_policy.contact.text_after')
                     
                     .text-center.mt-5
-                        h3.mb-4 Le tue preferenze di consenso
+                        h3.mb-4= t('cookie_policy.preferences.title')
                         
                         form#cookiePreferencesForm.text-start.d-inline-block.mx-auto.mb-4(style='max-width: 500px; width: 100%;')
                             // Technical Cookies
                             .form-check.form-switch.mb-3
                                 input#consentTechnical.form-check-input(type='checkbox', checked, disabled)
                                 label.form-check-label(for='consentTechnical')
-                                    strong Cookie tecnici (Necessari)
+                                    strong= t('cookie_policy.preferences.technical_label')
                                     br
-                                    small.text-muted Necessari per il funzionamento del sito e per salvare le tue preferenze.
+                                    small.text-muted= t('cookie_policy.preferences.technical_desc')
                             
                             // Analytics Cookies
                             .form-check.form-switch.mb-3
                                 input#consentAnalytics.form-check-input(type='checkbox')
                                 label.form-check-label(for='consentAnalytics')
-                                    strong Cookie di analisi
+                                    strong= t('cookie_policy.preferences.analytics_label')
                                     br
-                                    small.text-muted Ci aiutano a capire come visiti il sito per migliorarlo (Google Analytics 4).
+                                    small.text-muted= t('cookie_policy.preferences.analytics_desc')
                             
                             // Advertising Cookies
                             .form-check.form-switch.mb-4
                                 input#consentMarketing.form-check-input(type='checkbox')
                                 label.form-check-label(for='consentMarketing')
-                                    strong Cookie di marketing
+                                    strong= t('cookie_policy.preferences.marketing_label')
                                     br
-                                    small.text-muted Utilizzati per misurare l'efficacia delle campagne pubblicitarie (Google Ads).
+                                    small.text-muted= t('cookie_policy.preferences.marketing_desc')
 
                             .d-grid.gap-2.d-md-block.text-center
-                                button#savePreferencesBtn.btn.btn-primary.me-md-2(type='button', onclick='window.handleSavePreferences()') Salva preferenze
-                                button.btn.btn-outline-secondary(type='button', onclick='window.handleAccept()') Accetta tutti
+                                button#savePreferencesBtn.btn.btn-primary.me-md-2(type='button', onclick='window.handleSavePreferences()')= t('cookie_policy.preferences.save')
+                                button.btn.btn-outline-secondary(type='button', onclick='window.handleAccept()')= t('cookie_policy.preferences.accept_all')
 
                         br
-                        a.btn.btn-link.mt-3(href='index.html') Torna alla Homepage
+                        a.btn.btn-link.mt-3(href=basePath + 'index.html')= t('cookie_policy.preferences.back_home')
 

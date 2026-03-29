@@ -1,12 +1,12 @@
 extends layout.pug
 
 block title
-    title Messaggio inviato
+    title= t('success.title')
 
 block content
     section.page-section(style='min-height:60vh;display:flex;align-items:center;justify-content:center;')
       .container.px-4.px-lg-5.text-center
-        h1 Grazie!
-        p Il tuo messaggio è stato inviato. Ti risponderemo al più presto.
+        h1= t('success.heading')
+        p= t('success.message')
         p
-          a.btn.btn-primary(href='/') Torna alla home
+          a.btn.btn-primary(href=basePath + 'index.html')= t('success.back_home')

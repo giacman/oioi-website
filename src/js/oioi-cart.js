@@ -256,6 +256,7 @@
    */
   OioiCart.prototype.patchCrossDomainLinks = function () {
     var cartId = this.cartId;
+    var lang = document.documentElement.lang || 'en';
     var links = document.querySelectorAll('[data-cross-domain]');
     links.forEach(function (a) {
       try {
@@ -264,6 +265,11 @@
           url.searchParams.set('cartId', cartId);
         } else {
           url.searchParams.delete('cartId');
+        }
+        if (lang !== 'en') {
+          url.searchParams.set('locale', lang);
+        } else {
+          url.searchParams.delete('locale');
         }
         a.href = url.toString();
       } catch (e) { /* skip invalid URLs */ }

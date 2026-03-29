@@ -91,11 +91,11 @@
         updateConsentMode(true);
         hideCookieBanner();
         
-        // Update checkboxes if on policy page
         updatePolicyCheckboxes(true, true);
         
         if (document.getElementById('savePreferencesBtn')) {
-            alert('Hai accettato tutti i cookie.');
+            var lang = document.documentElement.lang || 'en';
+            alert(lang === 'it' ? 'Hai accettato tutti i cookie.' : 'You have accepted all cookies.');
         }
     }
 
@@ -125,7 +125,8 @@
         updateConsentMode(consentData);
         hideCookieBanner(); // In case it was open
         
-        alert('Preferenze salvate correttamente.');
+        var lang = document.documentElement.lang || 'en';
+        alert(lang === 'it' ? 'Preferenze salvate correttamente.' : 'Preferences saved successfully.');
     }
 
     // Update checkboxes UI based on current consent

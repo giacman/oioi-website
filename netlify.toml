@@ -5,4 +5,10 @@
 [build.environment]
   NODE_VERSION = "18"
 
-
+# Geo-redirect: Italian visitors → /it/
+[[redirects]]
+  from = "/"
+  to = "/it/"
+  status = 302
+  force = false
+  conditions = {Country = ["IT"]}

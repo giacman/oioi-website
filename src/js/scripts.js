@@ -7,9 +7,12 @@ window.addEventListener('DOMContentLoaded', event => {
     // Force scroll to top on page load
     window.scrollTo(0, 0);
 
-    // Shop: in locale vai allo storefront dev; in produzione restano link interni (coming soon) o shop per API/cart
+    // Shop links: locale-aware
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const lang = document.documentElement.lang || 'en';
     const shopBaseUrl = isLocal ? 'http://localhost:9292' : 'https://shop.oioijewellery.it';
+    var onIt = /^\/it(\/|$)/.test(window.location.pathname);
+    var comingSoonPath = (onIt && !isLocal) ? '/it/shop-coming-soon.html' : 'shop-coming-soon.html';
 
     if (isLocal) {
         document.querySelectorAll('a[href*="shop.oioijewellery.it"]').forEach(link => {
@@ -29,11 +32,11 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     } else {
         document.querySelectorAll('.shop-collection-link').forEach(link => {
-            link.href = 'shop-coming-soon.html';
+            link.href = comingSoonPath;
             link.removeAttribute('data-cross-domain');
         });
         document.querySelectorAll('#cartPreview a.cart-preview__cta[data-cross-domain]').forEach(link => {
-            link.href = 'shop-coming-soon.html';
+            link.href = comingSoonPath;
             link.removeAttribute('data-cross-domain');
         });
     }

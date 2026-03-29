@@ -1,18 +1,46 @@
 include mixins/_svg_buttons.pug
 
+- var canonicalBase = 'https://oioijewellery.it/'
+- var localePrefix = (locale === 'it') ? 'it/' : ''
+- var otherLocale = (locale === 'en') ? 'it' : 'en'
+- var otherPath = (locale === 'en') ? 'it/' : '../'
+
 doctype html
-html(lang='it')
+html(lang=i18n.meta.lang)
 
     head
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+
+        //- Language detection — inline to avoid flash
+        script.
+            (function(){
+                var COOKIE='oioi_lang';
+                var saved=localStorage.getItem(COOKIE);
+                if(!saved){
+                    var m=document.cookie.match(new RegExp('(?:^|;\\s*)'+COOKIE+'=([^;]+)'));
+                    saved=m?m[1]:null;
+                }
+                if(!saved){
+                    var bl=(navigator.language||'').substring(0,2);
+                    saved=(bl==='it')?'it':'en';
+                }
+                var onIt=/^\/it(\/|$)/.test(window.location.pathname);
+                var needsIt=(saved==='it');
+                if(window.location.hostname==='localhost'||window.location.hostname==='127.0.0.1')return;
+                if(needsIt&&!onIt){
+                    window.location.replace('/it'+window.location.pathname+window.location.search);
+                }else if(!needsIt&&onIt){
+                    var p=window.location.pathname.replace(/^\/it/,'')||'/';
+                    window.location.replace(p+window.location.search);
+                }
+            })();
         
         // Google Consent Mode v2 - Initialize before GTM
         script.
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             
-            // Default consent state - deny all until user accepts
             gtag('consent', 'default', {
                 'analytics_storage': 'denied',
                 'ad_storage': 'denied',
@@ -28,10 +56,9 @@ html(lang='it')
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-W759WSVM');
-        // End Google Tag Manager
 
         block meta_description
-            meta(name='description', content="OIOI Jewellery — Florence-born artisanal jewellery. Magia plasmata dalla materia grezza e dall'intelligenza artigianale.")
+            meta(name='description', content="OIOI Jewellery — Florence-born artisanal jewellery.")
         
         meta(name='author', content='OIOI Jewellery')
 
@@ -39,14 +66,14 @@ html(lang='it')
         block og_title
             meta(property='og:title', content='OIOI Jewellery')
         block og_description
-            meta(property='og:description', content="Gioielleria artigianale realizzata a Firenze. Magia plasmata dalla materia grezza e dall'intelligenza artigianale.")
+            meta(property='og:description', content="Florence-born artisanal jewellery.")
         block og_image
             meta(property='og:image', content='https://oioijewellery.it/assets/img/about/about_hero.png')
         block og_url
-            meta(property='og:url', content='https://oioijewellery.it/')
+            meta(property='og:url', content=canonicalBase + localePrefix)
         meta(property='og:type', content='website')
         meta(property='og:site_name', content='OIOI Jewellery')
-        meta(property='og:locale', content='it_IT')
+        meta(property='og:locale', content=i18n.meta.og_locale)
 
         // Twitter Card
         meta(name='twitter:card', content='summary_large_image')
@@ -55,7 +82,13 @@ html(lang='it')
             title OIOI Jewellery
         
         block canonical
-            link(rel='canonical', href='https://oioijewellery.it/')
+            link(rel='canonical', href=canonicalBase + localePrefix)
+
+        //- hreflang alternates
+        block hreflang
+            link(rel='alternate', hreflang='en', href=canonicalBase + currentPage)
+            link(rel='alternate', hreflang='it', href=canonicalBase + 'it/' + currentPage)
+            link(rel='alternate', hreflang='x-default', href=canonicalBase + currentPage)
 
         // Schema.org Organization Markup
         script(type='application/ld+json').
@@ -65,7 +98,7 @@ html(lang='it')
                 "name": "OIOI Jewellery",
                 "url": "https://oioijewellery.it",
                 "logo": "https://oioijewellery.it/assets/img/logos/oioi_black.svg",
-                "description": "Gioielli artigianali realizzati a mano a Firenze. Magia plasmata dalla materia grezza e dall'intelligenza artigianale.",
+                "description": "Artisanal jewellery handcrafted in Florence.",
                 "sameAs": [
                     "https://www.instagram.com/oioijewellery/",
                     "https://www.facebook.com/oioijewellery"
@@ -73,9 +106,8 @@ html(lang='it')
             }
 
         // Favicon
-        // Prefer SVG; fallback ICO remains in dist
-        link(rel='icon', type='image/svg+xml', href='assets/favicon.svg')
-        link(rel='alternate icon', type='image/x-icon', href='assets/favicon.ico')
+        link(rel='icon', type='image/svg+xml', href=basePath + 'assets/favicon.svg')
+        link(rel='alternate icon', type='image/x-icon', href=basePath + 'assets/favicon.ico')
 
         // Bootstrap Icons
         link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css', rel='stylesheet')
@@ -89,46 +121,51 @@ html(lang='it')
         link(href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css', rel='stylesheet')
 
         // Core theme CSS (includes Bootstrap)
-        link(href='css/styles.css', rel='stylesheet')
+        link(href=basePath + 'css/styles.css', rel='stylesheet')
 
     body#page-top
         // Google Tag Manager (noscript)
         noscript
             iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-W759WSVM', height='0', width='0', style='display:none;visibility:hidden')
-        // End Google Tag Manager (noscript)
 
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
             .container.px-4.px-lg-5
-                a.navbar-brand(href='/#page-top')
+                a.navbar-brand(href=basePath + 'index.html#page-top')
                     +svg-logo-oioi('90px')
                 button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.my-2.my-lg-0
                         li.nav-item
-                            a.nav-link(href='index.html') Home
+                            a.nav-link(href=basePath + 'index.html')= t('nav.home')
                         li.nav-item
-                            a.nav-link(href='about.html') About
+                            a.nav-link(href=basePath + 'about.html')= t('nav.about')
                         li.nav-item.nav-item--cart#cartNavItem
-                            a.nav-link#nav-shop-link(href='shop-coming-soon.html')
-                                | Shop 
+                            a.nav-link#nav-shop-link(href=basePath + 'shop-coming-soon.html')
+                                = t('nav.shop') + ' '
                                 span.nav-cart-badge.d-none#cartBadge 0
                             .cart-preview#cartPreview(aria-hidden='true')
                                 .cart-preview__empty#cartPreviewEmpty
-                                    p Il carrello è vuoto
-                                    a.cart-preview__cta(href='https://shop.oioijewellery.it/collections/all', data-cross-domain) Scopri lo shop
+                                    p= t('cart_preview.empty')
+                                    a.cart-preview__cta(href='https://shop.oioijewellery.it/collections/all', data-cross-domain)= t('cart_preview.discover')
                                 .cart-preview__body.d-none#cartPreviewBody
                                     ul.cart-preview__items#cartPreviewItems
                                     .cart-preview__footer
                                         .cart-preview__total
-                                            span Totale
+                                            span= t('cart_preview.total')
                                             span#cartPreviewTotal
-                                        a.cart-preview__cta#cartPreviewCheckout(href='https://shop.oioijewellery.it/cart', data-cross-domain) Vai al carrello
+                                        a.cart-preview__cta#cartPreviewCheckout(href='https://shop.oioijewellery.it/cart', data-cross-domain)= t('cart_preview.go_to_cart')
                         li.nav-item
-                            a.nav-link(href='index.html#contact') Enquiry
+                            a.nav-link(href=basePath + 'index.html#contact')= t('nav.enquiry')
                         li.nav-item
-                            a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener') Instagram
+                            a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener')= t('nav.instagram')
+                        li.nav-item.ms-lg-2
+                            a.nav-link.header-locale-switch(
+                                href=otherPath + currentPage,
+                                data-locale=otherLocale,
+                                onclick="document.cookie='oioi_lang=" + otherLocale + ";path=/;domain=.oioijewellery.it;max-age=31536000;SameSite=Lax;Secure';localStorage.setItem('oioi_lang','" + otherLocale + "')"
+                            )= otherLocale.toUpperCase()
 
         block content
 
@@ -137,24 +174,24 @@ html(lang='it')
             .cookie-banner-content
                 .cookie-banner-text
                     p.mb-0
-                        | Questo sito utilizza cookie per migliorare l'esperienza di navigazione e per analizzare il traffico. 
-                        a(href='cookie-policy.html') Maggiori informazioni
+                        = t('cookie_banner.text')
+                        a(href=basePath + 'cookie-policy.html')= t('cookie_banner.more_info')
                 .cookie-banner-actions
-                    button#cookieAccept.btn.btn-sm.btn-primary(type='button') Accetta
-                    a.btn.btn-sm.btn-outline-secondary(href='cookie-policy.html') Gestisci cookie
+                    button#cookieAccept.btn.btn-sm.btn-primary(type='button')= t('cookie_banner.accept')
+                    a.btn.btn-sm.btn-outline-secondary(href=basePath + 'cookie-policy.html')= t('cookie_banner.manage')
 
         // Footer
         footer.py-5
             .container.px-4.px-lg-5
                 .small.text-center.text-muted
-                    | © 2025 - OIOI Jewellery · Florence || Handcrafted in Santo Spirito
+                    = t('footer.copyright')
                     br
-                    | Gaia Cionnini - P.IVA 07327210485 · C.F. CNNGAI82D61A390A
+                    = t('footer.vat')
                     br
                     .mt-2.mb-2
-                        a.me-2(href='cookie-policy.html') Cookie Policy
+                        a.me-2(href=basePath + 'cookie-policy.html')= t('footer.cookie_policy')
                         span.me-2 |
-                        a.me-2(href='#', onclick='window.showCookiePreferences(); return false;') Gestisci cookie
+                        a.me-2(href='#', onclick='window.showCookiePreferences(); return false;')= t('footer.manage_cookies')
                     .mt-2
                         a.me-3(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener', aria-label='Instagram')
                             i.bi.bi-instagram(style='font-size: 1.2rem;')
@@ -171,13 +208,13 @@ html(lang='it')
             script(src='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js')
 
             // Core theme JS
-            script(src='js/scripts.js')
+            script(src=basePath + 'js/scripts.js')
             
             // Cookie Banner JS
-            script(src='js/cookie-banner.js')
+            script(src=basePath + 'js/cookie-banner.js')
 
             // Cart — Storefront API
-            script(src='js/oioi-cart.js')
+            script(src=basePath + 'js/oioi-cart.js')
             script.
                 window.oioiCart = new OioiCart({
                     token: '8e43de797137357bb233ec0a6befa723',
@@ -200,4 +237,4 @@ html(lang='it')
                         else { b.classList.add('d-none'); }
                     });
                 }
-            script(src='js/oioi-cart-preview.js')
+            script(src=basePath + 'js/oioi-cart-preview.js')

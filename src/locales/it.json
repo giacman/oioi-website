@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "lang": "it",
+    "og_locale": "it_IT"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "shop": "Shop",
+    "enquiry": "Enquiry",
+    "instagram": "Instagram"
+  },
+  "cart_preview": {
+    "empty": "Il carrello è vuoto",
+    "discover": "Scopri lo shop",
+    "total": "Totale",
+    "go_to_cart": "Vai al carrello",
+    "qty": "Qtà"
+  },
+  "cookie_banner": {
+    "text": "Questo sito utilizza cookie per migliorare l'esperienza di navigazione e per analizzare il traffico. ",
+    "more_info": "Maggiori informazioni",
+    "accept": "Accetta",
+    "manage": "Gestisci cookie"
+  },
+  "footer": {
+    "copyright": "© 2025 - OIOI Jewellery · Florence || Handcrafted in Santo Spirito",
+    "vat": "Gaia Cionnini - P.IVA 07327210485 · C.F. CNNGAI82D61A390A",
+    "cookie_policy": "Cookie Policy",
+    "manage_cookies": "Gestisci cookie"
+  },
+  "form": {
+    "full_name": "Nome completo",
+    "email": "Indirizzo email",
+    "phone": "Numero di telefono",
+    "message": "Messaggio",
+    "name_required": "Il nome è obbligatorio.",
+    "email_required": "L'email è obbligatoria.",
+    "email_invalid": "L'email non è valida.",
+    "message_required": "Il messaggio è obbligatorio.",
+    "submit_cta": "Entra in contatto"
+  },
+  "index": {
+    "title": "OIOI Jewellery",
+    "subtitle": "Gioielli Artigianali",
+    "tagline": "Magia plasmata dalla materia grezza e dall'intelligenza artigianale",
+    "contact_intro": "Se qualcosa ti ha incuriosito, scrivimi per parlarne",
+    "contact_calligraphy": "Ti aprirò la porta, e da li potremo cominciare a creare insieme"
+  },
+  "about": {
+    "title": "About — OIOI Jewellery",
+    "meta_description": "About OIOI Jewellery — Gioielleria artigianale fiorentina.",
+    "heading": "About",
+    "intro": [
+      "OIOI è gioielleria artigianale realizzata a Firenze.",
+      "Pezzi costruiti con tecniche tradizionali, leghe selezionate, smalti preziosi e pietre scelte con cura.",
+      "Creazioni che vivono fuori scala, fuori algoritmo, fuori tendenza.",
+      "Forme chiare, simboli, proporzioni pensate e dettagli che a volte spostano l'equilibrio, a volte lo rimettono in asse."
+    ],
+    "intro_closing": "Fatti a mano, pensati per chi sente.",
+    "la_porta": {
+      "title": "LA PORTA",
+      "paragraphs": [
+        "Il simbolo di OIOI si ispira all'antico stemma delle Arti Maggiori.",
+        "La porta dell'Arte di Por Santa Maria, sotto cui lavoravano anche gli orafi, è il mio riferimento.",
+        "I battenti sono una O e una I che si intersecano, ripetendosi come un ritmo, un mantra, un codice.",
+        "È la soglia tra ciò che raccolgo e ciò che costruisco.",
+        "Tiene insieme passato e presente, mestiere e visione, tecnica e libertà creativa.",
+        "La porta è il mio modo di dire: entra, c'è un mondo dentro."
+      ]
+    },
+    "il_metodo": {
+      "title": "IL METODO",
+      "paragraphs": [
+        "Disegno, studio proporzioni, volumi e architetture.",
+        "Al banco la forma prende corpo: lastra di metallo, cera, lime, saldature, incastri, superfici da portare a punto, soluzioni da trovare.",
+        "Lavoro con tecniche artigianali come la cera persa e la lavorazione della lastra, con l'incastonatura quando il progetto lo richiede.",
+        "Il mio approccio nasce dall'intreccio tra materiali, simboli, immagini, architetture e memoria.",
+        "Il processo unisce precisione, sensibilità e quell'occhio che riconosce quando una forma \"funziona\": equilibrio, intensità, carattere.",
+        "Ogni pezzo è un ecosistema calibrato."
+      ]
+    },
+    "estetica": {
+      "title": "ESTETICA",
+      "paragraphs": [
+        "OIOI è Firenze filtrata da uno sguardo che si è formato altrove.",
+        "Cinema, architettura, arte, musica, immaginari complessi: tutto diventa grammatica visiva. Segni netti, contrasti, proporzioni.",
+        "Un'estetica essenziale, simbolica, precisa.",
+        "Con memoria, ma senza maniera."
+      ]
+    },
+    "attitudine": {
+      "title": "ATTITUDINE",
+      "paragraphs": [
+        "OIOI parla con una voce fiorentina, asciutta, ironica, affilata.",
+        "Quel vecchio lamento che non è mai vittimismo, ma sguardo critico.",
+        "Dire le cose come stanno, senza fronzoli, senza compiacere, con un sorriso di lato e una battuta che alleggerisce mentre punge.",
+        "È una lingua che nasce in bottega e finisce nella forma.",
+        "Rigorosa ma mai rigida, intelligente ma mai snob, libera ma mai leziosa.",
+        "È la lente con cui OIOI guarda tutto: proporzioni, simboli, scarti, intuizioni.",
+        "OIOI è anche questo: fieramente fiorentino, elegantemente insofferente."
+      ]
+    },
+    "per_chi": {
+      "title": "PER CHI È",
+      "paragraphs": [
+        "OIOI non ha genere.",
+        "È per chi riconosce un segno, una vibrazione, un equilibrio interno.",
+        "È per chi cerca presenza, non consenso."
+      ]
+    },
+    "chi_la_fa": {
+      "title": "CHI LA FA",
+      "paragraphs": [
+        "Sono Gaia Cionnini.",
+        "Nata ad Arezzo, Città dell'Oro, un luogo dove la tradizione orafa non è un mestiere: è aria, infanzia, cultura condivisa.",
+        "Sono cresciuta tra banchi da lavoro, strumenti, gesti antichi.",
+        "La mia traiettoria attraversa Arezzo, Firenze e Londra: studi tra cinema, scenografia e arti visive, e molti anni nel marketing creativo.",
+        "Strati che hanno modellato il mio sguardo.",
+        "Al banco queste vite si incontrano con la mia manualità, un'intelligenza artigianale fatta di gesto, occhio e cultura visiva.",
+        "È lì che OIOI smette di essere un lamento."
+      ]
+    },
+    "contact_intro": "Se qualcosa ti ha incuriosito, scrivimi per parlarne",
+    "contact_calligraphy": "Ti aprirò la porta, e da li potremo cominciare a creare insieme"
+  },
+  "opera": {
+    "title": "OPERA — OIOI Jewellery",
+    "meta_description": "Opera Collection — OIOI Jewellery. Una creazione che accade una sola volta.",
+    "subtitle": "Una creazione che accade una sola volta",
+    "shop_now": "Shop now",
+    "description": [
+      "Forme irripetibili nate in dialogo con chi le indosserà.",
+      "Gioielli costruiti con tecniche di oreficeria complesse, pietre selezionate, smalti preziosi e leghe scelte con cura.",
+      "Ogni OPERA prende vita da un processo condiviso: un intreccio tra commissione, interpretazione e progetto.",
+      "Può partire da ciò che ti appartiene già, ad esempio una pietra ereditata, un cammeo antico, un gioiello dimenticato; oppure da un'idea nuova o da un modello OIOI esistente, ricostruito su misura scegliendo insieme materiali, finiture e gemme.",
+      "La mia grammatica di stratificazioni dà forma a una nuova presenza: metallo, memoria, colore, luce.",
+      "Sono creazioni che non esistono prima della conversazione.",
+      "Emergono dalle intenzioni, dalle storie, dall'istante – e dal metallo che si lascia trasformare."
+    ],
+    "description_closing": "OPERA è un'unicità che accade una sola volta: l'istante in cui la materia, come avesse un'anima, riconosce ciò che le suggeriamo di diventare e trova identità nella sua nuova forma."
+  },
+  "things": {
+    "title": "T.H.I.N.G.S. — OIOI Jewellery",
+    "meta_description": "T.H.I.N.G.S. - The Heirloom I Never Get Stolen — OIOI Jewellery",
+    "subtitle": "L'eredità che ti scegli e che nessuno può rubarti",
+    "shop_now": "Shop now",
+    "description_opening": "L'idea nasce da un atto di identità.",
+    "description": [
+      "Sono i cimeli che nessuno ti ha lasciato.",
+      "Non eredità, ma scelta.",
+      "Simboli che diventano importanti perché parlano di te.",
+      "Un'identità che non ti può essere rubata.",
+      "Heirlooms costruiti, non ricevuti.",
+      "Gioielli affettivi, ironici, identitari.",
+      "Piccoli segni da indossare ogni giorno, capaci di raccontare ciò che ami, ciò che ricordi o ciò che veneri.",
+      "Medaglie pop, ex voto contemporanei, talismani personali.",
+      "Un cane, una moka, la prima carpa che hai pescato, il simbolo del tuo lavoro, il tuo strumento, una chiave inglese.",
+      "E poi tutto il resto.",
+      "Oggetti semplici, caricati di senso, tuoi.",
+      "Lo smalto sigilla il simbolo e ne trattiene la storia.",
+      "Il colore lo scegli tu.",
+      "Alcuni T.H.I.N.G.S. sono già disponibili.",
+      "Altri nascono insieme, da un'immagine o da un'idea che senti tua.",
+      "Vengono trasformati in metallo e sigillati con lo smalto secondo la grammatica OIOI."
+    ],
+    "description_closing_1": "OIOI T.H.I.N.G.S.",
+    "description_closing_2": "L'eredità che ti scegli e che nessuno può rubarti."
+  },
+  "they_them": {
+    "title": "THEY THEM — OIOI Jewellery",
+    "meta_description": "THEY THEM Collection — OIOI Jewellery",
+    "subtitle": "E' la I di OIOI",
+    "shop_now": "Shop now",
+    "description_opening": "THEY THEM nasce da una forma sola.",
+    "description": [
+      "È la I di OIOI.",
+      "Un rettangolo colorato che vive come anello, ciondolo, orecchini o bracciale.",
+      "La forma è sempre la stessa.",
+      "A cambiare è il colore.",
+      "La prima palette comprende due tonalità di smalto: Quarry Blue e Magnolia.",
+      "Due colori sviluppati da ricette di famiglia, calibrati su vibrazioni precise.",
+      "Puoi indossarli singoli o combinarli.",
+      "Anelli, ciondoli e collane sono pensati per dialogare tra loro.",
+      "Il ciondolo può vivere da solo o con la sua collana.",
+      "Poi restare.",
+      "Oppure moltiplicarsi.",
+      "Gli anelli si stratificano.",
+      "Gli orecchini dialogano tra loro.",
+      "I bracciali segnano il ritmo.",
+      "I colori cambiano l'equilibrio.",
+      "Nel tempo arriveranno drop cromatici stagionali che ampliano il vocabolario visivo della collezione."
+    ],
+    "description_closing_1": "THEY THEM è essenziale, modulare, libera.",
+    "description_closing_2": "Una forma che non sceglie un ruolo, ma molte possibilità.",
+    "description_closing_3": "Un segno della mia grammatica visiva che prende identità sulla pelle."
+  },
+  "matricaria": {
+    "title": "MATRICARIA — OIOI Jewellery",
+    "meta_description": "MATRICARIA Collection — OIOI Jewellery",
+    "subtitle": "Il nome botanico della margherita",
+    "shop_now": "Shop now",
+    "description": [
+      "MATRICARIA prende il nome botanico della margherita, fiore archetipico e simbolo di origine.",
+      "Un'immagine primaria tradotta in forma di gioiello scultoreo.",
+      "Il modello nasce da una ricerca sulla struttura del fiore come forma generativa: un centro attorno a cui tutto si organizza, cresce, prende volume.",
+      "Ogni anello è progettato come un corpo tridimensionale: volumi pieni, petali che si avvolgono attorno al corpo dell'anello, superfici organiche che rendono visibile il gesto artigianale.",
+      "Le pietre ne coronano la struttura.",
+      "MATRICARIA è un omaggio all'oreficeria bold italiana degli anni '90, quando il gioiello era presenza, materia, architettura, reinterpretata in chiave contemporanea.",
+      "MATRICARIA è un modello aperto, riproducibile e declinabile in materiali e pietre diverse.",
+      "Ogni pezzo viene realizzato su ordinazione e messo a misura.",
+      "Le versioni attualmente disponibili in pre-ordine, in argento 925, sono:"
+    ],
+    "variants": [
+      "Ag 925, ametista",
+      "Ag 925, topazio blu",
+      "Ag 925 placcato oro 24k, quarzo citrino",
+      "Ag 925 placcato oro 24k, quarzo fumé"
+    ],
+    "gold_note": "Le versioni in oro 18k sono disponibili su commissione.",
+    "production_time": "(Tempo di produzione: minimo due settimane)"
+  },
+  "cookie_policy": {
+    "title": "Informativa sui Cookie — OIOI Jewellery",
+    "meta_description": "Informativa sui Cookie di OIOI Jewellery — Come utilizziamo i cookie e come gestire le tue preferenze.",
+    "heading": "Informativa sui Cookie",
+    "last_updated": "Ultimo aggiornamento: 29 novembre 2025",
+    "what_is": {
+      "title": "Cos'è un cookie?",
+      "text": "I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo (computer, tablet, smartphone) quando visiti un sito web. I cookie permettono al sito di ricordare le tue azioni e preferenze per un periodo di tempo, così non devi reinserirle ogni volta che torni sul sito o navighi da una pagina all'altra."
+    },
+    "how_we_use": {
+      "title": "Come utilizziamo i cookie",
+      "intro": "Questo sito utilizza i cookie per:",
+      "items": [
+        "Migliorare la tua esperienza di navigazione",
+        "Analizzare il traffico del sito in modo anonimo e aggregato",
+        "Comprendere come i visitatori interagiscono con il sito",
+        "Mostrare annunci pubblicitari pertinenti e misurarne l'efficacia (solo previo consenso)"
+      ],
+      "closing": "I dati raccolti sono utilizzati esclusivamente per fini statistici, di marketing e di miglioramento del sito."
+    },
+    "types": {
+      "title": "Tipi di cookie utilizzati",
+      "technical": {
+        "title": "Cookie tecnici (necessari)",
+        "text": "Questi cookie sono essenziali per il funzionamento del sito e non possono essere disattivati. Includono cookie che permettono di ricordare le tue preferenze di consenso ai cookie."
+      },
+      "analytics": {
+        "title": "Cookie di analisi",
+        "intro": "Utilizziamo Google Analytics 4 (GA4) tramite Google Tag Manager per analizzare l'utilizzo del sito. Questi cookie raccolgono informazioni in forma anonima e aggregata su:",
+        "items": [
+          "Numero di visitatori",
+          "Pagine più visitate",
+          "Tempo di permanenza sul sito",
+          "Provenienza dei visitatori"
+        ],
+        "closing": "I dati sono raccolti in conformità con Google Consent Mode v2 e rispettano le tue preferenze di consenso. Quando rifiuti i cookie di analisi, i dati vengono comunque raccolti ma in forma completamente anonima, senza identificazione dell'utente."
+      },
+      "marketing": {
+        "title": "Cookie di marketing",
+        "intro": "Utilizziamo Google Ads e altri strumenti di marketing per mostrare annunci pertinenti e misurarne l'efficacia. Questi cookie potrebbero tracciare la tua navigazione attraverso diversi siti web per creare un profilo dei tuoi interessi.",
+        "items": [
+          "Misurazione delle conversioni pubblicitarie",
+          "Remarketing e personalizzazione degli annunci",
+          "Prevenzione delle frodi pubblicitarie"
+        ],
+        "closing": "Questi cookie vengono attivati solo se fornisci il tuo consenso esplicito. Puoi modificare le tue preferenze in qualsiasi momento in questa pagina."
+      }
+    },
+    "management": {
+      "title": "Gestione dei cookie",
+      "paragraphs": [
+        "Puoi gestire le tue preferenze sui cookie in qualsiasi momento utilizzando il pannello di controllo presente in fondo a questa pagina.",
+        "Hai la possibilità di abilitare o disabilitare selettivamente i cookie di analisi e di marketing. I cookie tecnici, essendo necessari, non possono essere disabilitati.",
+        "Tieni presente che la disattivazione di alcuni cookie potrebbe influire sulla tua esperienza di navigazione o impedirti di visualizzare contenuti personalizzati."
+      ]
+    },
+    "third_party": {
+      "title": "Cookie di terze parti",
+      "intro": "Questo sito utilizza i seguenti servizi di terze parti che potrebbero impostare cookie:",
+      "ga4": "Servizio di analisi web fornito da Google LLC. Per maggiori informazioni: ",
+      "ga4_link": "Privacy Policy di Google",
+      "gtm": "Servizio di gestione tag fornito da Google LLC",
+      "gads": "Servizio pubblicitario fornito da Google LLC. Per maggiori informazioni: ",
+      "gads_link": "Privacy Policy di Google",
+      "closing": "Questi servizi rispettano le tue preferenze di consenso e raccolgono dati solo se hai accettato i cookie di analisi."
+    },
+    "duration": {
+      "title": "Durata dei cookie",
+      "intro": "I cookie utilizzati da questo sito hanno durate diverse:",
+      "items": [
+        "Cookie di sessione: vengono eliminati quando chiudi il browser",
+        "Cookie persistenti: rimangono sul tuo dispositivo per un periodo determinato o fino a quando non li elimini manualmente",
+        "Cookie di consenso: vengono salvati per ricordare le tue preferenze (durata: 12 mesi)"
+      ]
+    },
+    "rights": {
+      "title": "I tuoi diritti",
+      "intro": "In conformità con il GDPR, hai il diritto di:",
+      "items": [
+        "Essere informato sull'utilizzo dei cookie",
+        "Accettare o rifiutare i cookie non essenziali",
+        "Revocare il consenso in qualsiasi momento",
+        "Eliminare i cookie dal tuo browser",
+        "Richiedere informazioni sui dati raccolti"
+      ]
+    },
+    "contact": {
+      "title": "Contatti",
+      "text": "Per domande o richieste riguardo all'utilizzo dei cookie, puoi contattarci tramite il ",
+      "link_text": "modulo di contatto",
+      "text_after": " presente sul sito."
+    },
+    "preferences": {
+      "title": "Le tue preferenze di consenso",
+      "technical_label": "Cookie tecnici (Necessari)",
+      "technical_desc": "Necessari per il funzionamento del sito e per salvare le tue preferenze.",
+      "analytics_label": "Cookie di analisi",
+      "analytics_desc": "Ci aiutano a capire come visiti il sito per migliorarlo (Google Analytics 4).",
+      "marketing_label": "Cookie di marketing",
+      "marketing_desc": "Utilizzati per misurare l'efficacia delle campagne pubblicitarie (Google Ads).",
+      "save": "Salva preferenze",
+      "accept_all": "Accetta tutti",
+      "back_home": "Torna alla Homepage"
+    }
+  },
+  "success": {
+    "title": "Messaggio inviato",
+    "heading": "Grazie!",
+    "message": "Il tuo messaggio è stato inviato. Ti risponderemo al più presto.",
+    "back_home": "Torna alla home"
+  },
+  "shop_coming_soon": {
+    "title": "Shop — in arrivo — OIOI Jewellery",
+    "meta_description": "Lo shop OIOI è in arrivo. Torna presto o scrivici dalla home.",
+    "heading": "Shop",
+    "message_1": "Lo shop online è in arrivo.",
+    "message_2": "Nel frattempo puoi scriverci dalla home per informazioni e commissioni.",
+    "back_home": "Torna alla home",
+    "thanks": "Grazie per la pazienza."
+  }
+}

@@ -1,19 +1,22 @@
 extends layout.pug
 
 block title
-    title MATRICARIA — OIOI Jewellery
+    title= t('matricaria.title')
 
 block meta_description
-    meta(name='description', content='MATRICARIA Collection — OIOI Jewellery')
+    meta(name='description', content=t('matricaria.meta_description'))
+
+block canonical
+    link(rel='canonical', href=canonicalBase + localePrefix + 'matricaria.html')
 
 block og_title
-    meta(property='og:title', content='MATRICARIA — OIOI Jewellery')
+    meta(property='og:title', content=t('matricaria.title'))
 block og_description
-    meta(property='og:description', content='MATRICARIA Collection — OIOI Jewellery')
+    meta(property='og:description', content=t('matricaria.meta_description'))
 block og_image
-    meta(property='og:image', content='https://oioijewellery.it/assets/img/portfolio/matricaria.png')
+    meta(property='og:image', content=canonicalBase + 'assets/img/portfolio/matricaria.png')
 block og_url
-    meta(property='og:url', content='https://oioijewellery.it/matricaria.html')
+    meta(property='og:url', content=canonicalBase + localePrefix + 'matricaria.html')
 
 block content
     // Masthead
@@ -21,12 +24,12 @@ block content
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
                 .col-lg-8.align-self-end
-                    img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
+                    img.mb-4.masthead-logotype(src=basePath + 'assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                     .d-flex.justify-content-center.align-items-center.mb-3
                         span.decorative-icon.me-2 🜃✴︎
                         h1.fw-medium.my-0(style='font-size: 1.4rem;') MATRICARIA
                         span.decorative-icon.ms-2 ✴︎🜃
-                    p.mt-3 Il nome botanico della margherita
+                    p.mt-3= t('matricaria.subtitle')
                     hr.divider
 
     // Collection Gallery
@@ -34,26 +37,26 @@ block content
         .container.px-4.px-lg-5
             .row.shop-cta-row.justify-content-center
                 .col-12.text-center
-                    a.shop-collection-link.shop-cta(href='https://shop.oioijewellery.it/collections/matricaria', data-collection='matricaria') Shop now
+                    a.shop-collection-link.shop-cta(href='https://shop.oioijewellery.it/collections/matricaria', data-collection='matricaria')= t('matricaria.shop_now')
             .row.g-4.justify-content-center
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/matricaria', data-collection='matricaria')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/matricaria/01-hand-rings.png', alt='MATRICARIA - Anelli indossati')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/matricaria/01-hand-rings.png', alt='MATRICARIA - Anelli indossati')
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/matricaria', data-collection='matricaria')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/matricaria/02-rings-stems.png', alt='MATRICARIA - Anelli su steli', loading='lazy')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/matricaria/02-rings-stems.png', alt='MATRICARIA - Anelli su steli', loading='lazy')
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/matricaria', data-collection='matricaria')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/matricaria/03-rings-lined.png', alt='MATRICARIA - Anelli in fila', loading='lazy')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/matricaria/03-rings-lined.png', alt='MATRICARIA - Anelli in fila', loading='lazy')
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/matricaria', data-collection='matricaria')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/matricaria/04-lifestyle.png', alt='MATRICARIA - Lifestyle', loading='lazy')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/matricaria/04-lifestyle.png', alt='MATRICARIA - Lifestyle', loading='lazy')
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/matricaria', data-collection='matricaria')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/matricaria/05-designs.png', alt='MATRICARIA - Schizzi di design', loading='lazy')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/matricaria/05-designs.png', alt='MATRICARIA - Schizzi di design', loading='lazy')
                 .col-lg-4.col-md-6
                     a.shop-collection-link(href='https://shop.oioijewellery.it/collections/matricaria', data-collection='matricaria')
-                        img.img-fluid.portfolio-card-img(src='assets/img/portfolio/matricaria/06-rings-quadri.png', alt='MATRICARIA - Collezione anelli', loading='lazy')
+                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/matricaria/06-rings-quadri.png', alt='MATRICARIA - Collezione anelli', loading='lazy')
 
     // Description and Contact
     section#contact.page-section(style='padding-top: 2rem;')
@@ -61,46 +64,26 @@ block content
             .row.gx-4.gx-lg-5.align-items-start
                 .col-lg-6
                     p
-                        | MATRICARIA prende il nome botanico della margherita, fiore archetipico e simbolo di origine.
-                        br
-                        | Un'immagine primaria tradotta in forma di gioiello scultoreo.
-                        br
-                        br
-                        | Il modello nasce da una ricerca sulla struttura del fiore come forma generativa: un centro attorno a cui tutto si organizza, cresce, prende volume.
-                        br
-                        | Ogni anello è progettato come un corpo tridimensionale: volumi pieni, petali che si avvolgono attorno al corpo dell'anello, superfici organiche che rendono visibile il gesto artigianale.
-                        br
-                        | Le pietre ne coronano la struttura.
+                        each p_text, idx in i18n.matricaria.description
+                            if idx > 0
+                                br
+                            = p_text
                         br
                         br
-                        | MATRICARIA è un omaggio all'oreficeria bold italiana degli anni '90, quando il gioiello era presenza, materia, architettura, reinterpretata in chiave contemporanea.
+                        each variant, vidx in i18n.matricaria.variants
+                            if vidx > 0
+                                br
+                            = '– ' + variant
                         br
                         br
-                        | MATRICARIA è un modello aperto, riproducibile e declinabile in materiali e pietre diverse.
-                        br
-                        | Ogni pezzo viene realizzato su ordinazione e messo a misura.
+                        = t('matricaria.gold_note')
                         br
                         br
-                        | Le versioni attualmente disponibili in pre-ordine, in argento 925, sono:
-                        br
-                        br
-                        | – Ag 925, ametista
-                        br
-                        | – Ag 925, topazio blu
-                        br
-                        | – Ag 925 placcato oro 24k, quarzo citrino
-                        br
-                        | – Ag 925 placcato oro 24k, quarzo fumé
-                        br
-                        br
-                        | Le versioni in oro 18k sono disponibili su commissione.
-                        br
-                        br
-                        | (Tempo di produzione: minimo due settimane)
+                        = t('matricaria.production_time')
                 .col-lg-6
 
                     // Netlify Forms
-                    form#contactForm(name='contact-matricaria', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+                    form#contactForm(name='contact-matricaria', method='POST', data-netlify='true', netlify-honeypot='bot-field', action=(locale === 'en' ? '/success.html' : '/it/success.html'))
 
                         // Netlify Forms hidden fields
                         input(type='hidden', name='form-name', value='contact-matricaria')
@@ -116,9 +99,9 @@ block content
                                 placeholder='Enter your name...',
                                 required
                             )
-                            label(for='name') Full name
+                            label(for='name')= t('form.full_name')
                             .invalid-feedback(data-sb-feedback='name:required')
-                                | A name is required.
+                                = t('form.name_required')
 
                         // Email address input
                         .form-floating.mb-3
@@ -128,11 +111,11 @@ block content
                                 placeholder='name@example.com',
                                 required
                             )
-                            label(for='email') Email address
+                            label(for='email')= t('form.email')
                             .invalid-feedback(data-sb-feedback='email:required')
-                                | An email is required.
+                                = t('form.email_required')
                             .invalid-feedback(data-sb-feedback='email:email')
-                                | Email is not valid.
+                                = t('form.email_invalid')
 
                         // Phone number input
                         .form-floating.mb-3
@@ -141,7 +124,7 @@ block content
                                 name='phone',
                                 placeholder='(123) 456-7890'
                             )
-                            label(for='phone') Phone number
+                            label(for='phone')= t('form.phone')
 
                         // Message input
                         .form-floating.mb-3
@@ -152,11 +135,11 @@ block content
                                 style='height: 10rem;',
                                 required
                             )
-                            label(for='message') Message
+                            label(for='message')= t('form.message')
                             .invalid-feedback(data-sb-feedback='message:required')
-                                | A message is required.
+                                = t('form.message_required')
 
                         // Submit Button
                         .d-grid
                             button#submitButton.btn-reset(type='submit')
-                                +svg-entra-in-contatto('Entra in contatto', '140px')
+                                +svg-entra-in-contatto(t('form.submit_cta'), '140px')

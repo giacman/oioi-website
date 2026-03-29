@@ -1,7 +1,7 @@
 extends layout.pug
 
 block title
-    title OIOI Jewellery
+    title= t('index.title')
 
 block content
     // Masthead
@@ -9,12 +9,12 @@ block content
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.align-items-center.justify-content-center.text-center
                 .col-lg-8.align-self-end
-                    img.mb-4.masthead-logotype(src='assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
+                    img.mb-4.masthead-logotype(src=basePath + 'assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                     .d-flex.justify-content-center.align-items-center.mb-3
                         span.decorative-icon.me-2 🜃✴︎
-                        h1.my-0(style='font-size: 1.4rem;') Gioielli Artigianali
+                        h1.my-0(style='font-size: 1.4rem;')= t('index.subtitle')
                         span.decorative-icon.ms-2 ✴︎🜃
-                    p Magic shaped from raw matter & artisanal intelligence
+                    p= t('index.tagline')
                     hr.divider
     // Portfolio
     #portfolio
@@ -22,26 +22,26 @@ block content
             .row.gx-4.gx-lg-5.justify-content-center
                 // Opera Collection
                 .col-lg-4.col-md-6.mb-5.text-center
-                    a(href='opera.html')
-                        img.img-fluid.portfolio-card-img.mb-3(src='assets/img/portfolio/opera/thumbnails/ring2.jpg', alt='Opera Collection', loading='lazy')
+                    a(href=basePath + 'opera.html')
+                        img.img-fluid.portfolio-card-img.mb-3(src=basePath + 'assets/img/portfolio/opera/thumbnails/ring2.jpg', alt='Opera Collection', loading='lazy')
                     h3(style='font-size: 1.2rem;') OPERA
-                
+
                 // Things Collection
                 .col-lg-4.col-md-6.mb-5.text-center
-                    a(href='things.html')
-                        img.img-fluid.portfolio-card-img.mb-3(src='assets/img/portfolio/things/thumbnails/pesce_viola.png', alt='T.H.I.N.G.S. Collection', loading='lazy')
+                    a(href=basePath + 'things.html')
+                        img.img-fluid.portfolio-card-img.mb-3(src=basePath + 'assets/img/portfolio/things/thumbnails/pesce_viola.png', alt='T.H.I.N.G.S. Collection', loading='lazy')
                     h3(style='font-size: 1.2rem;') T.H.I.N.G.S.
-                
+
                 // They/Them Collection
                 .col-lg-4.col-md-6.mb-5.text-center
-                    a(href='they-them.html')
-                        img.img-fluid.portfolio-card-img.mb-3(src='assets/img/portfolio/theythem.png', alt='THEY THEM Collection', loading='lazy')
+                    a(href=basePath + 'they-them.html')
+                        img.img-fluid.portfolio-card-img.mb-3(src=basePath + 'assets/img/portfolio/theythem.png', alt='THEY THEM Collection', loading='lazy')
                     h3(style='font-size: 1.2rem;') THEY THEM
 
                 // Matricaria Collection
                 .col-lg-4.col-md-6.mb-5.text-center
-                    a(href='matricaria.html')
-                        img.img-fluid.portfolio-card-img.mb-3(src='assets/img/portfolio/matricaria.png', alt='MATRICARIA Collection', loading='lazy')
+                    a(href=basePath + 'matricaria.html')
+                        img.img-fluid.portfolio-card-img.mb-3(src=basePath + 'assets/img/portfolio/matricaria.png', alt='MATRICARIA Collection', loading='lazy')
                     h3(style='font-size: 1.2rem;') MATRICARIA
 
     // Contact
@@ -49,11 +49,11 @@ block content
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.justify-content-center
                 .col-lg-8
-                    p.mb-3.text-center(style='font-size: 1.1rem;') Se qualcosa ti ha incuriosito, scrivimi per parlarne
-                    p.font-calligraphy.text-center.mb-3(style='font-size: 2rem; line-height: 1.6;') Ti aprirò la porta, e da li potremo cominciare a creare insieme
+                    p.mb-3.text-center(style='font-size: 1.1rem;')= t('index.contact_intro')
+                    p.font-calligraphy.text-center.mb-3(style='font-size: 2rem; line-height: 1.6;')= t('index.contact_calligraphy')
                 .col-lg-5.col-md-8
                     // Netlify Forms
-                    form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action='/success.html')
+                    form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action=(locale === 'en' ? '/success.html' : '/it/success.html'))
 
                             // Netlify Forms hidden fields
                             input(type='hidden', name='form-name', value='contact')
@@ -68,9 +68,9 @@ block content
                                     placeholder='Enter your name...',
                                     required
                                 )
-                                label(for='name') Full name
+                                label(for='name')= t('form.full_name')
                                 .invalid-feedback(data-sb-feedback='name:required')
-                                    | A name is required.
+                                    = t('form.name_required')
 
                             // Email address input
                             .form-floating.mb-3
@@ -80,11 +80,11 @@ block content
                                     placeholder='name@example.com',
                                     required
                                 )
-                                label(for='email') Email address
+                                label(for='email')= t('form.email')
                                 .invalid-feedback(data-sb-feedback='email:required')
-                                    | An email is required.
+                                    = t('form.email_required')
                                 .invalid-feedback(data-sb-feedback='email:email')
-                                    | Email is not valid.
+                                    = t('form.email_invalid')
 
                             // Phone number input
                             .form-floating.mb-3
@@ -93,7 +93,7 @@ block content
                                     name='phone',
                                     placeholder='(123) 456-7890'
                                 )
-                                label(for='phone') Phone number
+                                label(for='phone')= t('form.phone')
 
                             // Message input
                             .form-floating.mb-3
@@ -104,11 +104,11 @@ block content
                                     style='height: 10rem;',
                                     required
                                 )
-                                label(for='message') Message
+                                label(for='message')= t('form.message')
                                 .invalid-feedback(data-sb-feedback='message:required')
-                                    | A message is required.
+                                    = t('form.message_required')
 
                             // Submit Button
                             .d-grid.mt-4
                                 button#submitButton.btn-reset(type='submit')
-                                    +svg-entra-in-contatto('Entra in contatto', '140px')
+                                    +svg-entra-in-contatto(t('form.submit_cta'), '140px')

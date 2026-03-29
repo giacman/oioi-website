@@ -131,18 +131,18 @@ html(lang=i18n.meta.lang)
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3
             .container.px-4.px-lg-5
-                a.navbar-brand(href=basePath + 'index.html#page-top')
+                a.navbar-brand(href='index.html#page-top')
                     +svg-logo-oioi('90px')
                 button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.my-2.my-lg-0
                         li.nav-item
-                            a.nav-link(href=basePath + 'index.html')= t('nav.home')
+                            a.nav-link(href='index.html')= t('nav.home')
                         li.nav-item
-                            a.nav-link(href=basePath + 'about.html')= t('nav.about')
+                            a.nav-link(href='about.html')= t('nav.about')
                         li.nav-item.nav-item--cart#cartNavItem
-                            a.nav-link#nav-shop-link(href=basePath + 'shop-coming-soon.html')
+                            a.nav-link#nav-shop-link(href='shop-coming-soon.html')
                                 = t('nav.shop') + ' '
                                 span.nav-cart-badge.d-none#cartBadge 0
                             .cart-preview#cartPreview(aria-hidden='true')
@@ -157,7 +157,7 @@ html(lang=i18n.meta.lang)
                                             span#cartPreviewTotal
                                         a.cart-preview__cta#cartPreviewCheckout(href='https://shop.oioijewellery.it/cart', data-cross-domain)= t('cart_preview.go_to_cart')
                         li.nav-item
-                            a.nav-link(href=basePath + 'index.html#contact')= t('nav.enquiry')
+                            a.nav-link(href='index.html#contact')= t('nav.enquiry')
                         li.nav-item
                             a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener')= t('nav.instagram')
                         li.nav-item.ms-lg-2
@@ -175,10 +175,10 @@ html(lang=i18n.meta.lang)
                 .cookie-banner-text
                     p.mb-0
                         = t('cookie_banner.text')
-                        a(href=basePath + 'cookie-policy.html')= t('cookie_banner.more_info')
+                        a(href='cookie-policy.html')= t('cookie_banner.more_info')
                 .cookie-banner-actions
                     button#cookieAccept.btn.btn-sm.btn-primary(type='button')= t('cookie_banner.accept')
-                    a.btn.btn-sm.btn-outline-secondary(href=basePath + 'cookie-policy.html')= t('cookie_banner.manage')
+                    a.btn.btn-sm.btn-outline-secondary(href='cookie-policy.html')= t('cookie_banner.manage')
 
         // Footer
         footer.py-5
@@ -189,7 +189,7 @@ html(lang=i18n.meta.lang)
                     = t('footer.vat')
                     br
                     .mt-2.mb-2
-                        a.me-2(href=basePath + 'cookie-policy.html')= t('footer.cookie_policy')
+                        a.me-2(href='cookie-policy.html')= t('footer.cookie_policy')
                         span.me-2 |
                         a.me-2(href='#', onclick='window.showCookiePreferences(); return false;')= t('footer.manage_cookies')
                     .mt-2

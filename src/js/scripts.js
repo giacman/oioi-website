@@ -11,8 +11,7 @@ window.addEventListener('DOMContentLoaded', event => {
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const lang = document.documentElement.lang || 'en';
     const shopBaseUrl = isLocal ? 'http://localhost:9292' : 'https://shop.oioijewellery.it';
-    var onIt = /^\/it(\/|$)/.test(window.location.pathname);
-    var comingSoonPath = (onIt && !isLocal) ? '/it/shop-coming-soon.html' : 'shop-coming-soon.html';
+    var comingSoonPath = 'shop-coming-soon.html';
 
     if (isLocal) {
         document.querySelectorAll('a[href*="shop.oioijewellery.it"]').forEach(link => {

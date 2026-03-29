@@ -14,13 +14,24 @@
         return consent ? JSON.parse(consent) : null;
     }
 
-    // Save consent status
+    function writeCrossDomainConsentCookie(analytics, marketing) {
+        var a = analytics ? 1 : 0;
+        var m = marketing ? 1 : 0;
+        var domainPart = '';
+        if (window.location.hostname.indexOf('oioijewellery.it') !== -1) {
+            domainPart = '; domain=.oioijewellery.it';
+        }
+        var secure = (location.protocol === 'https:') ? '; Secure' : '';
+        document.cookie = 'oioi_consent=a' + a + 'm' + m + '; path=/'
+            + domainPart + '; max-age=31536000; SameSite=Lax' + secure;
+    }
+
     function saveConsentStatus(consentData) {
-        // consentData should be { analytics: boolean, marketing: boolean, status: 'custom'|'accepted'|'rejected' }
         localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify({
             ...consentData,
             timestamp: new Date().getTime()
         }));
+        writeCrossDomainConsentCookie(consentData.analytics, consentData.marketing);
     }
 
     // Update Google Consent Mode
@@ -143,17 +154,14 @@
         const consentStatus = getConsentStatus();
         
         if (consentStatus) {
-            // Apply saved consent
-            // Support legacy stored format if necessary, but usually we overwrote it
             const analytics = consentStatus.analytics !== undefined ? consentStatus.analytics : (consentStatus.status === 'accepted');
             const marketing = consentStatus.marketing !== undefined ? consentStatus.marketing : (consentStatus.status === 'accepted');
             
             updateConsentMode({ analytics, marketing });
-            
-            // Update UI checkboxes if present
             updatePolicyCheckboxes(analytics, marketing);
+            writeCrossDomainConsentCookie(analytics, marketing);
             
-            return; // Don't show banner
+            return;
         }
 
         // Show banner if consent not given

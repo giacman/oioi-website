@@ -28,6 +28,22 @@
     }
 }
 
+// Submit buttons: SVGs are `inline` by default, which leaves extra line-box
+// space (especially in iOS Safari) and can make the CTA look misaligned or
+// leave a large empty band above the artwork.
+button.btn-reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    width: 100%;
+
+    .button-svg {
+        display: block;
+        height: auto;
+    }
+}
+
 //- Custom XL button styling
 
 .btn-xl {
@@ -49,6 +65,9 @@ a img[src*="buttons"] {
 
 // SVG Button Hover Effect
 .button-svg {
+    // Avoid inline line-box gap below the graphic (notably on mobile Safari)
+    display: block;
+    max-width: 100%;
     // Preserve the original fill for the background shape (e.g., #faf4f1)
     path[fill="#faf4f1"] {
         fill: #faf4f1; // Ensure background remains unchanged

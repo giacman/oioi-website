@@ -4,6 +4,14 @@ include mixins/_svg_buttons.pug
 - var localePrefix = (locale === 'it') ? 'it/' : ''
 - var otherLocale = (locale === 'en') ? 'it' : 'en'
 - var otherPath = (locale === 'en') ? 'it/' : '../'
+- var otherLocaleLabel = (otherLocale === 'it') ? 'Italiano' : 'English'
+
+mixin headerLocaleLink(label)
+    a.nav-link.header-locale-switch&attributes(attributes)(
+        href=otherPath + currentPage,
+        data-locale=otherLocale,
+        onclick="document.cookie='oioi_lang=" + otherLocale + ";path=/;domain=.oioijewellery.it;max-age=31536000;SameSite=Lax;Secure';localStorage.setItem('oioi_lang','" + otherLocale + "')"
+    )= label || otherLocale.toUpperCase()
 
 doctype html
 html(lang=i18n.meta.lang)
@@ -136,8 +144,10 @@ html(lang=i18n.meta.lang)
             .container.px-4.px-lg-5
                 a.navbar-brand(href='index.html#page-top')
                     +svg-logo-oioi('90px')
-                button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
-                    span.navbar-toggler-icon
+                .d-flex.align-items-center.ms-auto.flex-shrink-0.gap-1
+                    +headerLocaleLink(otherLocale.toUpperCase()).mobile-locale-switch.d-lg-none
+                    button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                        span.navbar-toggler-icon
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.my-2.my-lg-0
                         li.nav-item
@@ -163,12 +173,10 @@ html(lang=i18n.meta.lang)
                             a.nav-link(href='index.html#contact')= t('nav.enquiry')
                         li.nav-item
                             a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener')= t('nav.instagram')
-                        li.nav-item.ms-lg-2
-                            a.nav-link.header-locale-switch(
-                                href=otherPath + currentPage,
-                                data-locale=otherLocale,
-                                onclick="document.cookie='oioi_lang=" + otherLocale + ";path=/;domain=.oioijewellery.it;max-age=31536000;SameSite=Lax;Secure';localStorage.setItem('oioi_lang','" + otherLocale + "')"
-                            )= otherLocale.toUpperCase()
+                        li.nav-item.d-lg-none
+                            +headerLocaleLink(otherLocaleLabel)
+                        li.nav-item.ms-lg-2.d-none.d-lg-block
+                            +headerLocaleLink(otherLocale.toUpperCase())
 
         block content
 

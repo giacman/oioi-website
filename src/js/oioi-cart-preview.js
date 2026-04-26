@@ -107,27 +107,9 @@
     hideTimer = setTimeout(hide, 200);
   });
 
-  // Mobile: tap on Shop toggles cart preview unless link is internal coming soon (production)
-  var shopLink = els.navItem.querySelector('.nav-link');
-  if (shopLink) {
-    shopLink.addEventListener('click', function (e) {
-      if (window.innerWidth < 992) {
-        try {
-          var u = new URL(shopLink.href, window.location.href);
-          if (u.pathname.indexOf('shop-coming-soon') !== -1) {
-            return;
-          }
-        } catch (err) { /* ignore */ }
-        e.preventDefault();
-        e.stopPropagation();
-        if (els.preview.classList.contains('is-visible')) {
-          hide();
-        } else {
-          show();
-        }
-      }
-    });
-  }
+  // Mobile: keep the Shop nav link as a normal navigation target.
+  // The hamburger menu already hides secondary UI, so intercepting this click
+  // makes the primary Shop link feel broken on responsive layouts.
 
   // Close on outside click
   document.addEventListener('click', function (e) {

@@ -5,7 +5,7 @@ const pug = require('pug');
 const sh = require('shelljs');
 const prettier = require('prettier');
 
-module.exports = function renderPug(filePath, locale, localeData) {
+module.exports = function renderPug(filePath, locale, localeData, cmsData) {
     const srcPath = upath.resolve(upath.dirname(__filename), '../src');
     const isDefault = (locale === 'en');
     const destPath = filePath
@@ -24,6 +24,7 @@ module.exports = function renderPug(filePath, locale, localeData) {
         basePath: basePath,
         currentPage: currentPage,
         i18n: localeData,
+        cmsData: cmsData,
         t: function(key) {
             return key.split('.').reduce(function(o, k) { return o && o[k]; }, localeData) || key;
         }

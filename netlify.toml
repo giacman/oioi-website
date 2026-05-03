@@ -4,6 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  DATOCMS_ENV = "main"
 
 # Geo-redirect: Italian visitors → /it/
 [[redirects]]
@@ -12,3 +13,7 @@
   status = 302
   force = false
   conditions = {Country = ["IT"]}
+
+# Note:
+# - Configure DATOCMS_API_TOKEN in Netlify UI (do not commit secrets).
+# - Configure a DatoCMS publish webhook that calls your Netlify build hook URL.

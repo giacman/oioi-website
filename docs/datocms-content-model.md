@@ -24,10 +24,17 @@ This project consumes DatoCMS data at build-time. If DatoCMS is unavailable, loc
 - `slug` (string, unique, not localized)
   - expected values: `matricaria`, `things`, `they-them`, `opera`
 - `displayTitle` (string, localized)
+- `pageUrl` (string, optional)
 - `subtitle` (string, localized)
 - `seoTitle` (string, localized)
 - `seoDescription` (text, localized)
 - `ogImage` (asset)
+- `homepageCardEnabled` (boolean, default true)
+- `homepageCardOrder` (integer)
+- `homepageCardTitle` (string, localized)
+- `homepageCardAlt` (string, localized)
+- `homepageCardImage` (asset)
+- `homepageCardUrl` (string URL, optional; defaults to `pageUrl` / `shopUrl`)
 - `shopUrl` (string URL)
 - `shopCollectionHandle` (string)
 - `descriptionOpening` (string, localized, optional)
@@ -61,8 +68,15 @@ Required environment variables:
 - `DATOCMS_API_TOKEN` (read-only CDA token)
 - `DATOCMS_ENV` (optional, defaults to `main`)
 - `DATOCMS_API_URL` (optional, defaults to `https://graphql.datocms.com/`)
+- `CMS_FALLBACK_MODE` (optional: `dev-only` | `always` | `never`, default `dev-only`)
 
-If `DATOCMS_API_TOKEN` is missing, build continues with fallback content.
+Fallback policy:
+
+- `dev-only`: fallback allowed only outside production context (recommended)
+- `always`: fallback always allowed
+- `never`: fallback disabled in all contexts
+
+With `dev-only`, production builds fail if `DATOCMS_API_TOKEN` is missing or Dato fetch fails.
 
 ## Marketing outputs generated at build
 

@@ -42,12 +42,21 @@ query CmsBuildContent($locale: SiteLocale) {
   allCategoryPages(locale: $locale, fallbackLocales: [en], first: 50) {
     slug
     displayTitle
+    pageUrl
     subtitle
     seoTitle
     seoDescription
     ogImage {
       url
     }
+    homepageCardEnabled
+    homepageCardOrder
+    homepageCardTitle
+    homepageCardAlt
+    homepageCardImage {
+      url
+    }
+    homepageCardUrl
     shopUrl
     shopCollectionHandle
     descriptionOpening

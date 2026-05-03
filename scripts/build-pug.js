@@ -9,6 +9,7 @@ const { fetchDatoCmsContent, isDatoCmsEnabled } = require('./datocms-client');
 const srcPath = upath.resolve(upath.dirname(__filename), '../src');
 const distPath = upath.resolve(upath.dirname(__filename), '../dist');
 const locales = ['en', 'it'];
+const CMS_FALLBACK_MODE = (process.env.CMS_FALLBACK_MODE || 'dev-only').toLowerCase();
 
 function isPugPage(filePath) {
     return (
@@ -57,6 +58,86 @@ function indexCategoriesBySlug(categoryPages) {
         }
         return acc;
     }, {});
+}
+
+function isProductionBuild() {
+    const context = (process.env.CONTEXT || process.env.NETLIFY_CONTEXT || '').toLowerCase();
+    return process.env.NODE_ENV === 'production' || context === 'production';
+}
+
+function allowFallbackForCurrentBuild() {
+    if (CMS_FALLBACK_MODE === 'always') {
+        return true;
+    }
+
+    if (CMS_FALLBACK_MODE === 'never') {
+        return false;
+    }
+
+    return !isProductionBuild();
+}
+
+function normalizeCategoryItem(item) {
+    const normalized = Object.assign({}, item);
+
+    if (normalized.ogImage && typeof normalized.ogImage === 'object' && normalized.ogImage.url) {
+        normalized.ogImage = normalized.ogImage.url;
+    }
+
+    if (normalized.homepageCardImage && typeof normalized.homepageCardImage === 'object' && normalized.homepageCardImage.url) {
+        normalized.homepageCardImage = normalized.homepageCardImage.url;
+    }
+
+    if (!Array.isArray(normalized.gallery)) {
+        normalized.gallery = [];
+    }
+
+    return normalized;
+}
+
+function mergeCategoryPages(defaultCategories, remoteCategories) {
+    const remoteBySlug = indexCategoriesBySlug(remoteCategories || []);
+    const mergedDefaults = defaultCategories.map(function(item) {
+        const remoteItem = remoteBySlug[item.slug] || {};
+        return normalizeCategoryItem(mergeDeep(JSON.parse(JSON.stringify(item)), remoteItem));
+    });
+
+    const existingSlugs = indexCategoriesBySlug(mergedDefaults);
+    const extraRemote = (remoteCategories || []).filter(function(item) {
+        return item && item.slug && !existingSlugs[item.slug];
+    }).map(function(item) {
+        const normalized = normalizeCategoryItem(item);
+        normalized.displayTitle = normalized.displayTitle || normalized.slug.toUpperCase();
+        normalized.pageUrl = normalized.pageUrl || (normalized.slug + '.html');
+        normalized.homepageCardTitle = normalized.homepageCardTitle || normalized.displayTitle;
+        normalized.homepageCardUrl = normalized.homepageCardUrl || normalized.pageUrl || normalized.shopUrl || '#';
+        normalized.homepageCardImage = normalized.homepageCardImage || normalized.ogImage || '';
+        normalized.homepageCardEnabled = normalized.homepageCardEnabled !== false;
+        normalized.homepageCardOrder = normalized.homepageCardOrder || 999;
+        return normalized;
+    });
+
+    return mergedDefaults.concat(extraRemote);
+}
+
+function buildHomepageCards(cmsData) {
+    return (cmsData.categoryPages || [])
+        .filter(function(category) {
+            return category.homepageCardEnabled !== false;
+        })
+        .map(function(category) {
+            return {
+                slug: category.slug,
+                title: category.homepageCardTitle || category.displayTitle || category.slug,
+                alt: category.homepageCardAlt || ((category.homepageCardTitle || category.displayTitle || category.slug) + ' Collection'),
+                imageUrl: category.homepageCardImage || category.ogImage || '',
+                href: category.homepageCardUrl || category.pageUrl || category.shopUrl || '#',
+                order: typeof category.homepageCardOrder === 'number' ? category.homepageCardOrder : 999
+            };
+        })
+        .sort(function(a, b) {
+            return a.order - b.order;
+        });
 }
 
 function buildSocialEmailFeed(cmsData, locale) {
@@ -135,25 +216,23 @@ async function buildLocale(locale) {
             const remoteCmsData = await fetchDatoCmsContent(locale);
             if (remoteCmsData) {
                 cmsData.aboutPage = mergeDeep(cmsData.aboutPage, remoteCmsData.aboutPage || {});
-
-                const remoteBySlug = indexCategoriesBySlug(remoteCmsData.categoryPages || []);
-                cmsData.categoryPages = cmsData.categoryPages.map(function(item) {
-                    const remoteItem = remoteBySlug[item.slug] || {};
-                    const merged = mergeDeep(JSON.parse(JSON.stringify(item)), remoteItem);
-                    if (remoteItem.ogImage && remoteItem.ogImage.url) {
-                        merged.ogImage = remoteItem.ogImage.url;
-                    }
-                    return merged;
-                });
+                cmsData.categoryPages = mergeCategoryPages(cmsData.categoryPages || [], remoteCmsData.categoryPages || []);
             }
         } catch (error) {
+            if (!allowFallbackForCurrentBuild()) {
+                throw new Error('DatoCMS fetch failed in strict mode for locale ' + locale + ': ' + error.message);
+            }
             console.warn('### WARN: DatoCMS fetch failed (' + locale + '). Using local defaults. ' + error.message);
         }
     } else {
+        if (!allowFallbackForCurrentBuild()) {
+            throw new Error('DATOCMS_API_TOKEN is required when CMS_FALLBACK_MODE=' + CMS_FALLBACK_MODE + ' in production context.');
+        }
         console.log('### INFO: DATOCMS_API_TOKEN not set. Using local content defaults for ' + locale + '.');
     }
 
     cmsData.categoryPagesBySlug = indexCategoriesBySlug(cmsData.categoryPages || []);
+    cmsData.homepageCards = buildHomepageCards(cmsData);
 
     sh.find(srcPath).forEach(function(filePath) {
         if (isPugPage(filePath)) {

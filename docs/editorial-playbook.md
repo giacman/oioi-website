@@ -14,6 +14,12 @@
   - `web`: site gallery and OG usage
   - `social`: ad/social repurposing
   - `email`: newsletter blocks/hero
+- Homepage cards are managed through each `categoryPage`:
+  - `homepageCardEnabled`
+  - `homepageCardOrder`
+  - `homepageCardTitle`
+  - `homepageCardImage`
+  - `homepageCardUrl`
 - Minimum metadata on every asset:
   - `alt`
   - `channels`
@@ -34,6 +40,10 @@
 4. Legal/commercial safety
    - `usageRights` confirmed
    - `shopUrl` verified for shoppable categories
+5. Homepage visibility
+   - `homepageCardEnabled` set correctly
+   - `homepageCardOrder` does not conflict with existing cards
+   - card URL and image are valid
 
 ## Publishing workflow
 

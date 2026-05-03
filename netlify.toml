@@ -5,6 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
   DATOCMS_ENV = "main"
+  CMS_FALLBACK_MODE = "dev-only"
 
 # Geo-redirect: Italian visitors → /it/
 [[redirects]]

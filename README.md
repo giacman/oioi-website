@@ -51,6 +51,13 @@ Environment variables:
 - `DATOCMS_API_TOKEN` (read-only content delivery token)
 - `DATOCMS_ENV` (optional, defaults to `main`)
 - `DATOCMS_API_URL` (optional, defaults to `https://graphql.datocms.com/`)
+- `CMS_FALLBACK_MODE` (optional: `dev-only` | `always` | `never`, defaults to `dev-only`)
+
+Fallback behavior:
+
+- `dev-only` (recommended): local/staging can use fallback, production fails fast without Dato data
+- `always`: fallback always allowed
+- `never`: Dato always required
 
 The build also generates marketing-ready asset feeds:
 
@@ -58,6 +65,7 @@ The build also generates marketing-ready asset feeds:
 - `dist/feeds/marketing-assets-it.json` and `.csv`
 
 These are built from category gallery data and include social/email metadata (`channels`, captions, campaign tags, usage rights).
+Homepage cards are also CMS-driven through category fields (`homepageCard*`), so new collection cards can be added/updated without editing `index.pug`.
 
 ## Deployment
 

@@ -18,6 +18,7 @@ This repository contains the static site for OIOI Jewellery. It’s a customized
 - Sources in `src/` (Pug, SCSS, Bootstrap 5) → build output in `dist/` (HTML/CSS/JS)
 - Build toolchain: Node 18 (Pug, Sass, PostCSS, BrowserSync)
 - Hosting & deploy: Netlify (build `npm ci && npm run build`, publish `dist/`)
+- CMS: DatoCMS (optional build-time source for `about` + category pages, with local fallbacks)
 - Key components:
   - Pug templates (`src/pug/index.pug`)
   - Modular SCSS (`src/scss/...`) with custom variables
@@ -38,12 +39,33 @@ Project structure:
 
 - `src/` → sources (assets, pug, scss, js)
 - `dist/` → static build artifacts
+- `docs/datocms-content-model.md` → DatoCMS schema and field mapping
+- `docs/editorial-playbook.md` → editorial workflow and QA checklist
+
+## DatoCMS integration
+
+Build-time content is fetched from DatoCMS when `DATOCMS_API_TOKEN` is present. If missing (or fetch fails), the site builds using local defaults.
+
+Environment variables:
+
+- `DATOCMS_API_TOKEN` (read-only content delivery token)
+- `DATOCMS_ENV` (optional, defaults to `main`)
+- `DATOCMS_API_URL` (optional, defaults to `https://graphql.datocms.com/`)
+
+The build also generates marketing-ready asset feeds:
+
+- `dist/feeds/marketing-assets-en.json` and `.csv`
+- `dist/feeds/marketing-assets-it.json` and `.csv`
+
+These are built from category gallery data and include social/email metadata (`channels`, captions, campaign tags, usage rights).
 
 ## Deployment
 
 - Netlify builds from `main` and publishes `dist/`
 - Domain: `oioijewellery.it` with HTTPS enabled
 - Contact submissions are handled by Netlify Forms (enable email notifications in Netlify)
+- Add `DATOCMS_API_TOKEN` in Netlify environment variables
+- Configure a DatoCMS publish webhook to trigger the Netlify build hook
 
 ## License
 

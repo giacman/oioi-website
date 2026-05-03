@@ -1,24 +1,26 @@
 extends layout.pug
 
 block title
-    title= t('opera.title')
+    title= (cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['opera'] && cmsData.categoryPagesBySlug['opera'].seoTitle) || t('opera.title')
 
 block meta_description
-    meta(name='description', content=t('opera.meta_description'))
+    meta(name='description', content=(cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['opera'] && cmsData.categoryPagesBySlug['opera'].seoDescription) || t('opera.meta_description'))
 
 block canonical
     link(rel='canonical', href=canonicalBase + localePrefix + 'opera.html')
 
 block og_title
-    meta(property='og:title', content=t('opera.title'))
+    meta(property='og:title', content=(cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['opera'] && cmsData.categoryPagesBySlug['opera'].seoTitle) || t('opera.title'))
 block og_description
-    meta(property='og:description', content=t('opera.meta_description'))
+    meta(property='og:description', content=(cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['opera'] && cmsData.categoryPagesBySlug['opera'].seoDescription) || t('opera.meta_description'))
 block og_image
-    meta(property='og:image', content=canonicalBase + 'assets/img/portfolio/opera/fullsize/ring1.jpg')
+    meta(property='og:image', content=(cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['opera'] && cmsData.categoryPagesBySlug['opera'].ogImage && cmsData.categoryPagesBySlug['opera'].ogImage.match(/^https?:\/\//) ? cmsData.categoryPagesBySlug['opera'].ogImage : canonicalBase + ((cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['opera'] && cmsData.categoryPagesBySlug['opera'].ogImage) || 'assets/img/portfolio/opera/fullsize/ring1.jpg')))
 block og_url
     meta(property='og:url', content=canonicalBase + localePrefix + 'opera.html')
 
 block content
+    - var category = (cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['opera']) || null
+    - var gallery = (category && category.gallery) || []
     // Masthead
     header.masthead(style='padding-bottom: 3rem;')
         .container.px-4.px-lg-5
@@ -27,37 +29,29 @@ block content
                     img.mb-4.masthead-logotype(src=basePath + 'assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                     .d-flex.justify-content-center.align-items-center.mb-3
                         span.decorative-icon.me-2 🜃✴︎
-                        h1.my-0(style='font-size: 1.4rem;') OPERA
+                        h1.my-0(style='font-size: 1.4rem;')= (category && category.displayTitle) || 'OPERA'
                         span.decorative-icon.ms-2 ✴︎🜃
-                    p.mt-3= t('opera.subtitle')
+                    p.mt-3= (category && category.subtitle) || t('opera.subtitle')
                     hr.divider
 
     // Collection Gallery
     section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
         .container.px-4.px-lg-5
             .row.g-4.justify-content-center
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/ring1.jpg', alt='Opera Collection Image 1')
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/dfg_blu.jpg', alt='Opera Collection Image 2', loading='lazy')
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/dfg_red.jpg', alt='Opera Collection Image 3', loading='lazy')
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/dfg_green.jpg', alt='Opera Collection Image 4', loading='lazy')
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/ring2.jpg', alt='Opera Collection Image 5', loading='lazy')
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/anello_michele.png', alt='Opera Collection - Anello Michele', loading='lazy')
+                each image, idx in gallery
+                    .col-lg-4.col-md-6
+                        img.img-fluid.portfolio-card-img(src=(image.url && image.url.match(/^https?:\/\//) ? image.url : basePath + image.url), alt=image.alt || ((category && category.displayTitle) || 'OPERA'), loading=(idx > 0 ? 'lazy' : null))
 
     // Description and Contact
     section#contact.page-section(style='padding-top: 2rem;')
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.align-items-start
                 .col-lg-6
-                    each p_text in i18n.opera.description
+                    each p_text in ((category && category.descriptionParagraphs) || i18n.opera.description)
                         p= p_text
-                    p
-                        strong= t('opera.description_closing')
+                    each closingLine in ((category && category.descriptionClosing) || [t('opera.description_closing')])
+                        p
+                            strong= closingLine
                 .col-lg-6
 
                     // Netlify Forms

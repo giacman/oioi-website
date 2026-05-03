@@ -1,22 +1,25 @@
 extends layout.pug
 
 block title
-    title= t('about.title')
+    title= cmsData.aboutPage.seoTitle || t('about.title')
 
 block meta_description
-    meta(name='description', content=t('about.meta_description'))
+    meta(name='description', content=cmsData.aboutPage.seoDescription || t('about.meta_description'))
 
 block canonical
     link(rel='canonical', href=canonicalBase + localePrefix + 'about.html')
 
 block og_title
-    meta(property='og:title', content=t('about.title'))
+    meta(property='og:title', content=cmsData.aboutPage.seoTitle || t('about.title'))
 block og_description
-    meta(property='og:description', content=t('about.meta_description'))
+    meta(property='og:description', content=cmsData.aboutPage.seoDescription || t('about.meta_description'))
 block og_url
     meta(property='og:url', content=canonicalBase + localePrefix + 'about.html')
 
 block content
+    - var aboutPage = cmsData.aboutPage || {}
+    - var aboutSections = aboutPage.sections || []
+    - var introParagraphs = aboutPage.introParagraphs || i18n.about.intro
     // Masthead (centered, consistent with other pages)
     header.masthead(style='padding-bottom: 1rem;')
         .container.px-4.px-lg-5
@@ -25,7 +28,7 @@ block content
                     img.mb-4.masthead-logotype(src=basePath + 'assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                     .d-flex.justify-content-center.align-items-center.mb-3
                         span.decorative-icon.me-2 🜃✴︎
-                        h1.my-0(style='font-size: 1.4rem;')= t('about.heading')
+                        h1.my-0(style='font-size: 1.4rem;')= aboutPage.heading || t('about.heading')
                         span.decorative-icon.ms-2 ✴︎🜃
                     hr.divider
 
@@ -34,72 +37,38 @@ block content
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.align-items-center
                 .col-lg-6.mb-4.mb-lg-0
-                    each p_text in i18n.about.intro
+                    each p_text in introParagraphs
                         p= p_text
-                    p.mt-4= t('about.intro_closing')
+                    p.mt-4= aboutPage.introClosing || t('about.intro_closing')
                 .col-lg-6
-                    img.img-fluid.w-100(src=basePath + 'assets/img/about/about_hero.png', alt='OIOI Jewellery')
+                    img.img-fluid.w-100(src=(aboutPage.heroImage && aboutPage.heroImage.url && aboutPage.heroImage.url.match(/^https?:\/\//) ? aboutPage.heroImage.url : basePath + ((aboutPage.heroImage && aboutPage.heroImage.url) || 'assets/img/about/about_hero.png')), alt=(aboutPage.heroImage && aboutPage.heroImage.alt) || 'OIOI Jewellery')
 
-    // Content
-    section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
-        .container.px-4.px-lg-5
-            .mb-5
-                h2.mb-4(style='font-size: 1rem;')= t('about.la_porta.title')
-                each p_text in i18n.about.la_porta.paragraphs
-                    p= p_text
-
-    // IL METODO — two-column layout (text left, image right)
-    section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
-        .container.px-4.px-lg-5
-            .row.gx-4.gx-lg-5.align-items-center
-                .col-lg-6.mb-4.mb-lg-0
-                    h2.mb-4(style='font-size: 1rem;')= t('about.il_metodo.title')
-                    each p_text in i18n.about.il_metodo.paragraphs
-                        p= p_text
-                .col-lg-6
-                    img.img-fluid.w-100(src=basePath + 'assets/img/about/metodo_hero.png', alt='OIOI - Il Metodo')
-
-    // Content continued
-    section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
-        .container.px-4.px-lg-5
-            .mb-5
-                h2.mb-4(style='font-size: 1rem;')= t('about.estetica.title')
-                each p_text in i18n.about.estetica.paragraphs
-                    p= p_text
-
-    // ATTITUDINE — two-column layout (text left, image right)
-    section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
-        .container.px-4.px-lg-5
-            .row.gx-4.gx-lg-5.align-items-center
-                .col-lg-6.mb-4.mb-lg-0
-                    h2.mb-4(style='font-size: 1rem;')= t('about.attitudine.title')
-                    each p_text in i18n.about.attitudine.paragraphs
-                        p= p_text
-                .col-lg-6
-                    img.img-fluid.w-100(src=basePath + 'assets/img/about/attitudine_hero.png', alt='OIOI - Attitudine')
-
-    // Content continued
-    section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
-        .container.px-4.px-lg-5
-            .mb-5
-                h2.mb-4(style='font-size: 1rem;')= t('about.per_chi.title')
-                each p_text in i18n.about.per_chi.paragraphs
-                    p= p_text
-
-            .mb-5
-                h2.mb-4(style='font-size: 1rem;')= t('about.chi_la_fa.title')
-                each p_text in i18n.about.chi_la_fa.paragraphs
-                    p= p_text
-
-            .mb-5
+    each sectionItem in aboutSections
+        if sectionItem && sectionItem.image
+            section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
+                .container.px-4.px-lg-5
+                    .row.gx-4.gx-lg-5.align-items-center
+                        .col-lg-6.mb-4.mb-lg-0
+                            h2.mb-4(style='font-size: 1rem;')= sectionItem.title
+                            each p_text in sectionItem.paragraphs
+                                p= p_text
+                        .col-lg-6
+                            img.img-fluid.w-100(src=(sectionItem.image.url && sectionItem.image.url.match(/^https?:\/\//) ? sectionItem.image.url : basePath + sectionItem.image.url), alt=sectionItem.image.alt || sectionItem.title)
+        else
+            section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
+                .container.px-4.px-lg-5
+                    .mb-5
+                        h2.mb-4(style='font-size: 1rem;')= sectionItem.title
+                        each p_text in sectionItem.paragraphs
+                            p= p_text
 
     // Contact
     section#contact.page-section(style='padding-top: 0rem; padding-bottom: 2rem;')
         .container.px-4.px-lg-5
             .row.gx-4.gx-lg-5.justify-content-center
                 .col-lg-8.col-xl-6.text-center
-                    p.mb-2= t('about.contact_intro')
-                    h2.font-calligraphy= t('about.contact_calligraphy')
+                    p.mb-2= aboutPage.contactIntro || t('about.contact_intro')
+                    h2.font-calligraphy= aboutPage.contactCalligraphy || t('about.contact_calligraphy')
                     hr.divider
             .row.gx-4.gx-lg-5.justify-content-center.mb-5
                 .col-lg-6

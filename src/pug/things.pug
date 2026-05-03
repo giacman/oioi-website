@@ -1,24 +1,28 @@
 extends layout.pug
 
 block title
-    title= t('things.title')
+    title= (cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['things'] && cmsData.categoryPagesBySlug['things'].seoTitle) || t('things.title')
 
 block meta_description
-    meta(name='description', content=t('things.meta_description'))
+    meta(name='description', content=(cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['things'] && cmsData.categoryPagesBySlug['things'].seoDescription) || t('things.meta_description'))
 
 block canonical
     link(rel='canonical', href=canonicalBase + localePrefix + 'things.html')
 
 block og_title
-    meta(property='og:title', content=t('things.title'))
+    meta(property='og:title', content=(cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['things'] && cmsData.categoryPagesBySlug['things'].seoTitle) || t('things.title'))
 block og_description
-    meta(property='og:description', content=t('things.meta_description'))
+    meta(property='og:description', content=(cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['things'] && cmsData.categoryPagesBySlug['things'].seoDescription) || t('things.meta_description'))
 block og_image
-    meta(property='og:image', content=canonicalBase + 'assets/img/portfolio/things/fullsize/pesce_viola.png')
+    meta(property='og:image', content=(cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['things'] && cmsData.categoryPagesBySlug['things'].ogImage && cmsData.categoryPagesBySlug['things'].ogImage.match(/^https?:\/\//) ? cmsData.categoryPagesBySlug['things'].ogImage : canonicalBase + ((cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['things'] && cmsData.categoryPagesBySlug['things'].ogImage) || 'assets/img/portfolio/things/fullsize/pesce_viola.png')))
 block og_url
     meta(property='og:url', content=canonicalBase + localePrefix + 'things.html')
 
 block content
+    - var category = (cmsData.categoryPagesBySlug && cmsData.categoryPagesBySlug['things']) || null
+    - var gallery = (category && category.gallery) || []
+    - var shopUrl = (category && category.shopUrl) || 'https://shop.oioijewellery.it/collections/t-h-i-n-g-s'
+    - var shopHandle = (category && category.shopCollectionHandle) || 't-h-i-n-g-s'
     // Masthead
     header.masthead(style='padding-bottom: 3rem;')
         .container.px-4.px-lg-5
@@ -27,9 +31,9 @@ block content
                     img.mb-4.masthead-logotype(src=basePath + 'assets/img/logos/oioi_logotype_black.svg', alt='OIOI')
                     .d-flex.justify-content-center.align-items-center.mb-3
                         span.decorative-icon.me-2 🜃✴︎
-                        h1.fw-medium.my-0(style='font-size: 1.4rem;') T.H.I.N.G.S.
+                        h1.fw-medium.my-0(style='font-size: 1.4rem;')= (category && category.displayTitle) || 'T.H.I.N.G.S.'
                         span.decorative-icon.ms-2 ✴︎🜃
-                    p.mt-3= t('things.subtitle')
+                    p.mt-3= (category && category.subtitle) || t('things.subtitle')
                     hr.divider
 
     // Collection Gallery
@@ -37,23 +41,12 @@ block content
         .container.px-4.px-lg-5
             .row.shop-cta-row.justify-content-center
                 .col-12.text-center
-                    a.shop-collection-link.shop-cta(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')= t('things.shop_now')
+                    a.shop-collection-link.shop-cta(href=shopUrl, data-collection=shopHandle)= t('things.shop_now')
             .row.g-4.justify-content-center
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/things/fullsize/pesce_blu_mano_2.png', alt='T.H.I.N.G.S. - Pesce blu')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/things/fullsize/pesce_viola_mano.png', alt='T.H.I.N.G.S. - Pesce viola', loading='lazy')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/things/fullsize/medaglia_retro.png', alt='T.H.I.N.G.S. - Medaglia retro', loading='lazy')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/things/fullsize/pesce_viola.png', alt='T.H.I.N.G.S. - Pesce viola dettaglio', loading='lazy')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/things/fullsize/pesce.jpg', alt='T.H.I.N.G.S. - Pesce blu corteccia', loading='lazy')
+                each image, idx in gallery
+                    .col-lg-4.col-md-6
+                        a.shop-collection-link(href=shopUrl, data-collection=shopHandle)
+                            img.img-fluid.portfolio-card-img(src=(image.url && image.url.match(/^https?:\/\//) ? image.url : basePath + image.url), alt=image.alt || ((category && category.displayTitle) || 'T.H.I.N.G.S.'), loading=(idx > 0 ? 'lazy' : null))
 
     // Description and Contact
     section#contact.page-section(style='padding-top: 2rem;')
@@ -61,18 +54,17 @@ block content
             .row.gx-4.gx-lg-5.align-items-start
                 .col-lg-6
                     p
-                        strong= t('things.description_opening')
+                        strong= (category && category.descriptionOpening) || t('things.description_opening')
                         br
                         br
-                        each p_text, idx in i18n.things.description
+                        each p_text, idx in ((category && category.descriptionParagraphs) || i18n.things.description)
                             if idx > 0
                                 br
                             = p_text
-                        br
-                        br
-                        strong= t('things.description_closing_1')
-                        br
-                        strong= t('things.description_closing_2')
+                        each closingLine in ((category && category.descriptionClosing) || [t('things.description_closing_1'), t('things.description_closing_2')])
+                            br
+                            br
+                            strong= closingLine
                 .col-lg-6
 
                     // Netlify Forms

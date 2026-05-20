@@ -145,7 +145,7 @@ html(lang=i18n.meta.lang)
                 a.navbar-brand(href='index.html#page-top')
                     +svg-logo-oioi('90px')
                 .d-flex.align-items-center.ms-auto.flex-shrink-0.gap-1
-                    +headerLocaleLink(otherLocale.toUpperCase()).mobile-locale-switch.d-lg-none
+                    +headerLocaleLink(otherLocale.toUpperCase()).header-locale-switch.d-lg-none
                     button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                         span.navbar-toggler-icon
                 #navbarResponsive.collapse.navbar-collapse
@@ -173,9 +173,7 @@ html(lang=i18n.meta.lang)
                             a.nav-link(href='index.html#contact')= t('nav.enquiry')
                         li.nav-item
                             a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener')= t('nav.instagram')
-                        li.nav-item.d-lg-none
-                            +headerLocaleLink(otherLocaleLabel)
-                        li.nav-item.ms-lg-2.d-none.d-lg-block
+                        li.nav-item.nav-item--locale.d-none.d-lg-flex
                             +headerLocaleLink(otherLocale.toUpperCase())
 
         block content

@@ -16,33 +16,27 @@ block content
                         span.decorative-icon.ms-2 ✴︎🜃
                     p= t('index.tagline')
                     hr.divider
-    // Portfolio
-    #portfolio
-        .container.px-4.px-lg-5
-            .row.gx-4.gx-lg-5.justify-content-center
-                // Matricaria Collection
-                .col-6.col-lg-4.col-md-6.mb-5.text-center
-                    a(href='matricaria.html')
-                        img.img-fluid.portfolio-card-img.mb-3(src=basePath + 'assets/img/portfolio/matricaria.png', alt='MATRICARIA Collection', loading='lazy')
-                    h3(style='font-size: 1.2rem;') MATRICARIA
-
-                // Things Collection
-                .col-6.col-lg-4.col-md-6.mb-5.text-center
-                    a(href='things.html')
-                        img.img-fluid.portfolio-card-img.mb-3(src=basePath + 'assets/img/portfolio/things/thumbnails/pesce_viola.png', alt='T.H.I.N.G.S. Collection', loading='lazy')
-                    h3(style='font-size: 1.2rem;') T.H.I.N.G.S.
-
-                // They/Them Collection
-                .col-6.col-lg-4.col-md-6.mb-5.text-center
-                    a(href='they-them.html')
-                        img.img-fluid.portfolio-card-img.mb-3(src=basePath + 'assets/img/portfolio/theythem.png', alt='THEY THEM Collection', loading='lazy')
-                    h3(style='font-size: 1.2rem;') THEY THEM
-
-                // Opera Collection
-                .col-6.col-lg-4.col-md-6.mb-5.text-center
-                    a(href='opera.html')
-                        img.img-fluid.portfolio-card-img.mb-3(src=basePath + 'assets/img/portfolio/opera/thumbnails/ring2.jpg', alt='Opera Collection', loading='lazy')
-                    h3(style='font-size: 1.2rem;') OPERA
+    // Homepage gallery (3×2, no gutters — Instagram-style)
+    #portfolio.homepage-gallery
+        .homepage-gallery__grid
+            .homepage-gallery__cell
+                a(href='matricaria.html')
+                    img(src=basePath + 'assets/img/portfolio/matricaria/02-rings-stems.png', alt='', loading='lazy')
+            .homepage-gallery__cell
+                a(href='matricaria.html')
+                    img(src=basePath + 'assets/img/portfolio/homepage/02.jpeg', alt='', loading='lazy')
+            .homepage-gallery__cell
+                a(href='things.html')
+                    img(src=basePath + 'assets/img/portfolio/homepage/03.jpeg', alt='', loading='lazy')
+            .homepage-gallery__cell
+                a(href='things.html')
+                    img(src=basePath + 'assets/img/portfolio/things/thumbnails/pesce_viola.png', alt='', loading='lazy')
+            .homepage-gallery__cell
+                a(href='things.html')
+                    img(src=basePath + 'assets/img/portfolio/homepage/05-they-them-rings.png', alt='', loading='lazy')
+            .homepage-gallery__cell
+                a(href='opera.html')
+                    img(src=basePath + 'assets/img/portfolio/homepage/06.png', alt='', loading='lazy')
 
     // Contact
     section#contact.page-section(style='padding-bottom: 2rem;')
@@ -51,7 +45,7 @@ block content
                 .col-lg-8
                     p.mb-3.text-center(style='font-size: 1.1rem;')= t('index.contact_intro')
                     p.font-calligraphy.text-center.mb-3(style='font-size: 2rem; line-height: 1.6;')= t('index.contact_calligraphy')
-                .col-lg-5.col-md-8
+                .col-lg-5.col-md-8.contact-form-column
                     // Netlify Forms
                     form#contactForm(name='contact', method='POST', data-netlify='true', netlify-honeypot='bot-field', action=(locale === 'en' ? '/success.html' : '/it/success.html'))
 

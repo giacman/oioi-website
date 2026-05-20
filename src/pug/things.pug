@@ -73,7 +73,7 @@ block content
                         strong= t('things.description_closing_1')
                         br
                         strong= t('things.description_closing_2')
-                .col-lg-6
+                .col-lg-6.contact-form-column
 
                     // Netlify Forms
                     form#contactForm(name='contact-things', method='POST', data-netlify='true', netlify-honeypot='bot-field', action=(locale === 'en' ? '/success.html' : '/it/success.html'))

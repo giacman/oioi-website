@@ -9,8 +9,9 @@
     object-fit: cover;
 }
 
-// Homepage — compact 3×2 grid (no gutters between cells)
-.homepage-gallery {
+// Compact grid — homepage and collection pages (no gutters between cells)
+.homepage-gallery,
+.collection-gallery {
     width: 100%;
     margin-bottom: 0;
 

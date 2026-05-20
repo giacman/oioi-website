@@ -1,0 +1,17 @@
+mixin compactGalleryImage(src, alt, options)
+    - var opts = options || {}
+    - var imgLoading = opts.eager ? undefined : 'lazy'
+    .homepage-gallery__cell
+        if opts.shopHref
+            a.shop-collection-link(href=opts.shopHref, data-collection=opts.dataCollection || '')
+                img(src=basePath + src, alt=alt || '', loading=imgLoading)
+        else
+            img(src=basePath + src, alt=alt || '', loading=imgLoading)
+
+mixin compactGalleryGrid
+    .homepage-gallery__grid
+        block
+
+mixin compactGalleryWrapper
+    .collection-gallery.homepage-gallery
+        block

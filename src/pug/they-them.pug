@@ -38,22 +38,16 @@ block content
             .row.shop-cta-row.justify-content-center
                 .col-12.text-center
                     a.shop-collection-link.shop-cta(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')= t('they_them.shop_now')
-            .row.g-4.justify-content-center
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/they-them/01-collection.png', alt='THEY THEM - Collezione')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/they-them/02-rings-all.png', alt='THEY THEM - Anelli', loading='lazy')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/they-them/03-rings-double.png', alt='THEY THEM - Anelli doppi', loading='lazy')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/they-them/04-rings-stack.png', alt='THEY THEM - Anelli impilati', loading='lazy')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/they-them', data-collection='they-them')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/they-them/05-earrings.png', alt='THEY THEM - Orecchini', loading='lazy')
+        +compactGalleryWrapper
+            +compactGalleryGrid
+                - var shopHref = 'https://shop.oioijewellery.it/collections/they-them'
+                - var shopOpts = { shopHref: shopHref, dataCollection: 'they-them', eager: true }
+                +compactGalleryImage('assets/img/portfolio/they-them/01-collection.png', 'THEY THEM - Collezione', shopOpts)
+                +compactGalleryImage('assets/img/portfolio/they-them/02-rings-all.png', 'THEY THEM - Anelli', { shopHref: shopHref, dataCollection: 'they-them' })
+                +compactGalleryImage('assets/img/portfolio/they-them/03-rings-double.png', 'THEY THEM - Anelli doppi', { shopHref: shopHref, dataCollection: 'they-them' })
+                +compactGalleryImage('assets/img/portfolio/they-them/04-rings-stack.png', 'THEY THEM - Anelli impilati', { shopHref: shopHref, dataCollection: 'they-them' })
+                +compactGalleryImage('assets/img/portfolio/they-them/05-earrings.png', 'THEY THEM - Orecchini', { shopHref: shopHref, dataCollection: 'they-them' })
+                +compactGalleryImage('assets/img/portfolio/they-them/06-buttercream-birdeye.png', 'THEY THEM', { shopHref: shopHref, dataCollection: 'they-them' })
 
     // Description and Contact
     section#contact.page-section(style='padding-top: 2rem;')

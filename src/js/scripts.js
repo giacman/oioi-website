@@ -4,8 +4,10 @@
 
 window.addEventListener('DOMContentLoaded', event => {
 
-    // Force scroll to top on page load
-    window.scrollTo(0, 0);
+    if (sessionStorage.getItem('oioi_lang_scroll_y') === null) {
+        // Force scroll to top on normal page loads
+        window.scrollTo(0, 0);
+    }
 
     // Shop links: locale-aware
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';

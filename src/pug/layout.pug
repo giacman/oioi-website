@@ -24,30 +24,40 @@ html(lang=i18n.meta.lang)
         script.
             (function(){
                 var COOKIE='oioi_lang';
-                if(window.location.hostname==='localhost'||window.location.hostname==='127.0.0.1')return;
+                var SCROLL_KEY='oioi_lang_scroll_y';
+                var pendingScroll=sessionStorage.getItem(SCROLL_KEY);
 
-                var onIt=/^\/it(\/|$)/.test(window.location.pathname);
-                var savedBefore=localStorage.getItem(COOKIE);
-                if(!savedBefore){
-                    var m=document.cookie.match(new RegExp('(?:^|;\\s*)'+COOKIE+'=([^;]+)'));
-                    savedBefore=m?m[1]:null;
-                }
+                if(pendingScroll!==null){
+                    if('scrollRestoration' in history){
+                        history.scrollRestoration='manual';
+                    }
+                    document.documentElement.style.visibility='hidden';
+                    document.documentElement.style.scrollBehavior='auto';
 
-                // URL visited wins (manual switch, /it/ links) — never bounce /it/ back to EN
-                var lang=onIt?'it':'en';
-                localStorage.setItem(COOKIE,lang);
+                    var restoreAttempts=0;
+                    function restoreLanguageScroll(){
+                        var y=parseInt(pendingScroll,10)||0;
+                        window.scrollTo(0,y);
+                        restoreAttempts+=1;
 
-                var host=window.location.hostname;
-                var cookieDomain=(host==='oioijewellery.it'||host==='www.oioijewellery.it')?';domain=.oioijewellery.it':'';
-                var secure=window.location.protocol==='https:'?';Secure':'';
-                document.cookie=COOKIE+'='+lang+';path=/'+cookieDomain+';max-age=31536000;SameSite=Lax'+secure;
+                        var currentY=window.scrollY||window.pageYOffset||0;
+                        if(Math.abs(currentY-y)<2||restoreAttempts>30||document.readyState==='complete'){
+                            sessionStorage.removeItem(SCROLL_KEY);
+                            document.documentElement.style.visibility='';
+                            document.documentElement.style.scrollBehavior='';
+                            return;
+                        }
 
-                if(savedBefore==='it'&&!onIt){
-                    window.location.replace('/it'+window.location.pathname+window.location.search);
-                    return;
-                }
-                if(!savedBefore&&!onIt&&(navigator.language||'').substring(0,2)==='it'){
-                    window.location.replace('/it'+window.location.pathname+window.location.search);
+                        requestAnimationFrame(restoreLanguageScroll);
+                    }
+
+                    if(document.readyState==='loading'){
+                        document.addEventListener('DOMContentLoaded',function(){
+                            requestAnimationFrame(restoreLanguageScroll);
+                        });
+                    }else{
+                        requestAnimationFrame(restoreLanguageScroll);
+                    }
                 }
 
                 function setLangCookie(lang){
@@ -61,8 +71,31 @@ html(lang=i18n.meta.lang)
                     var link=e.target.closest&&e.target.closest('.header-locale-switch');
                     if(!link||!link.dataset.locale)return;
                     localStorage.setItem(COOKIE,link.dataset.locale);
+                    sessionStorage.setItem(SCROLL_KEY,String(window.scrollY||window.pageYOffset||0));
                     setLangCookie(link.dataset.locale);
                 },true);
+
+                if(window.location.hostname==='localhost'||window.location.hostname==='127.0.0.1')return;
+
+                var onIt=/^\/it(\/|$)/.test(window.location.pathname);
+                var savedBefore=localStorage.getItem(COOKIE);
+                if(!savedBefore){
+                    var m=document.cookie.match(new RegExp('(?:^|;\\s*)'+COOKIE+'=([^;]+)'));
+                    savedBefore=m?m[1]:null;
+                }
+
+                // URL visited wins (manual switch, /it/ links) — never bounce /it/ back to EN
+                var lang=onIt?'it':'en';
+                localStorage.setItem(COOKIE,lang);
+                setLangCookie(lang);
+
+                if(savedBefore==='it'&&!onIt){
+                    window.location.replace('/it'+window.location.pathname+window.location.search);
+                    return;
+                }
+                if(!savedBefore&&!onIt&&(navigator.language||'').substring(0,2)==='it'){
+                    window.location.replace('/it'+window.location.pathname+window.location.search);
+                }
             })();
         
         // Google Consent Mode v2 - Initialize before GTM

@@ -2,6 +2,22 @@
 // Forms
 // 
 
+#contact.page-section {
+    .contact-form-column {
+        @include media-breakpoint-down(lg) {
+            padding-left: 2.25rem;
+            padding-right: 2.25rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @include media-breakpoint-down(sm) {
+            padding-left: 2.75rem;
+            padding-right: 2.75rem;
+        }
+    }
+}
+
 #contactForm {
     .form-control {
         background-color: $light-bg;

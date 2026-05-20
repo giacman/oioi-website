@@ -12,31 +12,41 @@
         color: $gray-900;
     }
 
-    .mobile-locale-switch {
+    // Locale switch — mobile (next to hamburger) and desktop (in nav)
+    .header-locale-switch {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 2.75rem;
-        min-height: 2.75rem;
-        padding: 0 0.75rem;
-        border: 1px solid rgba($gray-900, 0.15);
-        border-radius: 0.375rem;
-        color: $gray-900;
+        box-sizing: border-box;
+        width: 2.5rem;
+        height: 2.5rem;
+        min-width: 2.5rem;
+        padding: 0 !important;
+        border: 1px solid rgba($gray-900, 0.45) !important;
+        border-radius: 0.25rem;
+        background-color: transparent;
+        color: $gray-900 !important;
         font-family: $font-family-sans-serif;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         font-weight: 500;
-        line-height: 1;
+        letter-spacing: 0.04em;
+        line-height: 1.2;
         text-decoration: none;
         text-transform: uppercase;
 
         &:hover,
         &:focus {
-            color: #ff7a57;
-            border-color: rgba(255, 122, 87, 0.5);
+            color: #ff7a57 !important;
+            border-color: rgba(255, 122, 87, 0.65) !important;
         }
     }
 
     .navbar-nav {
+        .nav-item--locale {
+            display: flex;
+            align-items: center;
+        }
+
         .nav-item {
             .nav-link {
                 color: $gray-600;
@@ -72,7 +82,12 @@
         }
 
         .navbar-nav {
+            align-items: center;
+
             .nav-item {
+                display: flex;
+                align-items: center;
+
                 .nav-link {
                     color: $gray-900;
                     padding: 0 1rem;
@@ -82,9 +97,21 @@
                     }
                 }
 
+                &--locale {
+                    margin-left: 0.25rem;
+
+                    .header-locale-switch {
+                        margin: 0;
+                    }
+                }
+
                 &:last-child {
                     .nav-link {
                         padding-right: 0;
+                    }
+
+                    .header-locale-switch {
+                        padding: 0 !important;
                     }
                 }
             }

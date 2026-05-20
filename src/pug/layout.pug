@@ -10,8 +10,7 @@ include mixins/_compact_gallery.pug
 mixin headerLocaleLink(label)
     a.nav-link.header-locale-switch&attributes(attributes)(
         href=otherPath + currentPage,
-        data-locale=otherLocale,
-        onclick="document.cookie='oioi_lang=" + otherLocale + ";path=/;domain=.oioijewellery.it;max-age=31536000;SameSite=Lax;Secure';localStorage.setItem('oioi_lang','" + otherLocale + "')"
+        data-locale=otherLocale
     )= label || otherLocale.toUpperCase()
 
 doctype html
@@ -25,27 +24,45 @@ html(lang=i18n.meta.lang)
         script.
             (function(){
                 var COOKIE='oioi_lang';
-                var saved=localStorage.getItem(COOKIE);
-                if(!saved){
-                    var m=document.cookie.match(new RegExp('(?:^|;\\s*)'+COOKIE+'=([^;]+)'));
-                    saved=m?m[1]:null;
-                }
-                var onIt=/^\/it(\/|$)/.test(window.location.pathname);
                 if(window.location.hostname==='localhost'||window.location.hostname==='127.0.0.1')return;
-                if(saved){
-                    var needsIt=(saved==='it');
-                    if(needsIt&&!onIt){
-                        window.location.replace('/it'+window.location.pathname+window.location.search);
-                    }else if(!needsIt&&onIt){
-                        var p=window.location.pathname.replace(/^\/it/,'')||'/';
-                        window.location.replace(p+window.location.search);
-                    }
-                }else if(!onIt){
-                    var bl=(navigator.language||'').substring(0,2);
-                    if(bl==='it'){
-                        window.location.replace('/it'+window.location.pathname+window.location.search);
-                    }
+
+                var onIt=/^\/it(\/|$)/.test(window.location.pathname);
+                var savedBefore=localStorage.getItem(COOKIE);
+                if(!savedBefore){
+                    var m=document.cookie.match(new RegExp('(?:^|;\\s*)'+COOKIE+'=([^;]+)'));
+                    savedBefore=m?m[1]:null;
                 }
+
+                // URL visited wins (manual switch, /it/ links) — never bounce /it/ back to EN
+                var lang=onIt?'it':'en';
+                localStorage.setItem(COOKIE,lang);
+
+                var host=window.location.hostname;
+                var cookieDomain=(host==='oioijewellery.it'||host==='www.oioijewellery.it')?';domain=.oioijewellery.it':'';
+                var secure=window.location.protocol==='https:'?';Secure':'';
+                document.cookie=COOKIE+'='+lang+';path=/'+cookieDomain+';max-age=31536000;SameSite=Lax'+secure;
+
+                if(savedBefore==='it'&&!onIt){
+                    window.location.replace('/it'+window.location.pathname+window.location.search);
+                    return;
+                }
+                if(!savedBefore&&!onIt&&(navigator.language||'').substring(0,2)==='it'){
+                    window.location.replace('/it'+window.location.pathname+window.location.search);
+                }
+
+                function setLangCookie(lang){
+                    var host=window.location.hostname;
+                    var cookieDomain=(host==='oioijewellery.it'||host==='www.oioijewellery.it')?';domain=.oioijewellery.it':'';
+                    var secure=window.location.protocol==='https:'?';Secure':'';
+                    document.cookie=COOKIE+'='+lang+';path=/'+cookieDomain+';max-age=31536000;SameSite=Lax'+secure;
+                }
+
+                document.addEventListener('click',function(e){
+                    var link=e.target.closest&&e.target.closest('.header-locale-switch');
+                    if(!link||!link.dataset.locale)return;
+                    localStorage.setItem(COOKIE,link.dataset.locale);
+                    setLangCookie(link.dataset.locale);
+                },true);
             })();
         
         // Google Consent Mode v2 - Initialize before GTM

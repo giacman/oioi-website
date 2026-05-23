@@ -13,8 +13,6 @@ window.addEventListener('DOMContentLoaded', event => {
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const lang = document.documentElement.lang || 'en';
     const shopBaseUrl = isLocal ? 'http://localhost:9292' : 'https://shop.oioijewellery.it';
-    var comingSoonPath = 'shop-coming-soon.html';
-
     if (isLocal) {
         document.querySelectorAll('a[href*="shop.oioijewellery.it"]').forEach(link => {
             link.href = link.href.replace(/https:\/\/shop\.oioijewellery\.it/g, shopBaseUrl);
@@ -30,15 +28,6 @@ window.addEventListener('DOMContentLoaded', event => {
                 link.href = shopBaseUrl + '/collections/' + collection;
             }
             link.setAttribute('data-cross-domain', '');
-        });
-    } else {
-        document.querySelectorAll('.shop-collection-link').forEach(link => {
-            link.href = comingSoonPath;
-            link.removeAttribute('data-cross-domain');
-        });
-        document.querySelectorAll('#cartPreview a.cart-preview__cta[data-cross-domain]').forEach(link => {
-            link.href = comingSoonPath;
-            link.removeAttribute('data-cross-domain');
         });
     }
 

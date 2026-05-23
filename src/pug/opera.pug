@@ -33,21 +33,15 @@ block content
                     hr.divider
 
     // Collection Gallery
-    section.page-section(style='padding-top: 2rem; padding-bottom: 2rem;')
-        .container.px-4.px-lg-5
-            .row.g-4.justify-content-center
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/ring1.jpg', alt='Opera Collection Image 1')
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/dfg_blu.jpg', alt='Opera Collection Image 2', loading='lazy')
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/dfg_red.jpg', alt='Opera Collection Image 3', loading='lazy')
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/dfg_green.jpg', alt='Opera Collection Image 4', loading='lazy')
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/ring2.jpg', alt='Opera Collection Image 5', loading='lazy')
-                .col-lg-4.col-md-6
-                    img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/opera/fullsize/anello_michele.png', alt='Opera Collection - Anello Michele', loading='lazy')
+    section.page-section(style='padding-top: 0; padding-bottom: 2rem;')
+        +compactGalleryWrapper
+            +compactGalleryGrid
+                +compactGalleryImage('assets/img/portfolio/opera/fullsize/ring1.jpg', 'Opera Collection Image 1', { eager: true })
+                +compactGalleryImage('assets/img/portfolio/opera/fullsize/dfg_blu.jpg', 'Opera Collection Image 2')
+                +compactGalleryImage('assets/img/portfolio/opera/fullsize/dfg_red.jpg', 'Opera Collection Image 3')
+                +compactGalleryImage('assets/img/portfolio/opera/fullsize/dfg_green.jpg', 'Opera Collection Image 4')
+                +compactGalleryImage('assets/img/portfolio/opera/fullsize/ring2.jpg', 'Opera Collection Image 5')
+                +compactGalleryImage('assets/img/portfolio/opera/fullsize/anello_michele.png', 'Opera Collection - Anello Michele')
 
     // Description and Contact
     section#contact.page-section(style='padding-top: 2rem;')
@@ -58,7 +52,7 @@ block content
                         p= p_text
                     p
                         strong= t('opera.description_closing')
-                .col-lg-6
+                .col-lg-6.contact-form-column
 
                     // Netlify Forms
                     form#contactForm(name='contact-opera', method='POST', data-netlify='true', netlify-honeypot='bot-field', action=(locale === 'en' ? '/success.html' : '/it/success.html'))

@@ -38,22 +38,16 @@ block content
             .row.shop-cta-row.justify-content-center
                 .col-12.text-center
                     a.shop-collection-link.shop-cta(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')= t('things.shop_now')
-            .row.g-4.justify-content-center
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/things/fullsize/pesce_blu_mano_2.png', alt='T.H.I.N.G.S. - Pesce blu')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/things/fullsize/pesce_viola_mano.png', alt='T.H.I.N.G.S. - Pesce viola', loading='lazy')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/things/fullsize/medaglia_retro.png', alt='T.H.I.N.G.S. - Medaglia retro', loading='lazy')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/things/fullsize/pesce_viola.png', alt='T.H.I.N.G.S. - Pesce viola dettaglio', loading='lazy')
-                .col-lg-4.col-md-6
-                    a.shop-collection-link(href='https://shop.oioijewellery.it/collections/t-h-i-n-g-s', data-collection='t-h-i-n-g-s')
-                        img.img-fluid.portfolio-card-img(src=basePath + 'assets/img/portfolio/things/fullsize/pesce.jpg', alt='T.H.I.N.G.S. - Pesce blu corteccia', loading='lazy')
+        +compactGalleryWrapper
+            +compactGalleryGrid
+                - var shopHref = 'https://shop.oioijewellery.it/collections/t-h-i-n-g-s'
+                - var shopOpts = { shopHref: shopHref, dataCollection: 't-h-i-n-g-s', eager: true }
+                +compactGalleryImage('assets/img/portfolio/things/fullsize/pesce_blu_mano_2.png', 'T.H.I.N.G.S. - Pesce blu', shopOpts)
+                +compactGalleryImage('assets/img/portfolio/things/fullsize/pesce_viola_mano.jpeg', 'T.H.I.N.G.S. - Pesce viola', { shopHref: shopHref, dataCollection: 't-h-i-n-g-s' })
+                +compactGalleryImage('assets/img/portfolio/things/fullsize/medaglia_retro.png', 'T.H.I.N.G.S. - Medaglia retro', { shopHref: shopHref, dataCollection: 't-h-i-n-g-s' })
+                +compactGalleryImage('assets/img/portfolio/things/fullsize/pesce_viola.png', 'T.H.I.N.G.S. - Pesce viola dettaglio', { shopHref: shopHref, dataCollection: 't-h-i-n-g-s' })
+                +compactGalleryImage('assets/img/portfolio/things/fullsize/pesce.jpg', 'T.H.I.N.G.S. - Pesce blu corteccia', { shopHref: shopHref, dataCollection: 't-h-i-n-g-s' })
+                +compactGalleryImage('assets/img/portfolio/things/fullsize/03.jpeg', 'T.H.I.N.G.S.', { shopHref: shopHref, dataCollection: 't-h-i-n-g-s' })
 
     // Description and Contact
     section#contact.page-section(style='padding-top: 2rem;')
@@ -73,7 +67,7 @@ block content
                         strong= t('things.description_closing_1')
                         br
                         strong= t('things.description_closing_2')
-                .col-lg-6
+                .col-lg-6.contact-form-column
 
                     // Netlify Forms
                     form#contactForm(name='contact-things', method='POST', data-netlify='true', netlify-honeypot='bot-field', action=(locale === 'en' ? '/success.html' : '/it/success.html'))

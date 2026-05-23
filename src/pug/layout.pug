@@ -1,4 +1,5 @@
 include mixins/_svg_buttons.pug
+include mixins/_compact_gallery.pug
 
 - var canonicalBase = 'https://oioijewellery.it/'
 - var localePrefix = (locale === 'it') ? 'it/' : ''
@@ -9,8 +10,7 @@ include mixins/_svg_buttons.pug
 mixin headerLocaleLink(label)
     a.nav-link.header-locale-switch&attributes(attributes)(
         href=otherPath + currentPage,
-        data-locale=otherLocale,
-        onclick="document.cookie='oioi_lang=" + otherLocale + ";path=/;domain=.oioijewellery.it;max-age=31536000;SameSite=Lax;Secure';localStorage.setItem('oioi_lang','" + otherLocale + "')"
+        data-locale=otherLocale
     )= label || otherLocale.toUpperCase()
 
 doctype html
@@ -24,26 +24,77 @@ html(lang=i18n.meta.lang)
         script.
             (function(){
                 var COOKIE='oioi_lang';
-                var saved=localStorage.getItem(COOKIE);
-                if(!saved){
-                    var m=document.cookie.match(new RegExp('(?:^|;\\s*)'+COOKIE+'=([^;]+)'));
-                    saved=m?m[1]:null;
+                var SCROLL_KEY='oioi_lang_scroll_y';
+                var pendingScroll=sessionStorage.getItem(SCROLL_KEY);
+
+                if(pendingScroll!==null){
+                    if('scrollRestoration' in history){
+                        history.scrollRestoration='manual';
+                    }
+                    document.documentElement.style.visibility='hidden';
+                    document.documentElement.style.scrollBehavior='auto';
+
+                    var restoreAttempts=0;
+                    function restoreLanguageScroll(){
+                        var y=parseInt(pendingScroll,10)||0;
+                        window.scrollTo(0,y);
+                        restoreAttempts+=1;
+
+                        var currentY=window.scrollY||window.pageYOffset||0;
+                        if(Math.abs(currentY-y)<2||restoreAttempts>30||document.readyState==='complete'){
+                            sessionStorage.removeItem(SCROLL_KEY);
+                            document.documentElement.style.visibility='';
+                            document.documentElement.style.scrollBehavior='';
+                            return;
+                        }
+
+                        requestAnimationFrame(restoreLanguageScroll);
+                    }
+
+                    if(document.readyState==='loading'){
+                        document.addEventListener('DOMContentLoaded',function(){
+                            requestAnimationFrame(restoreLanguageScroll);
+                        });
+                    }else{
+                        requestAnimationFrame(restoreLanguageScroll);
+                    }
                 }
-                var onIt=/^\/it(\/|$)/.test(window.location.pathname);
+
+                function setLangCookie(lang){
+                    var host=window.location.hostname;
+                    var cookieDomain=(host==='oioijewellery.it'||host==='www.oioijewellery.it')?';domain=.oioijewellery.it':'';
+                    var secure=window.location.protocol==='https:'?';Secure':'';
+                    document.cookie=COOKIE+'='+lang+';path=/'+cookieDomain+';max-age=31536000;SameSite=Lax'+secure;
+                }
+
+                document.addEventListener('click',function(e){
+                    var link=e.target.closest&&e.target.closest('.header-locale-switch');
+                    if(!link||!link.dataset.locale)return;
+                    localStorage.setItem(COOKIE,link.dataset.locale);
+                    sessionStorage.setItem(SCROLL_KEY,String(window.scrollY||window.pageYOffset||0));
+                    setLangCookie(link.dataset.locale);
+                },true);
+
                 if(window.location.hostname==='localhost'||window.location.hostname==='127.0.0.1')return;
-                if(saved){
-                    var needsIt=(saved==='it');
-                    if(needsIt&&!onIt){
-                        window.location.replace('/it'+window.location.pathname+window.location.search);
-                    }else if(!needsIt&&onIt){
-                        var p=window.location.pathname.replace(/^\/it/,'')||'/';
-                        window.location.replace(p+window.location.search);
-                    }
-                }else if(!onIt){
-                    var bl=(navigator.language||'').substring(0,2);
-                    if(bl==='it'){
-                        window.location.replace('/it'+window.location.pathname+window.location.search);
-                    }
+
+                var onIt=/^\/it(\/|$)/.test(window.location.pathname);
+                var savedBefore=localStorage.getItem(COOKIE);
+                if(!savedBefore){
+                    var m=document.cookie.match(new RegExp('(?:^|;\\s*)'+COOKIE+'=([^;]+)'));
+                    savedBefore=m?m[1]:null;
+                }
+
+                // URL visited wins (manual switch, /it/ links) — never bounce /it/ back to EN
+                var lang=onIt?'it':'en';
+                localStorage.setItem(COOKIE,lang);
+                setLangCookie(lang);
+
+                if(savedBefore==='it'&&!onIt){
+                    window.location.replace('/it'+window.location.pathname+window.location.search);
+                    return;
+                }
+                if(!savedBefore&&!onIt&&(navigator.language||'').substring(0,2)==='it'){
+                    window.location.replace('/it'+window.location.pathname+window.location.search);
                 }
             })();
         
@@ -145,7 +196,7 @@ html(lang=i18n.meta.lang)
                 a.navbar-brand(href='index.html#page-top')
                     +svg-logo-oioi('90px')
                 .d-flex.align-items-center.ms-auto.flex-shrink-0.gap-1
-                    +headerLocaleLink(otherLocale.toUpperCase()).mobile-locale-switch.d-lg-none
+                    +headerLocaleLink(otherLocale.toUpperCase()).header-locale-switch.d-lg-none
                     button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                         span.navbar-toggler-icon
                 #navbarResponsive.collapse.navbar-collapse
@@ -173,9 +224,7 @@ html(lang=i18n.meta.lang)
                             a.nav-link(href='index.html#contact')= t('nav.enquiry')
                         li.nav-item
                             a.nav-link(href='https://www.instagram.com/oioijewellery/' target='_blank' rel='noopener')= t('nav.instagram')
-                        li.nav-item.d-lg-none
-                            +headerLocaleLink(otherLocaleLabel)
-                        li.nav-item.ms-lg-2.d-none.d-lg-block
+                        li.nav-item.nav-item--locale.d-none.d-lg-flex
                             +headerLocaleLink(otherLocale.toUpperCase())
 
         block content

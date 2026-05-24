@@ -4,10 +4,48 @@
 
 window.addEventListener('DOMContentLoaded', event => {
 
-    if (sessionStorage.getItem('oioi_lang_scroll_y') === null) {
+    var madeToOrderParams = new URLSearchParams(window.location.search);
+    var isMadeToOrderRequest = madeToOrderParams.get('request') === 'made-to-order';
+
+    if (sessionStorage.getItem('oioi_lang_scroll_y') === null && !isMadeToOrderRequest) {
         // Force scroll to top on normal page loads
         window.scrollTo(0, 0);
     }
+
+    // Made-to-order request prefill from Shopify PDP links
+    (function () {
+        if (!isMadeToOrderRequest) return;
+
+        var product = madeToOrderParams.get('product');
+        if (!product) return;
+
+        var variant = madeToOrderParams.get('variant') || '';
+        var productUrl = madeToOrderParams.get('url') || '';
+        var lang = (document.documentElement.lang || 'en').toLowerCase();
+        var message = '';
+
+        if (lang.indexOf('it') === 0) {
+            message = 'Ciao, vorrei richiedere questo pezzo su misura: ' + product;
+            if (variant) message += ', variante/taglia: ' + variant;
+            message += productUrl ? '. Link prodotto: ' + productUrl + '.' : '.';
+        } else {
+            message = 'Hi, I would like to request this piece made to order: ' + product;
+            if (variant) message += ', variant/size: ' + variant;
+            message += productUrl ? '. Product link: ' + productUrl + '.' : '.';
+        }
+
+        var messageEl = document.getElementById('message');
+        if (messageEl && !messageEl.value.trim()) {
+            messageEl.value = message;
+        }
+
+        var contactSection = document.getElementById('contact');
+        if (contactSection) {
+            requestAnimationFrame(function () {
+                contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+    })();
 
     // Shop links: locale-aware
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';

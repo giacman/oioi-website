@@ -121,7 +121,7 @@
   // Listen for cart:updated and refresh badge
   window.addEventListener('cart:updated', function (e) {
     if (e.detail && e.detail.totalQuantity !== undefined) {
-      updateBadge(e.detail.totalQuantity);
+      renderFromStorefront(e.detail);
     }
   });
 })();

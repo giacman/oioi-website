@@ -20,6 +20,7 @@
     this._listeners = [];
 
     this._readCartIdFromUrl();
+    this._readCartIdFromCookie();
     this._readCartIdFromStorage();
   }
 
@@ -45,12 +46,23 @@
     }
   };
 
+  OioiCart.prototype._readCartIdFromCookie = function () {
+    if (this.cartId) return;
+    var match = document.cookie.match(/(?:^|;\s*)oioi_cart_id=([^;]*)/);
+    if (match) {
+      this.cartId = decodeURIComponent(match[1]);
+      localStorage.setItem(STORAGE_KEY, this.cartId);
+    }
+  };
+
   OioiCart.prototype._saveCartId = function (id) {
     this.cartId = id;
     if (id) {
       localStorage.setItem(STORAGE_KEY, id);
+      document.cookie = 'oioi_cart_id=' + encodeURIComponent(id) + '; path=/; max-age=2592000; SameSite=Lax';
     } else {
       localStorage.removeItem(STORAGE_KEY);
+      document.cookie = 'oioi_cart_id=; path=/; max-age=0; SameSite=Lax';
     }
   };
 
